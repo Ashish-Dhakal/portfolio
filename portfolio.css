@@ -370,6 +370,35 @@ header .navbar ul li a:hover{
     display: none;
 }
 
+.social-logo
+{
+display: inline;
+display: flex;
+
+
+
+}
+.lo
+{
+ height: 34px;
+ display: inline ;
+ display: block;
+ list-style: none;
+ padding: px;
+ margin: 20px;
+ list-style-type: none;
+ transition: transform .2s ;
+ 
+}
+.social-logo a:hover{
+    -ms-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+    color: white;
+}
+a:active{
+    color:red;
+}
 
 
 
