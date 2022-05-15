@@ -7,6 +7,7 @@
 
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- custom css file link  -->
     <link rel="stylesheet" href="portfolio.css">
@@ -33,8 +34,12 @@
             <li><a href="#portfolio">portfolio</a></li>
             <li><a href="#contact">contact</a></li>
         </ul>
+     
+        
+        
+         
     </nav>
-
+       
 </header>
 
 <!-- header section ends -->
@@ -44,8 +49,8 @@
 <!-- home section starts  -->
 
 <section class="home" id="home">
-
-    <h3>HI THERE !</h3>
+    
+    <h3>HI THERE ! </h3>
     <h1>I'M <span>Ashish Dhakal</span></h1>
     <p>I am Ashish Dhakal a well experienced Web Developer, having excellent experience in the Development of Custom website (HTML/CSS, PHP, MySQL, LARAVEL, JAVA Script, Python), an expert in WordPress, Flutter, Mobile App Development (IOS, Android), Web Application Development. Adobe products (PHOTOSHOP/ ILLUSTRATOR/ XD), Graphics Designe
     </p>
@@ -158,6 +163,29 @@
 
 <!-- education section ends -->
 
+<!-- skill section start -->
+
+<section class="skil" id="skill">
+
+<h1 class="heading"> my <span> Skills</span> </h1>
+
+<div class="box-container">
+
+ <ul><li>
+     
+ </li>
+</ul>
+
+
+</div>
+
+</section>
+
+
+
+<!-- skill section end -->
+
+
 <!-- portfolio section starts  -->
 
 <section class="portfolio" id="portfolio">
@@ -167,28 +195,31 @@
 <div class="box-container">
 
     <div class="box">
-        <img src="img/no-image.jpg" alt="">
+        <a href="#"> <img src="img/Screenshot (1).png" alt="" ></a> 
+       </div>
+
+    <div class="box">
+        <a href="#"> <img src="img/no-image.jpg" alt="" ></a>
     </div>
 
     <div class="box">
-        <img src="img/no-image.jpg" alt="">
+        <a href="#"> <img src="img/no-image.jpg" alt="" ></a>
     </div>
 
     <div class="box">
-        <img src="img/no-image.jpg" alt="">
+        <a href="#"> <img src="img/no-image.jpg" alt="" ></a>
     </div>
 
     <div class="box">
-        <img src="img/no-image.jpg" alt="">
+        <a href="#"> <img src="img/no-image.jpg" alt="" ></a>
     </div>
 
     <div class="box">
-        <img src="img/no-image.jpg" alt="">
+        <a href="#"> <img src="img/no-image.jpg" alt="" ></a>
     </div>
-
-    <div class="box">
-        <img src="img/no-image.jpg" alt="">
-    </div>
+    
+    
+    
 
 </div>
 
@@ -208,6 +239,19 @@
 
         <h3 class="title">contact info</h3>
 
+        <div class="social-logo">
+            
+
+            <a href="">   <img class="lo" src="img/facebook.png" alt=""></a>
+            
+            <a href="">  <img class="lo" src="img/instagram.png" alt=""></a>
+            
+            <a href="">  <img class="lo" src="img/linkedin.png" alt=""></a>
+            
+            <a href=""> <img class="lo" src="img/twitter.png" alt=""></a>
+
+          </div>
+
         <div class="info">
             <h3 > <i class="fas fa-envelope"></i> ashishdhakal433@gmail.com </h3>
             <h3> <i class="fas fa-phone"></i> +977-9863379537 </h3>
@@ -215,17 +259,21 @@
             <h3> <i class="fas fa-map-marker-alt"></i> Pokhara 17 ,BaralField <br> street 22</h3>
         </div>
 
+     
+       
     </div>
+       
+    
 
-    <form action="">
+    <form action="contact.php" method="post">
 
-        <input type="text" placeholder="name" class="box">
-        <input type="email" placeholder="email" class="box">
-        <input type="text" placeholder="project" class="box">
-        <textarea name="" id="" cols="30" rows="10" class="box message" placeholder="message"></textarea>
+        <input name="name" type="text" placeholder="name" class="box" required>
+        <input name="email" type="email" placeholder="email" class="box" required>
+         <input name="project"  type="text" placeholder="project" class="box" required> 
+        <textarea name="message" id="" cols="30" rows="10" class="box message" placeholder="message" required></textarea>
         <button type="submit" class="btn"> send <i class="fas fa-paper-plane"></i> </button>
 
-    </form>
+    </form> 
 
 </div>
 
@@ -237,7 +285,7 @@
 <!-- scroll top button  -->
 
 <a href="#home" class="top">
-    <img src="images/scroll-top-img.png" alt="">
+    <img src="" alt="">
 </a>
 
 
@@ -246,7 +294,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <!-- custom js file link  -->
-<script src="/portfolio.js"></script>
+<script src="portfolio.js"></script>
 
 
 </body>
