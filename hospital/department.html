@@ -1,0 +1,951 @@
+<!-- resources/views/welcome.blade.php -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Hospital Name</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Styles -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #0d9488;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .search-expand {
+            width: 180px;
+            transition: width 0.3s ease;
+        }
+
+        .search-expand:focus {
+            width: 220px;
+        }
+
+        .header-animation {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Top Info Bar -->
+    <div class="bg-teal-700 text-white py-2 px-4">
+        <div class="container mx-auto flex flex-wrap justify-between items-center">
+            <div class="flex items-center space-x-4 text-xs">
+                <a href="tel:+1234567890" class="flex items-center hover:text-teal-200 transition-colors">
+                    <i class="fas fa-phone-alt mr-1"></i> Emergency: +123 456 7890
+                </a>
+                <a href="mailto:info@modernhospital.com"
+                    class="hidden sm:flex items-center hover:text-teal-200 transition-colors">
+                    <i class="fas fa-envelope mr-1"></i> info@modernhospital.com
+                </a>
+            </div>
+            <div class="flex items-center space-x-3">
+                <a href="#" class="text-white hover:text-teal-200 transition-colors" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="text-white hover:text-teal-200 transition-colors" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="text-white hover:text-teal-200 transition-colors" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="text-white hover:text-teal-200 transition-colors" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <header class="bg-white sticky top-0 z-50 shadow-sm header-animation">
+        <div class="container mx-auto px-4">
+            <nav class="flex items-center justify-between py-4">
+                <!-- Logo -->
+                <div class="flex items-center z-20">
+                    <a href="/" class="flex items-center group">
+                        <div
+                            class="w-10 h-10 bg-teal-600 rounded-lg flex items-center justify-center text-white transition-transform group-hover:scale-110">
+                            <img src="{{ asset('logo.jpg') }}" alt="">
+                        </div>
+                        <div class="ml-3">
+                            <h1 class=" font-bold text-teal-600 transition-colors group-hover:text-teal-700">
+                                Padmashree Hospital</h1>
+                            <p class="text-xs text-gray-500 italic">Temple of Healing</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-1">
+                    <a href="/about-us"
+                        class="nav-link px-3 py-2 text-sm font-medium text-gray-700 hover:text-teal-600 transition-colors">About
+                        Us</a>
+                    <a href="/departments"
+                        class="nav-link px-3 py-2 text-sm font-medium text-gray-700 hover:text-teal-600 transition-colors">Departments</a>
+                    <a href="/doctor-list"
+                        class="nav-link px-3 py-2 text-sm font-medium text-gray-700 hover:text-teal-600 transition-colors">Our
+                        Doctors</a>
+                    <a href="/services"
+                        class="nav-link px-3 py-2 text-sm font-medium text-gray-700 hover:text-teal-600 transition-colors">Services</a>
+                    <a href="/research"
+                        class="nav-link px-3 py-2 text-sm font-medium text-gray-700 hover:text-teal-600 transition-colors">Research</a>
+                    <a href="/contact"
+                        class="nav-link px-3 py-2 text-sm font-medium text-gray-700 hover:text-teal-600 transition-colors">Contact</a>
+                </div>
+
+                <!-- Right Side -->
+                <div class="flex items-center space-x-4">
+                    <!-- Search Bar -->
+                    {{-- <div class="hidden md:flex items-center relative">
+                        <input type="text" placeholder="Search..."
+                            class="search-expand pl-9 pr-3 py-2 rounded-full text-sm border border-gray-200 focus:outline-none focus:ring-2 focus:ring-teal-500 shadow-sm">
+                        <i
+                            class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"></i>
+                    </div> --}}
+
+                    <!-- Language Selector -->
+                    {{-- <div class="hidden md:block relative group">
+                        <button class="flex items-center space-x-1 text-gray-700 hover:text-teal-600 transition-colors">
+                            <i class="fas fa-globe"></i>
+                            <span class="text-sm font-medium">EN</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div
+                            class="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block">
+                            <a href="#"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600">English</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600">Español</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600">Français</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600">Deutsch</a>
+                        </div>
+                    </div> --}}
+
+                    <!-- Appointment Button -->
+                    <a href="/contact"
+                        class="hidden md:block bg-teal-600 hover:bg-teal-700 text-white text-sm font-medium px-4 py-2 rounded-full transition-colors shadow-sm">
+                        Book Appointment
+                    </a>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-button"
+                        class="lg:hidden text-gray-700 hover:text-teal-600 transition-colors focus:outline-none z-20">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 w-full h-full bg-white z-10 lg:hidden">
+            <div class="h-full flex flex-col overflow-y-auto pt-20 pb-6 px-6">
+                <!-- Search Bar -->
+                <div class="relative mb-6">
+                    <input type="text" placeholder="Search..."
+                        class="w-full pl-10 pr-3 py-3 rounded-lg text-sm border border-gray-200 focus:outline-none focus:ring-2 focus:ring-teal-500 shadow-sm">
+                    <i
+                        class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"></i>
+                </div>
+
+                <!-- Mobile Navigation Links -->
+                <div class="space-y-4">
+                    <a href="/about-us"
+                        class="block text-base font-medium text-gray-700 hover:text-teal-600 transition-colors">About
+                        Us</a>
+                    <a href="/departments"
+                        class="block text-base font-medium text-gray-700 hover:text-teal-600 transition-colors">Departments</a>
+                    <a href="/doctor-list"
+                        class="block text-base font-medium text-gray-700 hover:text-teal-600 transition-colors">Our
+                        Doctors</a>
+                    <a href="/services"
+                        class="block text-base font-medium text-gray-700 hover:text-teal-600 transition-colors">Services</a>
+                    <a href="/research"
+                        class="block text-base font-medium text-gray-700 hover:text-teal-600 transition-colors">Research</a>
+                    <a href="/contact"
+                        class="block text-base font-medium text-gray-700 hover:text-teal-600 transition-colors">Contact</a>
+                </div>
+
+                <!-- Mobile Appointment Button -->
+                <a href="/appointment"
+                    class="mt-6 bg-teal-600 hover:bg-teal-700 text-white text-center text-base font-medium px-4 py-3 rounded-lg transition-colors shadow-sm">
+                    Book Appointment
+                </a>
+
+                <!-- Language Selector -->
+                <div class="mt-6 border-t border-gray-100 pt-6">
+                    <h3 class="text-sm font-medium text-gray-500 mb-3">Language</h3>
+                    <div class="grid grid-cols-2 gap-2">
+                        <a href="#"
+                            class="block px-3 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600 rounded-md">English</a>
+                        <a href="#"
+                            class="block px-3 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600 rounded-md">Español</a>
+                        <a href="#"
+                            class="block px-3 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600 rounded-md">Français</a>
+                        <a href="#"
+                            class="block px-3 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600 rounded-md">Deutsch</a>
+                    </div>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="mt-6 border-t border-gray-100 pt-6">
+                    <h3 class="text-sm font-medium text-gray-500 mb-3">Contact</h3>
+                    <div class="space-y-3">
+                        <p class="flex items-center text-sm text-gray-700">
+                            <i class="fas fa-phone-alt mr-3 text-teal-600"></i> +123 456 7890
+                        </p>
+                        <p class="flex items-center text-sm text-gray-700">
+                            <i class="fas fa-envelope mr-3 text-teal-600"></i> info@modernhospital.com
+                        </p>
+                        <p class="flex items-center text-sm text-gray-700">
+                            <i class="fas fa-map-marker-alt mr-3 text-teal-600"></i> 123 Healthcare Blvd, Medical City
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Social Links -->
+                <div class="mt-6 border-t border-gray-100 pt-6">
+                    <h3 class="text-sm font-medium text-gray-500 mb-3">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-500 hover:text-teal-600 transition-colors" aria-label="Facebook">
+                            <i class="fab fa-facebook-f text-lg"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-teal-600 transition-colors" aria-label="Twitter">
+                            <i class="fab fa-twitter text-lg"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-teal-600 transition-colors" aria-label="Instagram">
+                            <i class="fab fa-instagram text-lg"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-teal-600 transition-colors" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Floating Action Button (visible on mobile) -->
+    <div class="fixed bottom-6 right-6 z-40 md:hidden">
+        <a href="/appointment"
+            class="flex items-center justify-center w-14 h-14 bg-teal-600 hover:bg-teal-700 text-white rounded-full shadow-lg transition-colors">
+            <i class="fas fa-calendar-plus text-lg"></i>
+        </a>
+    </div>
+
+    <!-- JavaScript for Menu Toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', function () {
+                mobileMenu.classList.toggle('active');
+
+                // Toggle icon between menu and close
+                const icon = mobileMenuButton.querySelector('i');
+                if (icon.classList.contains('fa-bars')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Breadcrumb -->
+    <div class="bg-teal-50 py-4">
+        <div class="container mx-auto px-4">
+            <nav class="flex" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                    <li class="inline-flex items-center">
+                        <a href="/" class="text-teal-600 hover:text-teal-800">
+                            <i class="fas fa-home mr-2"></i>Home
+                        </a>
+                    </li>
+                    <li>
+                        <div class="flex items-center">
+                            <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
+                            <span class="text-gray-700">Departments</span>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Small Hero Section -->
+    <section class="bg-teal-600 py-10">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold text-white mb-2">Our Departments</h1>
+            <p class="text-teal-100 max-w-2xl mx-auto">Explore our specialized departments, each staffed with
+                experienced
+                professionals dedicated to providing exceptional care.</p>
+        </div>
+    </section>
+
+    <!-- Departments Layout -->
+    <section class="container mx-auto px-4 py-16">
+        <div class="flex flex-wrap">
+            <!-- Left Sidebar - Department Navigation -->
+            <div class="w-full md:w-1/4 mb-8 md:mb-0">
+                <div class="bg-teal-50 rounded-lg p-6 sticky top-24">
+                    <h2 class="text-xl font-bold text-teal-800 mb-6 border-b border-teal-200 pb-2">Our Departments</h2>
+                    <nav>
+                        <ul class="space-y-2">
+                            <li>
+                                <a href="#cardiology"
+                                    class="flex items-center text-teal-600 hover:text-teal-800 py-2 px-3 rounded-md hover:bg-teal-100 transition duration-300">
+                                    <i class="fas fa-heartbeat mr-3"></i>
+                                    <span>Cardiology</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#neurology"
+                                    class="flex items-center text-teal-600 hover:text-teal-800 py-2 px-3 rounded-md hover:bg-teal-100 transition duration-300">
+                                    <i class="fas fa-brain mr-3"></i>
+                                    <span>Neurology</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#orthopedics"
+                                    class="flex items-center text-teal-600 hover:text-teal-800 py-2 px-3 rounded-md hover:bg-teal-100 transition duration-300">
+                                    <i class="fas fa-bone mr-3"></i>
+                                    <span>Orthopedics</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="flex items-center text-gray-500 py-2 px-3 rounded-md hover:bg-teal-100 transition duration-300">
+                                    <i class="fas fa-lungs mr-3"></i>
+                                    <span>Pulmonology</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="flex items-center text-gray-500 py-2 px-3 rounded-md hover:bg-teal-100 transition duration-300">
+                                    <i class="fas fa-baby mr-3"></i>
+                                    <span>Pediatrics</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="flex items-center text-gray-500 py-2 px-3 rounded-md hover:bg-teal-100 transition duration-300">
+                                    <i class="fas fa-allergies mr-3"></i>
+                                    <span>Dermatology</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="flex items-center text-gray-500 py-2 px-3 rounded-md hover:bg-teal-100 transition duration-300">
+                                    <i class="fas fa-tooth mr-3"></i>
+                                    <span>Dentistry</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="flex items-center text-gray-500 py-2 px-3 rounded-md hover:bg-teal-100 transition duration-300">
+                                    <i class="fas fa-eye mr-3"></i>
+                                    <span>Ophthalmology</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="mt-8 bg-teal-600 text-white p-4 rounded-lg">
+                        <h3 class="text-lg font-semibold mb-2">Need Help?</h3>
+                        <p class="text-teal-100 mb-3">Contact our support team for assistance with appointments or
+                            inquiries.</p>
+                        <a href="/contact"
+                            class="inline-block bg-white text-teal-600 font-medium py-2 px-4 rounded-full text-sm hover:bg-teal-50 transition duration-300">
+                            <i class="fas fa-phone-alt mr-2"></i> Contact Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Content Area - Department Details -->
+            <div class="w-full md:w-3/4 md:pl-8">
+                <!-- Cardiology Department -->
+                <div id="cardiology" class="mb-16 scroll-mt-24">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="relative">
+                            <img src="{{ asset('logo.jpg') }}" alt="Cardiology Department"
+                                class="w-full h-64 object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                                <div class="p-6">
+                                    <h2 class="text-3xl font-bold text-white mb-2">Cardiology Department</h2>
+                                    <p class="text-teal-100">Specialized care for heart and vascular conditions</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex flex-wrap items-center mb-6 text-sm text-gray-600">
+                                <div class="flex items-center mr-6 mb-2 md:mb-0">
+                                    <i class="fas fa-user-md text-teal-600 mr-2"></i>
+                                    <span>12 Specialists</span>
+                                </div>
+                                <div class="flex items-center mr-6 mb-2 md:mb-0">
+                                    <i class="fas fa-procedures text-teal-600 mr-2"></i>
+                                    <span>60 Beds</span>
+                                </div>
+                                <div class="flex items-center mr-6 mb-2 md:mb-0">
+                                    <i class="fas fa-calendar-check text-teal-600 mr-2"></i>
+                                    <span>24/7 Emergency Care</span>
+                                </div>
+                            </div>
+
+                            <p class="text-gray-600 mb-4">Our Cardiology Department provides comprehensive care for
+                                patients
+                                with cardiovascular diseases. Equipped with state-of-the-art technology and staffed by
+                                experienced cardiologists, we offer a full range of diagnostic and treatment services.
+                            </p>
+
+                            <div class="mb-6">
+                                <h3 class="text-xl font-semibold text-teal-800 mb-3">Our Services</h3>
+                                <ul class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check-circle text-teal-600 mr-2"></i>
+                                        <span>Cardiac Catheterization</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check-circle text-teal-600 mr-2"></i>
+                                        <span>Echocardiography</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check-circle text-teal-600 mr-2"></i>
+                                        <span>Electrocardiogram (ECG)</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check-circle text-teal-600 mr-2"></i>
+                                        <span>Stress Testing</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check-circle text-teal-600 mr-2"></i>
+                                        <span>Pacemaker Implementation</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check-circle text-teal-600 mr-2"></i>
+                                        <span>Cardiac Rehabilitation</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="flex justify-end">
+                                <a href="#"
+                                    class="inline-block bg-teal-600 text-white font-medium py-2 px-4 rounded-full hover:bg-teal-700 transition duration-300 text-sm">
+                                    <i class="fas fa-calendar-plus mr-2"></i> Book Appointment
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cardiology Department Doctors -->
+                    <h3 class="text-2xl font-bold text-teal-800 mt-8 mb-6">Our Cardiology Specialists</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Doctor 1 -->
+                        <div
+                            class="bg-white rounded-lg shadow-md overflow-hidden group hover:shadow-xl transition-shadow duration-300">
+                            <div class="relative overflow-hidden">
+                                <img src="{{ asset('logo.jpg') }}" alt="Dr. Anand Sharma"
+                                    class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105">
+                                <div
+                                    class="absolute top-0 right-0 bg-teal-600 text-white text-xs font-semibold px-3 py-1 rounded-bl-lg">
+                                    Head of Department
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-bold text-teal-800 mb-1">Dr. Anand Sharma</h4>
+                                <p class="text-gray-500 text-sm mb-2">Interventional Cardiologist</p>
+                                <p class="text-gray-600 text-sm mb-3">Specializes in coronary interventions and cardiac
+                                    catheterization with over 15 years of experience.</p>
+
+                            </div>
+                        </div>
+
+                        <!-- Doctor 2 -->
+                        <div
+                            class="bg-white rounded-lg shadow-md overflow-hidden group hover:shadow-xl transition-shadow duration-300">
+                            <div class="relative overflow-hidden">
+                                <img src="{{ asset('logo.jpg') }}" alt="Dr. Meera Patel"
+                                    class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105">
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-bold text-teal-800 mb-1">Dr. Meera Patel</h4>
+                                <p class="text-gray-500 text-sm mb-2">Non-Invasive Cardiologist</p>
+                                <p class="text-gray-600 text-sm mb-3">Expert in echocardiography and nuclear cardiology
+                                    with focus on preventive care approaches.</p>
+
+                            </div>
+                        </div>
+
+                        <!-- Doctor 3 -->
+                        <div
+                            class="bg-white rounded-lg shadow-md overflow-hidden group hover:shadow-xl transition-shadow duration-300">
+                            <div class="relative overflow-hidden">
+                                <img src="{{ asset('logo.jpg') }}" alt="Dr. Vikram Mehta"
+                                    class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105">
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-bold text-teal-800 mb-1">Dr. Vikram Mehta</h4>
+                                <p class="text-gray-500 text-sm mb-2">Electrophysiologist</p>
+                                <p class="text-gray-600 text-sm mb-3">Specializes in cardiac rhythm disorders and
+                                    implantable cardiac devices with international training.</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Neurology Department -->
+                <div id="neurology" class="mb-16 scroll-mt-24">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="relative">
+                            <img src="{{ asset('logo.jpg') }}" alt="Neurology Department"
+                                class="w-full h-64 object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                                <div class="p-6">
+                                    <h2 class="text-3xl font-bold text-white mb-2">Neurology Department</h2>
+                                    <p class="text-teal-100">Expert care for neurological disorders and conditions</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex flex-wrap items-center mb-6 text-sm text-gray-600">
+                                <div class="flex items-center mr-6 mb-2 md:mb-0">
+                                    <i class="fas fa-user-md text-teal-600 mr-2"></i>
+                                    <span>8 Specialists</span>
+                                </div>
+                                <div class="flex items-center mr-6 mb-2 md:mb-0">
+                                    <i class="fas fa-procedures text-teal-600 mr-2"></i>
+                                    <span>40 Beds</span>
+                                </div>
+                                <div class="flex items-center mr-6 mb-2 md:mb-0">
+                                    <i class="fas fa-microscope text-teal-600 mr-2"></i>
+                                    <span>Advanced Diagnostic Tools</span>
+                                </div>
+                            </div>
+
+                            <p class="text-gray-600 mb-4">Our Neurology Department provides specialized care for
+                                patients
+                                with neurological disorders affecting the brain, spinal cord, and peripheral nerves. Our
+                                team of neurologists employs advanced diagnostic technology and treatment protocols to
+                                address a wide range of conditions.</p>
+
+                            <div class="mb-6">
+                                <h3 class="text-xl font-semibold text-teal-800 mb-3">Our Services</h3>
+                                <ul class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check-circle text-teal-600 mr-2"></i>
+                                        <span>Electroencephalography (EEG)</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check-circle text-teal-600 mr-2"></i>
+                                        <span>Electromyography (EMG)</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check-circle text-teal-600 mr-2"></i>
+                                        <span>Nerve Conduction Studies</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check-circle text-teal-600 mr-2"></i>
+                                        <span>Epilepsy Management</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check-circle text-teal-600 mr-2"></i>
+                                        <span>Stroke Recovery Program</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check-circle text-teal-600 mr-2"></i>
+                                        <span>Headache & Migraine Treatment</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="flex justify-end">
+                                <a href="#"
+                                    class="inline-block bg-teal-600 text-white font-medium py-2 px-4 rounded-full hover:bg-teal-700 transition duration-300 text-sm">
+                                    <i class="fas fa-calendar-plus mr-2"></i> Book Appointment
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Neurology Department Doctors -->
+                    <h3 class="text-2xl font-bold text-teal-800 mt-8 mb-6">Our Neurology Specialists</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Doctor 1 -->
+                        <div
+                            class="bg-white rounded-lg shadow-md overflow-hidden group hover:shadow-xl transition-shadow duration-300">
+                            <div class="relative overflow-hidden">
+                                <img src="{{ asset('logo.jpg') }}" alt="Dr. Sanjay Verma"
+                                    class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105">
+                                <div
+                                    class="absolute top-0 right-0 bg-teal-600 text-white text-xs font-semibold px-3 py-1 rounded-bl-lg">
+                                    Head of Department
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-bold text-teal-800 mb-1">Dr. Sanjay Verma</h4>
+                                <p class="text-gray-500 text-sm mb-2">Neurologist</p>
+                                <p class="text-gray-600 text-sm mb-3">Specializes in movement disorders and
+                                    neurodegenerative diseases with 20+ years of experience.</p>
+
+                            </div>
+                        </div>
+
+                        <!-- Doctor 2 -->
+                        <div
+                            class="bg-white rounded-lg shadow-md overflow-hidden group hover:shadow-xl transition-shadow duration-300">
+                            <div class="relative overflow-hidden">
+                                <img src="{{ asset('logo.jpg') }}" alt="Dr. Preeti Iyer"
+                                    class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105">
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-bold text-teal-800 mb-1">Dr. Preeti Iyer</h4>
+                                <p class="text-gray-500 text-sm mb-2">Neurologist</p>
+                                <p class="text-gray-600 text-sm mb-3">Expert in neuroimmunology and multiple sclerosis
+                                    with
+                                    research publications in leading journals.</p>
+
+                            </div>
+                        </div>
+
+                        <!-- Doctor 3 -->
+                        <div
+                            class="bg-white rounded-lg shadow-md overflow-hidden group hover:shadow-xl transition-shadow duration-300">
+                            <div class="relative overflow-hidden">
+                                <img src="{{ asset('logo.jpg') }}" alt="Dr. Arjun Nair"
+                                    class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105">
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-bold text-teal-800 mb-1">Dr. Arjun Nair</h4>
+                                <p class="text-gray-500 text-sm mb-2">Epileptologist</p>
+                                <p class="text-gray-600 text-sm mb-3">Specializes in epilepsy treatment and research
+                                    with
+                                    expertise in innovative treatment approaches.</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Orthopedics Department -->
+                <div id="orthopedics" class="mb-16 scroll-mt-24">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="relative">
+                            <img src="{{ asset('logo.jpg') }}" alt="Orthopedics Department"
+                                class="w-full h-64 object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                                <div class="p-6">
+                                    <h2 class="text-3xl font-bold text-white mb-2">Orthopedics Department</h2>
+                                    <p class="text-teal-100">Comprehensive care for musculoskeletal conditions</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex flex-wrap items-center mb-6 text-sm text-gray-600">
+                                <div class="flex items-center mr-6 mb-2 md:mb-0">
+                                    <i class="fas fa-user-md text-teal-600 mr-2"></i>
+                                    <span>10 Specialists</span>
+                                </div>
+                                <div class="flex items-center mr-6 mb-2 md:mb-0">
+                                    <i class="fas fa-procedures text-teal-600 mr-2"></i>
+                                    <span>45 Beds</span>
+                                </div>
+                                <div class="flex items-center mr-6 mb-2 md:mb-0">
+                                    <i class="fas fa-running text-teal-600 mr-2"></i>
+                                    <span>Rehabilitation Center</span>
+                                </div>
+                            </div>
+
+                            <p class="text-gray-600 mb-4">Our Orthopedics Department provides comprehensive care for
+                                conditions affecting the musculoskeletal system. From sports injuries to joint
+                                replacements,
+                                our expert team offers precise diagnosis and effective treatment options to help
+                                patients
+                                regain mobility and improve quality of life.</p>
+
+                            <div class="mb-6">
+                                <h3 class="text-xl font-semibold text-teal-800 mb-3">Our Services</h3>
+                                <ul class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check-circle text-teal-600 mr-2"></i>
+                                        <span>Joint Replacement Surgery</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check-circle text-teal-600 mr-2"></i>
+                                        <span>Sports Medicine</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check-circle text-teal-600 mr-2"></i>
+                                        <span>Spine Surgery</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check-circle text-teal-600 mr-2"></i>
+                                        <span>Trauma Care</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check-circle text-teal-600 mr-2"></i>
+                                        <span>Pediatric Orthopedics</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check-circle text-teal-600 mr-2"></i>
+                                        <span>Physical Rehabilitation</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="flex justify-end">
+                                <a href="#"
+                                    class="inline-block bg-teal-600 text-white font-medium py-2 px-4 rounded-full hover:bg-teal-700 transition duration-300 text-sm">
+                                    <i class="fas fa-calendar-plus mr-2"></i> Book Appointment
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Orthopedics Department Doctors -->
+                    <h3 class="text-2xl font-bold text-teal-800 mt-8 mb-6">Our Orthopedic Specialists</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Doctor 1 -->
+                        <div
+                            class="bg-white rounded-lg shadow-md overflow-hidden group hover:shadow-xl transition-shadow duration-300">
+                            <div class="relative overflow-hidden">
+                                <img src="{{ asset('logo.jpg') }}" alt="Dr. Ramesh Joshi"
+                                    class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105">
+                                <div
+                                    class="absolute top-0 right-0 bg-teal-600 text-white text-xs font-semibold px-3 py-1 rounded-bl-lg">
+                                    Head of Department
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-bold text-teal-800 mb-1">Dr. Ramesh Joshi</h4>
+                                <p class="text-gray-500 text-sm mb-2">Orthopedic Surgeon</p>
+                                <p class="text-gray-600 text-sm mb-3">Registration No: MBBS-OR8752</p>
+
+                            </div>
+                        </div>
+
+                        <!-- Doctor 2 -->
+                        <div
+                            class="bg-white rounded-lg shadow-md overflow-hidden group hover:shadow-xl transition-shadow duration-300">
+                            <div class="relative overflow-hidden">
+                                <img src="{{ asset('logo.jpg') }}" alt="Dr. Sunita Reddy"
+                                    class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105">
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-bold text-teal-800 mb-1">Dr. Sunita Reddy</h4>
+                                <p class="text-gray-500 text-sm mb-2">Sports Medicine Specialist</p>
+                                <p class="text-gray-600 text-sm mb-3">Registration No: MBBS-OR9245</p>
+
+                            </div>
+                        </div>
+
+                        <!-- Doctor 3 -->
+                        <div
+                            class="bg-white rounded-lg shadow-md overflow-hidden group hover:shadow-xl transition-shadow duration-300">
+                            <div class="relative overflow-hidden">
+                                <img src="{{ asset('logo.jpg') }}" alt="Dr. Karthik Menon"
+                                    class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105">
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-bold text-teal-800 mb-1">Dr. Karthik Menon</h4>
+                                <p class="text-gray-500 text-sm mb-2">Spine Surgeon</p>
+                                <p class="text-gray-600 text-sm mb-3">Registration No: MBBS-OR7631</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Footer section (completing the previously truncated part) -->
+    <footer class="bg-gray-800 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap">
+                <div class="w-full md:w-1/4 mb-8">
+                    <div class="flex items-center mb-6">
+                        <img src="{{ asset('logo.jpg') }}" alt="Hospital Logo" class="h-10 mr-3 rounded">
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Modern Hospital</h3>
+                            <p class="text-xs text-gray-400">Temple of Healing</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-6">Naghuthana, Kathmandu, Province</p>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-phone-alt mr-3 text-teal-400"></i>
+                        <p>+977 01 4424776</p>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-gray-700 p-2 rounded-full hover:bg-teal-600 transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 p-2 rounded-full hover:bg-teal-600 transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 p-2 rounded-full hover:bg-teal-600 transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 p-2 rounded-full hover:bg-teal-600 transition duration-300">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="w-full md:w-1/4 mb-8">
+                    <h3 class="text-lg font-bold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-teal-400">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-teal-400">Our Doctors</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-teal-400">Departments</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-teal-400">Services</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-teal-400">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="w-full md:w-1/4 mb-8">
+                    <h3 class="text-lg font-bold mb-6">Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-teal-400">Emergency Care</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-teal-400">Outpatient Services</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-teal-400">Diagnostics</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-teal-400">Specialized Care</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-teal-400">Surgery</a></li>
+                    </ul>
+                </div>
+
+                <div class="w-full md:w-1/4 mb-8">
+                    <h3 class="text-lg font-bold mb-6">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">Subscribe to receive the latest news and updates.</p>
+                    <div class="flex mb-4">
+                        <input type="email" placeholder="Your email"
+                            class="px-4 py-2 rounded-l-lg w-full focus:outline-none">
+                        <button
+                            class="bg-teal-600 text-white px-4 py-2 rounded-r-lg hover:bg-teal-700 transition duration-300">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="bg-teal-600 p-2 rounded-full mr-3">
+                            <i class="fas fa-headset text-white"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-400">24/7 Support</p>
+                            <p class="font-bold">Book Appointment</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 mt-8 border-t border-gray-700">
+                <div class="flex flex-wrap justify-between">
+                    <div class="w-full md:w-auto mb-4 md:mb-0">
+                        <p class="text-gray-400">&copy; 2025 Modern Hospital | All Rights Reserved</p>
+                    </div>
+                    <div class="w-full md:w-auto">
+                        <ul class="flex space-x-6">
+                            <li><a href="#" class="text-gray-400 hover:text-teal-400">Privacy Policy</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-teal-400">Terms</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-teal-400">Sitemap</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-gray-500 text-sm mt-4 text-center">
+                    <p>Developed by Example Dev Team</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat button -->
+        <div class="fixed bottom-6 right-6">
+            <button class="bg-teal-600 text-white p-4 rounded-full shadow-lg hover:bg-teal-700 transition duration-300">
+                <i class="fas fa-comments text-2xl"></i>
+            </button>
+        </div>
+    </footer>
+</body>
+
+</html>

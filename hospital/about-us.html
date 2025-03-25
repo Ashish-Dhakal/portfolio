@@ -1,0 +1,908 @@
+<!-- resources/views/welcome.blade.php -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Hospital Name</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Styles -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #0d9488;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .search-expand {
+            width: 180px;
+            transition: width 0.3s ease;
+        }
+
+        .search-expand:focus {
+            width: 220px;
+        }
+
+        .header-animation {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Top Info Bar -->
+    <div class="bg-teal-700 text-white py-2 px-4">
+        <div class="container mx-auto flex flex-wrap justify-between items-center">
+            <div class="flex items-center space-x-4 text-xs">
+                <a href="tel:+1234567890" class="flex items-center hover:text-teal-200 transition-colors">
+                    <i class="fas fa-phone-alt mr-1"></i> Emergency: +123 456 7890
+                </a>
+                <a href="mailto:info@modernhospital.com"
+                    class="hidden sm:flex items-center hover:text-teal-200 transition-colors">
+                    <i class="fas fa-envelope mr-1"></i> info@modernhospital.com
+                </a>
+            </div>
+            <div class="flex items-center space-x-3">
+                <a href="#" class="text-white hover:text-teal-200 transition-colors" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="text-white hover:text-teal-200 transition-colors" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="text-white hover:text-teal-200 transition-colors" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="text-white hover:text-teal-200 transition-colors" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <header class="bg-white sticky top-0 z-50 shadow-sm header-animation">
+        <div class="container mx-auto px-4">
+            <nav class="flex items-center justify-between py-4">
+                <!-- Logo -->
+                <div class="flex items-center z-20">
+                    <a href="/" class="flex items-center group">
+                        <div
+                            class="w-10 h-10 bg-teal-600 rounded-lg flex items-center justify-center text-white transition-transform group-hover:scale-110">
+                            <img src="{{ asset('logo.jpg') }}" alt="">
+                        </div>
+                        <div class="ml-3">
+                            <h1 class=" font-bold text-teal-600 transition-colors group-hover:text-teal-700">
+                                Padmashree Hospital</h1>
+                            <p class="text-xs text-gray-500 italic">Temple of Healing</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-1">
+                    <a href="/about-us"
+                        class="nav-link px-3 py-2 text-sm font-medium text-gray-700 hover:text-teal-600 transition-colors">About
+                        Us</a>
+                    <a href="/departments"
+                        class="nav-link px-3 py-2 text-sm font-medium text-gray-700 hover:text-teal-600 transition-colors">Departments</a>
+                    <a href="/doctor-list"
+                        class="nav-link px-3 py-2 text-sm font-medium text-gray-700 hover:text-teal-600 transition-colors">Our
+                        Doctors</a>
+                    <a href="/services"
+                        class="nav-link px-3 py-2 text-sm font-medium text-gray-700 hover:text-teal-600 transition-colors">Services</a>
+                    <a href="/research"
+                        class="nav-link px-3 py-2 text-sm font-medium text-gray-700 hover:text-teal-600 transition-colors">Research</a>
+                    <a href="/contact"
+                        class="nav-link px-3 py-2 text-sm font-medium text-gray-700 hover:text-teal-600 transition-colors">Contact</a>
+                </div>
+
+                <!-- Right Side -->
+                <div class="flex items-center space-x-4">
+                    <!-- Search Bar -->
+                    {{-- <div class="hidden md:flex items-center relative">
+                        <input type="text" placeholder="Search..."
+                            class="search-expand pl-9 pr-3 py-2 rounded-full text-sm border border-gray-200 focus:outline-none focus:ring-2 focus:ring-teal-500 shadow-sm">
+                        <i
+                            class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"></i>
+                    </div> --}}
+
+                    <!-- Language Selector -->
+                    {{-- <div class="hidden md:block relative group">
+                        <button class="flex items-center space-x-1 text-gray-700 hover:text-teal-600 transition-colors">
+                            <i class="fas fa-globe"></i>
+                            <span class="text-sm font-medium">EN</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div
+                            class="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block">
+                            <a href="#"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600">English</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600">Español</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600">Français</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600">Deutsch</a>
+                        </div>
+                    </div> --}}
+
+                    <!-- Appointment Button -->
+                    <a href="/contact"
+                        class="hidden md:block bg-teal-600 hover:bg-teal-700 text-white text-sm font-medium px-4 py-2 rounded-full transition-colors shadow-sm">
+                        Book Appointment
+                    </a>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-button"
+                        class="lg:hidden text-gray-700 hover:text-teal-600 transition-colors focus:outline-none z-20">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 w-full h-full bg-white z-10 lg:hidden">
+            <div class="h-full flex flex-col overflow-y-auto pt-20 pb-6 px-6">
+                <!-- Search Bar -->
+                <div class="relative mb-6">
+                    <input type="text" placeholder="Search..."
+                        class="w-full pl-10 pr-3 py-3 rounded-lg text-sm border border-gray-200 focus:outline-none focus:ring-2 focus:ring-teal-500 shadow-sm">
+                    <i
+                        class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"></i>
+                </div>
+
+                <!-- Mobile Navigation Links -->
+                <div class="space-y-4">
+                    <a href="/about-us"
+                        class="block text-base font-medium text-gray-700 hover:text-teal-600 transition-colors">About
+                        Us</a>
+                    <a href="/departments"
+                        class="block text-base font-medium text-gray-700 hover:text-teal-600 transition-colors">Departments</a>
+                    <a href="/doctor-list"
+                        class="block text-base font-medium text-gray-700 hover:text-teal-600 transition-colors">Our
+                        Doctors</a>
+                    <a href="/services"
+                        class="block text-base font-medium text-gray-700 hover:text-teal-600 transition-colors">Services</a>
+                    <a href="/research"
+                        class="block text-base font-medium text-gray-700 hover:text-teal-600 transition-colors">Research</a>
+                    <a href="/contact"
+                        class="block text-base font-medium text-gray-700 hover:text-teal-600 transition-colors">Contact</a>
+                </div>
+
+                <!-- Mobile Appointment Button -->
+                <a href="/appointment"
+                    class="mt-6 bg-teal-600 hover:bg-teal-700 text-white text-center text-base font-medium px-4 py-3 rounded-lg transition-colors shadow-sm">
+                    Book Appointment
+                </a>
+
+                <!-- Language Selector -->
+                <div class="mt-6 border-t border-gray-100 pt-6">
+                    <h3 class="text-sm font-medium text-gray-500 mb-3">Language</h3>
+                    <div class="grid grid-cols-2 gap-2">
+                        <a href="#"
+                            class="block px-3 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600 rounded-md">English</a>
+                        <a href="#"
+                            class="block px-3 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600 rounded-md">Español</a>
+                        <a href="#"
+                            class="block px-3 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600 rounded-md">Français</a>
+                        <a href="#"
+                            class="block px-3 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600 rounded-md">Deutsch</a>
+                    </div>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="mt-6 border-t border-gray-100 pt-6">
+                    <h3 class="text-sm font-medium text-gray-500 mb-3">Contact</h3>
+                    <div class="space-y-3">
+                        <p class="flex items-center text-sm text-gray-700">
+                            <i class="fas fa-phone-alt mr-3 text-teal-600"></i> +123 456 7890
+                        </p>
+                        <p class="flex items-center text-sm text-gray-700">
+                            <i class="fas fa-envelope mr-3 text-teal-600"></i> info@modernhospital.com
+                        </p>
+                        <p class="flex items-center text-sm text-gray-700">
+                            <i class="fas fa-map-marker-alt mr-3 text-teal-600"></i> 123 Healthcare Blvd, Medical City
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Social Links -->
+                <div class="mt-6 border-t border-gray-100 pt-6">
+                    <h3 class="text-sm font-medium text-gray-500 mb-3">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-500 hover:text-teal-600 transition-colors" aria-label="Facebook">
+                            <i class="fab fa-facebook-f text-lg"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-teal-600 transition-colors" aria-label="Twitter">
+                            <i class="fab fa-twitter text-lg"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-teal-600 transition-colors" aria-label="Instagram">
+                            <i class="fab fa-instagram text-lg"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-teal-600 transition-colors" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Floating Action Button (visible on mobile) -->
+    <div class="fixed bottom-6 right-6 z-40 md:hidden">
+        <a href="/appointment"
+            class="flex items-center justify-center w-14 h-14 bg-teal-600 hover:bg-teal-700 text-white rounded-full shadow-lg transition-colors">
+            <i class="fas fa-calendar-plus text-lg"></i>
+        </a>
+    </div>
+
+    <!-- JavaScript for Menu Toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', function () {
+                mobileMenu.classList.toggle('active');
+
+                // Toggle icon between menu and close
+                const icon = mobileMenuButton.querySelector('i');
+                if (icon.classList.contains('fa-bars')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Breadcrumb -->
+    <div class="bg-teal-50 py-4">
+        <div class="container mx-auto px-4">
+            <nav class="flex" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                    <li class="inline-flex items-center">
+                        <a href="/" class="text-teal-600 hover:text-teal-800">
+                            <i class="fas fa-home mr-2"></i>Home
+                        </a>
+                    </li>
+                    <li>
+                        <div class="flex items-center">
+                            <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
+                            <span class="text-gray-700">About Us</span>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Small Hero Section -->
+    <section class="bg-teal-600 py-10">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold text-white mb-2">Get in Touch</h1>
+            <p class="text-teal-100 max-w-2xl mx-auto">We're here to help with any questions about our services,
+                appointments, or facilities.</p>
+        </div>
+    </section>
+
+    <!-- Our Mission & Vision -->
+    <section class="container mx-auto px-4 py-16">
+        <div class="flex flex-wrap items-center">
+            <div class="w-full md:w-1/2 mb-8 md:mb-0 pr-0 md:pr-12">
+                <img src="https://d1l0gza1nowsqe.cloudfront.net/wp-content/uploads/sites/4/2024/06/Lucy-Nugent-CEO-of-TUH-with-the-Cardiac-Cath-Lab-Team-of-the-Year-Award-Winners-620.jpg"
+                    alt="Doctor with Patient" class="w-full rounded-lg shadow-lg">
+            </div>
+            <div class="w-full md:w-1/2">
+                <h2 class="text-3xl font-bold text-teal-800 mb-6">Our Mission & Vision</h2>
+                <div class="bg-teal-50 p-6 rounded-lg mb-6">
+                    <div class="flex items-start mb-4">
+                        <div class="bg-teal-100 p-3 rounded-full mr-4 mt-1">
+                            <i class="fas fa-bullseye text-orange-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-teal-800 mb-2">Our Mission</h3>
+                            <p class="text-gray-600">To provide world-class healthcare that is accessible to everyone,
+                                regardless of background or circumstances, through innovative medical solutions and
+                                compassionate care.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-teal-50 p-6 rounded-lg">
+                    <div class="flex items-start">
+                        <div class="bg-teal-100 p-3 rounded-full mr-4 mt-1">
+                            <i class="fas fa-eye text-orange-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-teal-800 mb-2">Our Vision</h3>
+                            <p class="text-gray-600">To become the leading healthcare provider in the region, recognized
+                                for medical excellence, patient satisfaction, and pioneering advancements in healthcare
+                                technology and services.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Values -->
+    <section class="bg-gray-50 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-teal-800 text-center mb-3">Our Core Values</h2>
+            <p class="text-gray-600 text-center mb-12">The principles that guide everything we do</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div
+                    class="bg-white p-6 rounded-lg shadow-md text-center group hover:shadow-xl transition-shadow duration-300">
+                    <div
+                        class="bg-teal-100 p-4 rounded-full inline-flex justify-center items-center w-16 h-16 mb-4 group-hover:bg-teal-200 transition-colors duration-300">
+                        <i class="fas fa-hands-helping text-orange-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-teal-800 mb-3">Compassion</h3>
+                    <p class="text-gray-600">We treat every patient with kindness, empathy, and respect, considering
+                        their physical, emotional, and spiritual needs.</p>
+                </div>
+
+                <div
+                    class="bg-white p-6 rounded-lg shadow-md text-center group hover:shadow-xl transition-shadow duration-300">
+                    <div
+                        class="bg-teal-100 p-4 rounded-full inline-flex justify-center items-center w-16 h-16 mb-4 group-hover:bg-teal-200 transition-colors duration-300">
+                        <i class="fas fa-award text-orange-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-teal-800 mb-3">Excellence</h3>
+                    <p class="text-gray-600">We strive for the highest standards in medical care, continually improving
+                        our skills, processes, and technology.</p>
+                </div>
+
+                <div
+                    class="bg-white p-6 rounded-lg shadow-md text-center group hover:shadow-xl transition-shadow duration-300">
+                    <div
+                        class="bg-teal-100 p-4 rounded-full inline-flex justify-center items-center w-16 h-16 mb-4 group-hover:bg-teal-200 transition-colors duration-300">
+                        <i class="fas fa-users text-orange-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-teal-800 mb-3">Teamwork</h3>
+                    <p class="text-gray-600">We work together across disciplines to ensure comprehensive, coordinated
+                        care for all patients.</p>
+                </div>
+
+                <div
+                    class="bg-white p-6 rounded-lg shadow-md text-center group hover:shadow-xl transition-shadow duration-300">
+                    <div
+                        class="bg-teal-100 p-4 rounded-full inline-flex justify-center items-center w-16 h-16 mb-4 group-hover:bg-teal-200 transition-colors duration-300">
+                        <i class="fas fa-lightbulb text-orange-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-teal-800 mb-3">Innovation</h3>
+                    <p class="text-gray-600">We embrace new ideas, technologies, and approaches to improve healthcare
+                        delivery and patient outcomes.</p>
+                </div>
+
+                <div
+                    class="bg-white p-6 rounded-lg shadow-md text-center group hover:shadow-xl transition-shadow duration-300">
+                    <div
+                        class="bg-teal-100 p-4 rounded-full inline-flex justify-center items-center w-16 h-16 mb-4 group-hover:bg-teal-200 transition-colors duration-300">
+                        <i class="fas fa-shield-alt text-orange-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-teal-800 mb-3">Integrity</h3>
+                    <p class="text-gray-600">We act with honesty, transparency, and ethical responsibility in all
+                        aspects of our operations.</p>
+                </div>
+
+                <div
+                    class="bg-white p-6 rounded-lg shadow-md text-center group hover:shadow-xl transition-shadow duration-300">
+                    <div
+                        class="bg-teal-100 p-4 rounded-full inline-flex justify-center items-center w-16 h-16 mb-4 group-hover:bg-teal-200 transition-colors duration-300">
+                        <i class="fas fa-universal-access text-orange-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-teal-800 mb-3">Accessibility</h3>
+                    <p class="text-gray-600">We ensure our services are available to all communities, regardless of
+                        socioeconomic background.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Journey -->
+    <section class="container mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold text-teal-800 text-center mb-3">Our Journey</h2>
+        <p class="text-gray-600 text-center mb-12">How we've grown from our humble beginnings</p>
+
+        <div class="relative">
+            <!-- Timeline Line -->
+            <div class="absolute h-full w-1 bg-teal-200 left-1/2 transform -translate-x-1/2 hidden md:block"></div>
+
+            <!-- Timeline Items -->
+            <div class="relative z-10">
+                <!-- 2020 -->
+                <div class="flex flex-col md:flex-row items-center mb-16">
+                    <div class="w-full md:w-1/2 md:pr-12 mb-6 md:mb-0 md:text-right">
+                        <h3 class="text-2xl font-bold text-teal-800 mb-2">2020</h3>
+                        <h4 class="text-xl text-orange-600 mb-3">Foundation</h4>
+                        <p class="text-gray-600">Modern Hospital was founded with just 50 beds and a dedicated team of
+                            20 healthcare professionals.</p>
+                    </div>
+                    <div
+                        class="bg-teal-600 rounded-full h-10 w-10 flex items-center justify-center border-4 border-white shadow-lg z-10">
+                        <i class="fas fa-hospital text-white"></i>
+                    </div>
+                    <div class="w-full md:w-1/2 md:pl-12 hidden md:block"></div>
+                </div>
+
+                <!-- 2021 -->
+                <div class="flex flex-col md:flex-row items-center mb-16">
+                    <div class="w-full md:w-1/2 md:pr-12 hidden md:block"></div>
+                    <div
+                        class="bg-teal-600 rounded-full h-10 w-10 flex items-center justify-center border-4 border-white shadow-lg z-10">
+                        <i class="fas fa-plus text-white"></i>
+                    </div>
+                    <div class="w-full md:w-1/2 md:pl-12 mb-6 md:mb-0">
+                        <h3 class="text-2xl font-bold text-teal-800 mb-2">2021</h3>
+                        <h4 class="text-xl text-orange-600 mb-3">Expansion</h4>
+                        <p class="text-gray-600">Expanded to 150 beds and added specialized departments for Cardiology,
+                            Neurology, and Orthopedics.</p>
+                    </div>
+                </div>
+
+                <!-- 2022 -->
+                <div class="flex flex-col md:flex-row items-center mb-16">
+                    <div class="w-full md:w-1/2 md:pr-12 mb-6 md:mb-0 md:text-right">
+                        <h3 class="text-2xl font-bold text-teal-800 mb-2">2022</h3>
+                        <h4 class="text-xl text-orange-600 mb-3">Research & Innovation</h4>
+                        <p class="text-gray-600">Established our Research Wing and introduced cutting-edge medical
+                            technology and telemedicine services.</p>
+                    </div>
+                    <div
+                        class="bg-teal-600 rounded-full h-10 w-10 flex items-center justify-center border-4 border-white shadow-lg z-10">
+                        <i class="fas fa-microscope text-white"></i>
+                    </div>
+                    <div class="w-full md:w-1/2 md:pl-12 hidden md:block"></div>
+                </div>
+
+                <!-- 2023 -->
+                <div class="flex flex-col md:flex-row items-center mb-16">
+                    <div class="w-full md:w-1/2 md:pr-12 hidden md:block"></div>
+                    <div
+                        class="bg-teal-600 rounded-full h-10 w-10 flex items-center justify-center border-4 border-white shadow-lg z-10">
+                        <i class="fas fa-award text-white"></i>
+                    </div>
+                    <div class="w-full md:w-1/2 md:pl-12 mb-6 md:mb-0">
+                        <h3 class="text-2xl font-bold text-teal-800 mb-2">2023</h3>
+                        <h4 class="text-xl text-orange-600 mb-3">Excellence Recognition</h4>
+                        <p class="text-gray-600">Received national accreditation and recognition for our quality of care
+                            and patient satisfaction.</p>
+                    </div>
+                </div>
+
+                <!-- 2024 -->
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="w-full md:w-1/2 md:pr-12 mb-6 md:mb-0 md:text-right">
+                        <h3 class="text-2xl font-bold text-teal-800 mb-2">2024</h3>
+                        <h4 class="text-xl text-orange-600 mb-3">Multi-specialty Growth</h4>
+                        <p class="text-gray-600">Expanded to 475 beds with 18 health centers and over 300 specialist
+                            doctors serving more than 100,000 patients annually.</p>
+                    </div>
+                    <div
+                        class="bg-teal-600 rounded-full h-10 w-10 flex items-center justify-center border-4 border-white shadow-lg z-10">
+                        <i class="fas fa-chart-line text-white"></i>
+                    </div>
+                    <div class="w-full md:w-1/2 md:pl-12 hidden md:block"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Team -->
+    <section class="bg-teal-50 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-teal-800 text-center mb-3">Our Leadership Team</h2>
+            <p class="text-gray-600 text-center mb-12">Meet the experts who guide our vision</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Leader 1 -->
+                <div
+                    class="bg-white rounded-lg shadow-md overflow-hidden group hover:shadow-xl transition-shadow duration-300">
+                    <div class="relative overflow-hidden">
+                        <img src="{{ asset('logo.jpg') }}" alt="Dr. Rajesh Kumar"
+                            class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <h3 class="text-white font-bold">Dr. Rajesh Kumar</h3>
+                            <p class="text-teal-100">Chief Executive Officer</p>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-gray-600 text-sm">With over 25 years of experience in healthcare management, Dr.
+                            Kumar leads our vision for accessible, world-class healthcare.</p>
+                        <div class="flex mt-4 space-x-2">
+                            <a href="#" class="text-teal-600 hover:text-teal-800"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="text-teal-600 hover:text-teal-800"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leader 2 -->
+                <div
+                    class="bg-white rounded-lg shadow-md overflow-hidden group hover:shadow-xl transition-shadow duration-300">
+                    <div class="relative overflow-hidden">
+                        <img src="{{ asset('logo.jpg') }}" alt="Dr. Priya Singh"
+                            class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <h3 class="text-white font-bold">Dr. Priya Singh</h3>
+                            <p class="text-teal-100">Chief Medical Officer</p>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-gray-600 text-sm">Dr. Singh oversees all medical departments, ensuring the
+                            highest standards of patient care and medical excellence.</p>
+                        <div class="flex mt-4 space-x-2">
+                            <a href="#" class="text-teal-600 hover:text-teal-800"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="text-teal-600 hover:text-teal-800"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leader 3 -->
+                <div
+                    class="bg-white rounded-lg shadow-md overflow-hidden group hover:shadow-xl transition-shadow duration-300">
+                    <div class="relative overflow-hidden">
+                        <img src="{{ asset('logo.jpg') }}" alt="Sasmit Manandhar"
+                            class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <h3 class="text-white font-bold">Sasmit Manandhar</h3>
+                            <p class="text-teal-100">Chief of Research</p>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-gray-600 text-sm">Leading our research initiatives, Dr. Manandhar focuses on
+                            bringing innovative medical solutions to our patients.</p>
+                        <div class="flex mt-4 space-x-2">
+                            <a href="#" class="text-teal-600 hover:text-teal-800"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="text-teal-600 hover:text-teal-800"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leader 4 -->
+                <div
+                    class="bg-white rounded-lg shadow-md overflow-hidden group hover:shadow-xl transition-shadow duration-300">
+                    <div class="relative overflow-hidden">
+                        <img src="{{ asset('logo.jpg') }}" alt="Amit Ghansela"
+                            class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <h3 class="text-white font-bold">Amit Ghansela</h3>
+                            <p class="text-teal-100">Chief Operations Officer</p>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-gray-600 text-sm">Responsible for the day-to-day operations of our hospital
+                            network, ensuring smooth service delivery to all patients.</p>
+                        <div class="flex mt-4 space-x-2">
+                            <a href="#" class="text-teal-600 hover:text-teal-800"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="text-teal-600 hover:text-teal-800"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements & Recognition -->
+    <section class="container mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold text-teal-800 text-center mb-3">Achievements & Recognition</h2>
+        <p class="text-gray-600 text-center mb-12">Awards and milestones that reflect our commitment to excellence</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Award 1 -->
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                <div class="flex items-start">
+                    <div class="bg-teal-100 p-3 rounded-full mr-4">
+                        <i class="fas fa-trophy text-orange-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-teal-800 mb-2">Excellence in Patient Care</h3>
+                        <p class="text-gray-500 mb-3">National Healthcare Awards, 2023</p>
+                        <p class="text-gray-600">Recognized for achieving the highest patient satisfaction scores and
+                            implementing innovative patient care protocols.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Award 2 -->
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                <div class="flex items-start">
+                    <div class="bg-teal-100 p-3 rounded-full mr-4">
+                        <i class="fas fa-medal text-orange-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-teal-800 mb-2">Cardiac Cath Lab Team of the Year</h3>
+                        <p class="text-gray-500 mb-3">Medical Excellence Forum, 2024</p>
+                        <p class="text-gray-600">Our cardiac team was recognized for their groundbreaking work in
+                            minimally invasive cardiac procedures.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Award 3 -->
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                <div class="flex items-start">
+                    <div class="bg-teal-100 p-3 rounded-full mr-4">
+                        <i class="fas fa-star text-orange-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-teal-800 mb-2">Green Hospital Certification</h3>
+                        <p class="text-gray-500 mb-3">Environmental Health Council, 2023</p>
+                        <p class="text-gray-600">Awarded for our sustainable practices and environmentally conscious
+                            hospital operations.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Award 4 -->
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                <div class="flex items-start">
+                    <div class="bg-teal-100 p-3 rounded-full mr-4">
+                        <i class="fas fa-certificate text-orange-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-teal-800 mb-2">Research Innovation Award</h3>
+                        <p class="text-gray-500 mb-3">Healthcare Innovation Summit, 2024</p>
+                        <p class="text-gray-600">Recognized for pioneering research in early cancer detection
+                            technologies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Involvement -->
+    <section class="bg-teal-600 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-white text-center mb-3">Community Involvement</h2>
+            <p class="text-teal-100 text-center mb-12">We believe in giving back to the communities we serve</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Initiative 1 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="{{ asset('logo.jpg') }}" alt="Free Health Camps" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-teal-800 mb-2">Free Health Camps</h3>
+                        <p class="text-gray-600 mb-4">We conduct regular free health camps in underserved communities,
+                            providing basic healthcare services and health education.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-user-md mr-2"></i>
+                            <span>15,000+ beneficiaries annually</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Initiative 2 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="{{ asset('logo.jpg') }}" alt="Medical Education Scholarships"
+                        class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-teal-800 mb-2">Medical Education Scholarships</h3>
+                        <p class="text-gray-600 mb-4">We support promising students from disadvantaged backgrounds
+                            pursuing education in healthcare and medicine.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-graduation-cap mr-2"></i>
+                            <span>50+ scholarships awarded yearly</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Initiative 3 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="{{ asset('logo.jpg') }}" alt="Health Awareness Programs" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-teal-800 mb-2">Health Awareness Programs</h3>
+                        <p class="text-gray-600 mb-4">We organize regular workshops and seminars on preventive
+                            healthcare, nutrition, and managing chronic conditions.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-heartbeat mr-2"></i>
+                            <span>100+ programs conducted annually</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="bg-teal-100 py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-teal-800 mb-6">Join Our Journey</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto mb-8">We're constantly growing and looking for passionate
+                healthcare professionals to join our team. Explore career opportunities or partner with us to make
+                healthcare more accessible.</p>
+
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#"
+                    class="inline-block bg-teal-600 text-white font-medium py-3 px-6 rounded-full hover:bg-teal-700 transition duration-300">
+                    <i class="fas fa-briefcase mr-2"></i> Careers
+                </a>
+                <a href="#"
+                    class="inline-block bg-white text-teal-600 font-medium py-3 px-6 rounded-full border border-teal-600 hover:bg-teal-50 transition duration-300">
+                    <i class="fas fa-handshake mr-2"></i> Partner With Us
+                </a>
+                <a href="#"
+                    class="inline-block bg-orange-600 text-white font-medium py-3 px-6 rounded-full hover:bg-orange-700 transition duration-300">
+                    <i class="fas fa-calendar-check mr-2"></i> Book Appointment
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+    <!-- Footer section (completing the previously truncated part) -->
+    <footer class="bg-gray-800 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap">
+                <div class="w-full md:w-1/4 mb-8">
+                    <div class="flex items-center mb-6">
+                        <img src="{{ asset('logo.jpg') }}" alt="Hospital Logo" class="h-10 mr-3 rounded">
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Modern Hospital</h3>
+                            <p class="text-xs text-gray-400">Temple of Healing</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-6">Naghuthana, Kathmandu, Province</p>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-phone-alt mr-3 text-teal-400"></i>
+                        <p>+977 01 4424776</p>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-gray-700 p-2 rounded-full hover:bg-teal-600 transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 p-2 rounded-full hover:bg-teal-600 transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 p-2 rounded-full hover:bg-teal-600 transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 p-2 rounded-full hover:bg-teal-600 transition duration-300">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="w-full md:w-1/4 mb-8">
+                    <h3 class="text-lg font-bold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-teal-400">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-teal-400">Our Doctors</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-teal-400">Departments</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-teal-400">Services</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-teal-400">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="w-full md:w-1/4 mb-8">
+                    <h3 class="text-lg font-bold mb-6">Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-teal-400">Emergency Care</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-teal-400">Outpatient Services</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-teal-400">Diagnostics</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-teal-400">Specialized Care</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-teal-400">Surgery</a></li>
+                    </ul>
+                </div>
+
+                <div class="w-full md:w-1/4 mb-8">
+                    <h3 class="text-lg font-bold mb-6">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">Subscribe to receive the latest news and updates.</p>
+                    <div class="flex mb-4">
+                        <input type="email" placeholder="Your email"
+                            class="px-4 py-2 rounded-l-lg w-full focus:outline-none">
+                        <button
+                            class="bg-teal-600 text-white px-4 py-2 rounded-r-lg hover:bg-teal-700 transition duration-300">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="bg-teal-600 p-2 rounded-full mr-3">
+                            <i class="fas fa-headset text-white"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-400">24/7 Support</p>
+                            <p class="font-bold">Book Appointment</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 mt-8 border-t border-gray-700">
+                <div class="flex flex-wrap justify-between">
+                    <div class="w-full md:w-auto mb-4 md:mb-0">
+                        <p class="text-gray-400">&copy; 2025 Modern Hospital | All Rights Reserved</p>
+                    </div>
+                    <div class="w-full md:w-auto">
+                        <ul class="flex space-x-6">
+                            <li><a href="#" class="text-gray-400 hover:text-teal-400">Privacy Policy</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-teal-400">Terms</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-teal-400">Sitemap</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-gray-500 text-sm mt-4 text-center">
+                    <p>Developed by Example Dev Team</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat button -->
+        <div class="fixed bottom-6 right-6">
+            <button class="bg-teal-600 text-white p-4 rounded-full shadow-lg hover:bg-teal-700 transition duration-300">
+                <i class="fas fa-comments text-2xl"></i>
+            </button>
+        </div>
+    </footer>
+</body>
+
+</html>
