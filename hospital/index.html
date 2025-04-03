@@ -265,762 +265,690 @@
 
 
 
-<!-- Complete Hero Section Redesign -->
-<section class="relative">
-    <!-- Background Elements -->
-    <div class="absolute inset-0 bg-gradient-to-br from-teal-50 to-teal-100 -z-10"></div>
-    <div class="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-white to-transparent -z-10"></div>
+    <!-- Complete Hero Section Redesign -->
+    <section class="relative">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 bg-gradient-to-br from-teal-50 to-teal-100 -z-10"></div>
+        <div class="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-white to-transparent -z-10"></div>
 
-    <!-- Decorative Shapes -->
-    <div class="absolute top-0 right-0 w-1/2 h-full overflow-hidden -z-10">
-        <div class="absolute -right-24 -top-24 w-96 h-96 bg-teal-200 rounded-full opacity-30 blur-3xl"></div>
-        <div class="absolute right-1/4 top-1/3 w-64 h-64 bg-orange-200 rounded-full opacity-20 blur-2xl"></div>
-    </div>
-    <div class="absolute -bottom-16 -left-16 w-64 h-64 bg-orange-100 rounded-full opacity-30 blur-2xl -z-10"></div>
+        <!-- Decorative Shapes -->
+        <div class="absolute top-0 right-0 w-1/2 h-full overflow-hidden -z-10">
+            <div class="absolute -right-24 -top-24 w-96 h-96 bg-teal-200 rounded-full opacity-30 blur-3xl"></div>
+            <div class="absolute right-1/4 top-1/3 w-64 h-64 bg-orange-200 rounded-full opacity-20 blur-2xl"></div>
+        </div>
+        <div class="absolute -bottom-16 -left-16 w-64 h-64 bg-orange-100 rounded-full opacity-30 blur-2xl -z-10"></div>
 
-    <!-- Wave Pattern -->
-    <div class="absolute -bottom-1 left-0 right-0 -z-10">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="w-full">
-            <path fill="#ffffff" fill-opacity="1"
-                d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,170.7C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
-            </path>
-        </svg>
-    </div>
+        <!-- Wave Pattern -->
+        <div class="absolute -bottom-1 left-0 right-0 -z-10">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="w-full">
+                <path fill="#ffffff" fill-opacity="1"
+                    d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,170.7C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                </path>
+            </svg>
+        </div>
 
-    <!-- Main Content Container -->
-    <div class="container mx-auto px-4 lg:px-12 pt-12 md:pt-16 lg:pt-10 pb-24 md:pb-32">
-        <!-- Main Hero Layout -->
-        <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-            <!-- Left Column: Content -->
-            <div class="w-full lg:w-6/12 order-2 lg:order-1">
+        <!-- Main Content Container -->
+        <div class="container mx-auto px-4 lg:px-12 pt-12 md:pt-16 lg:pt-10 pb-24 md:pb-32">
+            <!-- Main Hero Layout -->
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+                <!-- Left Column: Content -->
+                <div class="w-full lg:w-6/12 order-2 lg:order-1">
 
-                <!-- Heading Area -->
-                <h1 class=" md:text-5xl xl:text-6xl font-bold text-teal-800 leading-tight mb-6">
-                    Prepared for the
-                    <span class="relative">
-                        <span class="inline-block text-teal-600 animate-pulse">Unexpected</span>
-                    </span>
-                    <span class="text-orange-600 ml-2">24/7</span>
-                </h1>
+                    <!-- Heading Area -->
+                    <h1 class=" md:text-5xl xl:text-6xl font-bold text-teal-800 leading-tight mb-6">
+                        Prepared for the
+                        <span class="relative">
+                            <span class="inline-block text-teal-600 animate-pulse">Unexpected</span>
+                        </span>
+                        <span class="text-orange-600 ml-2">24/7</span>
+                    </h1>
 
-                <!-- Description -->
-                <p class="text-lg text-gray-700 mb-8 max-w-xl">
-                    Expert medical care when you need it most. Our specialists are dedicated to providing compassionate,
-                    world-class healthcare for you and your family.
-                </p>
+                    <!-- Description -->
+                    <p class="text-lg text-gray-700 mb-8 max-w-xl">
+                        Expert medical care when you need it most. Our specialists are dedicated to providing
+                        compassionate,
+                        world-class healthcare for you and your family.
+                    </p>
 
-                <!-- CTA Area -->
-                <div class="flex flex-col sm:flex-row gap-4 mb-12">
-                    {{-- <button
-                        class="bg-teal-600 hover:bg-teal-700 text-white text-lg font-medium px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-2">
-                        <span>Book Appointment</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
-                    </button> --}}
-                    <a href="/contact">
-                        <button
-                            class="bg-teal-600 hover:bg-teal-700 text-white text-lg font-medium px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-2">
-                            <span>Book Appointment</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
-                        </button>
-                    </a>
+                    <!-- CTA Area -->
+                    <div class="flex flex-col sm:flex-row gap-4 mb-12">
+
+                        <a href="/contact">
+                            <button
+                                class="bg-teal-600 hover:bg-teal-700 text-white text-lg font-medium px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-2">
+                                <span>Book Appointment</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                            </button>
+                        </a>
+                    </div>
                 </div>
 
-                {{-- <!-- Trust Indicators -->
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
-                    <div class="flex flex-col items-center text-center">
-                        <div
-                            class="flex items-center justify-center w-12 h-12 mb-3 bg-teal-100 text-teal-600 rounded-full">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                            </svg>
-                        </div>
-                        <span class="text-2xl font-bold text-teal-800">100+</span>
-                        <span class="text-sm text-gray-600">Specialists</span>
-                    </div>
-                    <div class="flex flex-col items-center text-center">
-                        <div
-                            class="flex items-center justify-center w-12 h-12 mb-3 bg-orange-100 text-orange-600 rounded-full">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                        </div>
-                        <span class="text-2xl font-bold text-teal-800">24/7</span>
-                        <span class="text-sm text-gray-600">Emergency</span>
-                    </div>
-                    <div class="flex flex-col items-center text-center">
-                        <div
-                            class="flex items-center justify-center w-12 h-12 mb-3 bg-teal-100 text-teal-600 rounded-full">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                            </svg>
-                        </div>
-                        <span class="text-2xl font-bold text-teal-800">50+</span>
-                        <span class="text-sm text-gray-600">Departments</span>
-                    </div>
-                    <div class="flex flex-col items-center text-center">
-                        <div
-                            class="flex items-center justify-center w-12 h-12 mb-3 bg-orange-100 text-orange-600 rounded-full">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <!-- Mattress -->
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 18h20v-8H2v8z" />
-                                <!-- Headboard -->
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 10V6a2 2 0 012-2h16a2 2 0 012 2v4" />
-                                <!-- Legs -->
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18v4M18 18v4" />
-                                <!-- Blanket or Sheet -->
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 14h20" />
-                              </svg>
-                        </div>
-                        <span class="text-2xl font-bold text-teal-800">100+</span>
-                        <span class="text-sm text-gray-600">Beds</span>
-                    </div>
-                </div> --}}
-            </div>
+                <!-- Right Column: Interactive Card Slider -->
+                <div class="w-full lg:w-6/12 order-1 lg:order-2">
+                    <div class="relative">
+                        <!-- Main Image Card -->
+                        <div class="bg-white rounded-3xl shadow-2xl overflow-hidden">
+                            <!-- Card Slider -->
+                            <div class="hero-slider relative h-96 sm:h-[28rem] lg:h-[32rem]">
+                                <!-- Slide 1 -->
+                                <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-out">
+                                    <div class="flex items-center h-full">
+                                        <!-- Image Side -->
+                                        <div class="w-full relative h-full">
+                                            <img src="https://d1l0gza1nowsqe.cloudfront.net/wp-content/uploads/sites/4/2024/06/Lucy-Nugent-CEO-of-TUH-with-the-Cardiac-Cath-Lab-Team-of-the-Year-Award-Winners-620.jpg"
+                                                alt="Award Winning Medical Team" class="w-full h-full object-cover">
+                                            <!-- Content Overlay -->
+                                            <div
+                                                class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-8">
 
-            <!-- Right Column: Interactive Card Slider -->
-            <div class="w-full lg:w-6/12 order-1 lg:order-2">
-                <div class="relative">
-                    <!-- Main Image Card -->
-                    <div class="bg-white rounded-3xl shadow-2xl overflow-hidden">
-                        <!-- Card Slider -->
-                        <div class="hero-slider relative h-96 sm:h-[28rem] lg:h-[32rem]">
-                            <!-- Slide 1 -->
-                            <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-out">
-                                <div class="flex items-center h-full">
-                                    <!-- Image Side -->
-                                    <div class="w-full relative h-full">
-                                        <img src="https://d1l0gza1nowsqe.cloudfront.net/wp-content/uploads/sites/4/2024/06/Lucy-Nugent-CEO-of-TUH-with-the-Cardiac-Cath-Lab-Team-of-the-Year-Award-Winners-620.jpg"
-                                            alt="Award Winning Medical Team" class="w-full h-full object-cover">
-                                        <!-- Content Overlay -->
-                                        <div
-                                            class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-8">
-
-                                            <h3 class="text-white text-2xl font-bold">Award-Winning Cardiac Team</h3>
-                                            <p class="text-gray-200 mt-2">Our cardiac specialists have been recognized
-                                                for their outstanding contributions to patient care.</p>
-                                            <button class="mt-4 inline-flex items-center text-white font-medium">
-                                                <span>Meet our team</span>
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2"
-                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                                </svg>
-                                            </button>
+                                                <h3 class="text-white text-2xl font-bold">Award-Winning Cardiac Team
+                                                </h3>
+                                                <p class="text-gray-200 mt-2">Our cardiac specialists have been
+                                                    recognized
+                                                    for their outstanding contributions to patient care.</p>
+                                                <button class="mt-4 inline-flex items-center text-white font-medium">
+                                                    <span>Meet our team</span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2"
+                                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                                    </svg>
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <!-- Slide 2 -->
-                            <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-out">
-                                <div class="flex items-center h-full">
-                                    <!-- Image Side -->
-                                    <div class="w-full relative h-full">
-                                        <img src="https://epomedicine.com/wp-content/uploads/2020/08/medical.jpg"
-                                            alt="Advanced Medical Equipment" class="w-full h-full object-cover">
-                                        <!-- Content Overlay -->
-                                        <div
-                                            class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-8">
+                                <!-- Slide 2 -->
+                                <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-out">
+                                    <div class="flex items-center h-full">
+                                        <!-- Image Side -->
+                                        <div class="w-full relative h-full">
+                                            <img src="https://epomedicine.com/wp-content/uploads/2020/08/medical.jpg"
+                                                alt="Advanced Medical Equipment" class="w-full h-full object-cover">
+                                            <!-- Content Overlay -->
+                                            <div
+                                                class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-8">
 
-                                            <h3 class="text-white text-2xl font-bold">Cutting-Edge Equipment</h3>
-                                            <p class="text-gray-200 mt-2">We invest in the latest medical technology to
-                                                provide accurate diagnoses and effective treatments.</p>
-                                            <button class="mt-4 inline-flex items-center text-white font-medium">
-                                                <span>Explore our facilities</span>
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2"
-                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                                </svg>
-                                            </button>
+                                                <h3 class="text-white text-2xl font-bold">Cutting-Edge Equipment</h3>
+                                                <p class="text-gray-200 mt-2">We invest in the latest medical technology
+                                                    to
+                                                    provide accurate diagnoses and effective treatments.</p>
+                                                <button class="mt-4 inline-flex items-center text-white font-medium">
+                                                    <span>Explore our facilities</span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2"
+                                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                                    </svg>
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <!-- Slide 3 -->
-                            <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-out">
-                                <div class="flex items-center h-full">
-                                    <!-- Image Side -->
-                                    <div class="w-full relative h-full">
-                                        <img src="https://shiftcare.com/us/img/asset/YXNzZXRzL3VsdGltYXRlLWhvbWUtY2FyZS5qcGc=/ultimate-home-care.jpg?w=1800&h=1000&s=78bf12f6acaf7100204aa851b5baef69"
-                                            alt="Patient Care" class="w-full h-full object-cover">
-                                        <!-- Content Overlay -->
-                                        <div
-                                            class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-8">
+                                <!-- Slide 3 -->
+                                <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-out">
+                                    <div class="flex items-center h-full">
+                                        <!-- Image Side -->
+                                        <div class="w-full relative h-full">
+                                            <img src="https://shiftcare.com/us/img/asset/YXNzZXRzL3VsdGltYXRlLWhvbWUtY2FyZS5qcGc=/ultimate-home-care.jpg?w=1800&h=1000&s=78bf12f6acaf7100204aa851b5baef69"
+                                                alt="Patient Care" class="w-full h-full object-cover">
+                                            <!-- Content Overlay -->
+                                            <div
+                                                class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-8">
 
-                                            <h3 class="text-white text-2xl font-bold">Compassionate Care</h3>
-                                            <p class="text-gray-200 mt-2">We treat every patient with dignity, respect,
-                                                and personalized attention throughout their healthcare journey.</p>
-                                            <button class="mt-4 inline-flex items-center text-white font-medium">
-                                                <span>Patient testimonials</span>
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2"
-                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                                </svg>
-                                            </button>
+                                                <h3 class="text-white text-2xl font-bold">Compassionate Care</h3>
+                                                <p class="text-gray-200 mt-2">We treat every patient with dignity,
+                                                    respect,
+                                                    and personalized attention throughout their healthcare journey.</p>
+                                                <button class="mt-4 inline-flex items-center text-white font-medium">
+                                                    <span>Patient testimonials</span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2"
+                                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                                    </svg>
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <!-- Slider Navigation -->
-                            <div class="absolute -bottom-5 left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
-                                <button
-                                    class="slide-dot w-12 h-2 rounded-full bg-gray-300 transition-all duration-300 hover:bg-gray-400"></button>
-                                <button
-                                    class="slide-dot w-12 h-2 rounded-full bg-gray-300 transition-all duration-300 hover:bg-gray-400"></button>
-                                <button
-                                    class="slide-dot w-12 h-2 rounded-full bg-gray-300 transition-all duration-300 hover:bg-gray-400"></button>
+                                <!-- Slider Navigation -->
+                                <div class="absolute -bottom-5 left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
+                                    <button
+                                        class="slide-dot w-12 h-2 rounded-full bg-gray-300 transition-all duration-300 hover:bg-gray-400"></button>
+                                    <button
+                                        class="slide-dot w-12 h-2 rounded-full bg-gray-300 transition-all duration-300 hover:bg-gray-400"></button>
+                                    <button
+                                        class="slide-dot w-12 h-2 rounded-full bg-gray-300 transition-all duration-300 hover:bg-gray-400"></button>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Floating Search Bar -->
-                    {{-- <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-5/6 max-w-lg">
-                        <div class="relative group">
-                            <div
-                                class="absolute -inset-1 bg-gradient-to-r from-teal-600 to-orange-600 rounded-full opacity-70 blur group-hover:opacity-100 transition duration-200">
-                            </div>
-                            <div class="relative flex items-center bg-white rounded-full p-1 shadow-xl">
-                                <input type="text" placeholder="Search for doctors or services"
-                                    class="w-full pl-5 pr-12 py-3 rounded-full text-gray-700 border-none focus:outline-none focus:ring-0">
-                                <button
-                                    class="absolute right-1 bg-teal-600 hover:bg-teal-700 text-white p-3 rounded-full transition-colors duration-300">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                                    </svg>
-                                </button>
-                            </div>
+
+
+                        <!-- Accent Elements -->
+                        <div
+                            class="absolute -top-4 -right-4 w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center shadow-lg text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                            </svg>
                         </div>
-                    </div> --}}
-
-                    <!-- Accent Elements -->
-                    <div
-                        class="absolute -top-4 -right-4 w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center shadow-lg text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                        </svg>
-                    </div>
-                    <div class="absolute -left-4 top-1/4 w-8 h-8 bg-teal-500 rounded-full shadow-lg hidden md:block">
-                    </div>
-                    <div
-                        class="absolute -left-2 bottom-1/4 w-4 h-4 bg-orange-400 rounded-full shadow-lg hidden md:block">
+                        <div
+                            class="absolute -left-4 top-1/4 w-8 h-8 bg-teal-500 rounded-full shadow-lg hidden md:block">
+                        </div>
+                        <div
+                            class="absolute -left-2 bottom-1/4 w-4 h-4 bg-orange-400 rounded-full shadow-lg hidden md:block">
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Bottom Stats Strip -->
+            <div
+                class="hidden lg:flex mt-16 bg-white bg-opacity-80 backdrop-blur-sm rounded-xl shadow-md p-4 justify-between">
+                <div class="text-center px-6">
+                    <div class="text-2xl font-bold text-teal-700">100+</div>
+                    <div class="text-sm text-gray-600">Specialist Doctors</div>
+                </div>
+                <div class="text-center border-l border-r border-gray-200 px-6">
+                    <div class="text-2xl font-bold text-teal-700">24/7</div>
+                    <div class="text-sm text-gray-600">Emergency Care</div>
+                </div>
+                <div class="text-center border-r border-gray-200 px-6">
+                    <div class="text-2xl font-bold text-teal-700">50+</div>
+                    <div class="text-sm text-gray-600">Departments</div>
+                </div>
+                <div class="text-center px-6">
+                    <div class="text-2xl font-bold text-teal-700">98%</div>
+                    <div class="text-sm text-gray-600">Patient Satisfaction</div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <!-- Bottom Stats Strip -->
-        <div
-            class="hidden lg:flex mt-16 bg-white bg-opacity-80 backdrop-blur-sm rounded-xl shadow-md p-4 justify-between">
-            <div class="text-center px-6">
-                <div class="text-2xl font-bold text-teal-700">100+</div>
-                <div class="text-sm text-gray-600">Specialist Doctors</div>
-            </div>
-            <div class="text-center border-l border-r border-gray-200 px-6">
-                <div class="text-2xl font-bold text-teal-700">24/7</div>
-                <div class="text-sm text-gray-600">Emergency Care</div>
-            </div>
-            <div class="text-center border-r border-gray-200 px-6">
-                <div class="text-2xl font-bold text-teal-700">50+</div>
-                <div class="text-sm text-gray-600">Departments</div>
-            </div>
-            <div class="text-center px-6">
-                <div class="text-2xl font-bold text-teal-700">98%</div>
-                <div class="text-sm text-gray-600">Patient Satisfaction</div>
-            </div>
-        </div>
-    </div>
-</section>
+    <!-- Script for the Hero Slider -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.slide-dot');
+            let currentSlide = 0;
+            let slideInterval;
 
-<!-- Script for the Hero Slider -->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.slide-dot');
-        let currentSlide = 0;
-        let slideInterval;
+            function showSlide(index) {
+                // Hide all slides
+                slides.forEach(slide => {
+                    slide.classList.remove('opacity-100');
+                    slide.classList.add('opacity-0');
+                });
 
-        function showSlide(index) {
-            // Hide all slides
-            slides.forEach(slide => {
-                slide.classList.remove('opacity-100');
-                slide.classList.add('opacity-0');
-            });
+                // Reset all dots
+                dots.forEach(dot => {
+                    dot.classList.remove('bg-teal-600');
+                    dot.classList.add('bg-gray-300');
+                });
 
-            // Reset all dots
-            dots.forEach(dot => {
-                dot.classList.remove('bg-teal-600');
-                dot.classList.add('bg-gray-300');
-            });
+                // Show current slide
+                slides[index].classList.remove('opacity-0');
+                slides[index].classList.add('opacity-100');
 
-            // Show current slide
-            slides[index].classList.remove('opacity-0');
-            slides[index].classList.add('opacity-100');
+                // Highlight current dot
+                dots[index].classList.remove('bg-gray-300');
+                dots[index].classList.add('bg-teal-600');
+            }
 
-            // Highlight current dot
-            dots[index].classList.remove('bg-gray-300');
-            dots[index].classList.add('bg-teal-600');
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }
-
-        // Initialize
-        showSlide(0);
-
-        // Start auto rotation
-        slideInterval = setInterval(nextSlide, 5000);
-
-        // Add click handlers to dots
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                clearInterval(slideInterval);
-                currentSlide = index;
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
                 showSlide(currentSlide);
-                slideInterval = setInterval(nextSlide, 5000);
+            }
+
+            // Initialize
+            showSlide(0);
+
+            // Start auto rotation
+            slideInterval = setInterval(nextSlide, 5000);
+
+            // Add click handlers to dots
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    clearInterval(slideInterval);
+                    currentSlide = index;
+                    showSlide(currentSlide);
+                    slideInterval = setInterval(nextSlide, 5000);
+                });
             });
         });
-    });
-</script>
+    </script>
 
 
-<!-- Quick Info Section -->
-<section class="container mx-auto px-4 py-16">
-    <h3 class="text-2xl font-bold text-teal-800 mb-8">We can help you know about...</h3>
+    <!-- Quick Info Section -->
+    <section class="container mx-auto px-4 py-16">
+        <h3 class="text-2xl font-bold text-teal-800 mb-8">We can help you know about...</h3>
 
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div class="bg-white p-6 rounded-lg shadow-md flex items-center">
-            <div class="bg-teal-100 p-3 rounded-full mr-4">
-                <i class="fas fa-ambulance text-orange-600 text-xl"></i>
-            </div>
-            <div>
-                <h4 class="font-semibold text-teal-800">Emergency Services</h4>
-            </div>
-        </div>
-
-        <div class="bg-white p-6 rounded-lg shadow-md flex items-center">
-            <div class="bg-teal-100 p-3 rounded-full mr-4">
-                <i class="fas fa-stethoscope text-orange-600 text-xl"></i>
-            </div>
-            <div>
-                <h4 class="font-semibold text-teal-800">Variety of Services</h4>
-            </div>
-        </div>
-
-        <div class="bg-white p-6 rounded-lg shadow-md flex items-center">
-            <div class="bg-teal-100 p-3 rounded-full mr-4">
-                <i class="fas fa-user-md text-orange-600 text-xl"></i>
-            </div>
-            <div>
-                <h4 class="font-semibold text-teal-800">Doctors</h4>
-            </div>
-        </div>
-
-        <div class="bg-white p-6 rounded-lg shadow-md flex items-center">
-            <div class="bg-teal-100 p-3 rounded-full mr-4">
-                <i class="fas fa-calendar-check text-orange-600 text-xl"></i>
-            </div>
-            <div>
-                <h4 class="font-semibold text-teal-800">Easy Appointments</h4>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Why Choose Us Section -->
-<section class="container mx-auto px-4 py-16">
-    <div class="flex flex-wrap items-center">
-        <div class="w-full md:w-1/2 mb-8 md:mb-0">
-            <h2 class="text-3xl font-bold text-teal-800 mb-6">Why Choose Modern Hospital?</h2>
-            <p class="text-gray-600 mb-6">Established by a group of Health Care enthusiasts in 2020, Modern
-                Hospital has a critical presence across the region. We have made it our mission to provide
-                world-class health care to everybody who needs it.</p>
-
-            <p class="text-gray-600 mb-6">We're constantly innovating to introduce life-saving treatments and
-                diagnostic services. Modern Hospital has launched more than 100 specialized services in just a few
-                years.</p>
-
-            <div class="flex items-center mb-6">
-                <div class="bg-teal-100 p-2 rounded-full mr-4">
-                    <i class="fas fa-check text-orange-600"></i>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div class="bg-white p-6 rounded-lg shadow-md flex items-center">
+                <div class="bg-teal-100 p-3 rounded-full mr-4">
+                    <i class="fas fa-ambulance text-orange-600 text-xl"></i>
                 </div>
-                <p class="text-gray-700">24/7 Emergency Services</p>
-            </div>
-
-            <div class="flex items-center mb-6">
-                <div class="bg-teal-100 p-2 rounded-full mr-4">
-                    <i class="fas fa-check text-orange-600"></i>
+                <div>
+                    <h4 class="font-semibold text-teal-800">Emergency Services</h4>
                 </div>
-                <p class="text-gray-700">Specialized Departments</p>
             </div>
 
-            <div class="flex items-center">
-                <div class="bg-teal-100 p-2 rounded-full mr-4">
-                    <i class="fas fa-check text-orange-600"></i>
+            <div class="bg-white p-6 rounded-lg shadow-md flex items-center">
+                <div class="bg-teal-100 p-3 rounded-full mr-4">
+                    <i class="fas fa-stethoscope text-orange-600 text-xl"></i>
                 </div>
-                <p class="text-gray-700">Expert Medical Professionals</p>
-            </div>
-        </div>
-
-        <div class="w-full md:w-1/2">
-            <img src="https://d1l0gza1nowsqe.cloudfront.net/wp-content/uploads/sites/4/2024/06/Lucy-Nugent-CEO-of-TUH-with-the-Cardiac-Cath-Lab-Team-of-the-Year-Award-Winners-620.jpg"
-                alt="Hospital Building" alt="Hospital Team" class="w-full rounded-lg shadow-lg">
-        </div>
-    </div>
-</section>
-
-<!-- Clinical Excellence Section -->
-<section class="bg-gray-50 py-16">
-    <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-teal-800 text-center mb-3">Explore our Centres of Clinical Excellence
-        </h2>
-        <p class="text-gray-600 text-center mb-12">Learn about the world-class health care we provide</p>
-
-        <div class="flex flex-wrap items-center mb-12">
-            <div class="w-full md:w-1/3 mb-8 md:mb-0">
-                <img src="https://d1l0gza1nowsqe.cloudfront.net/wp-content/uploads/sites/4/2024/06/Lucy-Nugent-CEO-of-TUH-with-the-Cardiac-Cath-Lab-Team-of-the-Year-Award-Winners-620.jpg"
-                    alt="Hospital Building" alt="Surgery" class="w-full rounded-lg shadow-lg">
+                <div>
+                    <h4 class="font-semibold text-teal-800">Variety of Services</h4>
+                </div>
             </div>
 
-            <div class="w-full md:w-2/3 md:pl-12">
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="bg-white p-4 rounded-lg shadow-md text-center">
-                        <div class="flex justify-center mb-3">
-                            <i class="fas fa-heartbeat text-orange-600 text-2xl"></i>
-                        </div>
-                        <h4 class="font-medium text-teal-800 text-sm">Internal Medicine</h4>
-                    </div>
+            <div class="bg-white p-6 rounded-lg shadow-md flex items-center">
+                <div class="bg-teal-100 p-3 rounded-full mr-4">
+                    <i class="fas fa-user-md text-orange-600 text-xl"></i>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-teal-800">Doctors</h4>
+                </div>
+            </div>
 
-                    <div class="bg-white p-4 rounded-lg shadow-md text-center">
-                        <div class="flex justify-center mb-3">
-                            <i class="fas fa-brain text-orange-600 text-2xl"></i>
-                        </div>
-                        <h4 class="font-medium text-teal-800 text-sm">Neurology</h4>
-                    </div>
-
-                    <div class="bg-white p-4 rounded-lg shadow-md text-center">
-                        <div class="flex justify-center mb-3">
-                            <i class="fas fa-heart text-orange-600 text-2xl"></i>
-                        </div>
-                        <h4 class="font-medium text-teal-800 text-sm">Cardiology</h4>
-                    </div>
-
-                    <div class="bg-white p-4 rounded-lg shadow-md text-center">
-                        <div class="flex justify-center mb-3">
-                            <i class="fas fa-lungs text-orange-600 text-2xl"></i>
-                        </div>
-                        <h4 class="font-medium text-teal-800 text-sm">Pulmonology & Hepatology</h4>
-                    </div>
-
-                    <div class="bg-white p-4 rounded-lg shadow-md text-center">
-                        <div class="flex justify-center mb-3">
-                            <i class="fas fa-pills text-orange-600 text-2xl"></i>
-                        </div>
-                        <h4 class="font-medium text-teal-800 text-sm">Nephrology</h4>
-                    </div>
-
-                    <div class="bg-white p-4 rounded-lg shadow-md text-center">
-                        <div class="flex justify-center mb-3">
-                            <i class="fas fa-bone text-orange-600 text-2xl"></i>
-                        </div>
-                        <h4 class="font-medium text-teal-800 text-sm">Orthopedics</h4>
-                    </div>
-
-                    <div class="bg-white p-4 rounded-lg shadow-md text-center">
-                        <div class="flex justify-center mb-3">
-                            <i class="fas fa-tooth text-orange-600 text-2xl"></i>
-                        </div>
-                        <h4 class="font-medium text-teal-800 text-sm">Dental & Maxillofacial Surgery</h4>
-                    </div>
-
-                    <div class="bg-white p-4 rounded-lg shadow-md text-center">
-                        <div class="flex justify-center mb-3">
-                            <i class="fas fa-eye text-orange-600 text-2xl"></i>
-                        </div>
-                        <h4 class="font-medium text-teal-800 text-sm">Ophthalmology</h4>
-                    </div>
+            <div class="bg-white p-6 rounded-lg shadow-md flex items-center">
+                <div class="bg-teal-100 p-3 rounded-full mr-4">
+                    <i class="fas fa-calendar-check text-orange-600 text-xl"></i>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-teal-800">Easy Appointments</h4>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="text-center">
-            <a href="#"
-                class="inline-block bg-teal-600 text-white font-medium py-3 px-6 rounded-full hover:bg-teal-700 transition duration-300">View
-                All Departments</a>
-        </div>
-    </div>
-</section>
-
-<!-- Testimonial Section -->
-<section class="bg-teal-600 py-16">
-    <div class="container mx-auto px-4">
+    <!-- Why Choose Us Section -->
+    <section class="container mx-auto px-4 py-16">
         <div class="flex flex-wrap items-center">
             <div class="w-full md:w-1/2 mb-8 md:mb-0">
-                <h2 class="text-3xl font-bold text-white mb-6">From the people</h2>
-                <p class="text-teal-100 mb-6">We love hearing from our patients. Your feedback is the reason we're
-                    here and what motivates us to excel.</p>
+                <h2 class="text-3xl font-bold text-teal-800 mb-6">Why Choose Modern Hospital?</h2>
+                <p class="text-gray-600 mb-6">Established by a group of Health Care enthusiasts in 2020, Modern
+                    Hospital has a critical presence across the region. We have made it our mission to provide
+                    world-class health care to everybody who needs it.</p>
 
-                <div class="bg-white p-6 rounded-lg shadow-lg mb-6">
-                    <p class="text-gray-600 mb-4">I am very impressed and grateful for hospital team of doctors and
-                        ICU staff. Thank you all for your kindness and support during this difficult time of care.
-                        Once again thank you and continue to do good work that makes our lives better.</p>
-                    <div class="flex items-center">
-                        <img src="{{ asset('logo.jpg') }}" alt="Patient" class="w-12 h-12 rounded-full mr-4">
-                        <div>
-                            <p class="font-medium text-teal-800">Amit Ghansela</p>
-                            <p class="text-sm text-gray-500">Patient</p>
-                        </div>
+                <p class="text-gray-600 mb-6">We're constantly innovating to introduce life-saving treatments and
+                    diagnostic services. Modern Hospital has launched more than 100 specialized services in just a few
+                    years.</p>
+
+                <div class="flex items-center mb-6">
+                    <div class="bg-teal-100 p-2 rounded-full mr-4">
+                        <i class="fas fa-check text-orange-600"></i>
                     </div>
+                    <p class="text-gray-700">24/7 Emergency Services</p>
+                </div>
+
+                <div class="flex items-center mb-6">
+                    <div class="bg-teal-100 p-2 rounded-full mr-4">
+                        <i class="fas fa-check text-orange-600"></i>
+                    </div>
+                    <p class="text-gray-700">Specialized Departments</p>
                 </div>
 
                 <div class="flex items-center">
-                    <button class="bg-teal-700 text-white p-2 rounded-full mr-2 hover:bg-teal-800">
-                        <i class="fas fa-arrow-left"></i>
-                    </button>
-                    <button class="bg-teal-700 text-white p-2 rounded-full hover:bg-teal-800">
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
+                    <div class="bg-teal-100 p-2 rounded-full mr-4">
+                        <i class="fas fa-check text-orange-600"></i>
+                    </div>
+                    <p class="text-gray-700">Expert Medical Professionals</p>
                 </div>
             </div>
 
-            <div class="w-full md:w-1/2 md:pl-12">
-                <img src="{{ asset('logo.jpg') }}" alt="Hospital Building" class="w-full rounded-lg shadow-lg">
+            <div class="w-full md:w-1/2">
+                <img src="https://d1l0gza1nowsqe.cloudfront.net/wp-content/uploads/sites/4/2024/06/Lucy-Nugent-CEO-of-TUH-with-the-Cardiac-Cath-Lab-Team-of-the-Year-Award-Winners-620.jpg"
+                    alt="Hospital Building" alt="Hospital Team" class="w-full rounded-lg shadow-lg">
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Corporate Partners Section -->
-<section class="container mx-auto px-4 py-16">
-    <h2 class="text-3xl font-bold text-teal-800 text-center mb-12">Our Corporate Partners</h2>
+    <!-- Clinical Excellence Section -->
+    <section class="bg-gray-50 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-teal-800 text-center mb-3">Explore our Centres of Clinical Excellence
+            </h2>
+            <p class="text-gray-600 text-center mb-12">Learn about the world-class health care we provide</p>
 
-    <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
-        <div class="flex items-center justify-center h-40">
-            <img src="https://www.tha.org/wp-content/uploads/2022/03/THA_EP_Seal_200.jpg" alt="Partner 1"
-                class="w-full h-full object-contain p-2">
-        </div>
-        <div class="flex items-center justify-center h-40">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2FRbbka5oDQIen0YShrAL11QE-c3nmRP-SgJeaBSj5wgh4YpW3xmzalGkp574Kj7VuWQ&usqp=CAU"
-                alt="Partner 2" class="w-full h-full object-contain p-2">
-        </div>
-        <div class="flex items-center justify-center h-40">
-            <img src="https://www.mha.org/wp-content/uploads/2021/09/endorsed-business-partner-program-logo-min.jpg"
-                alt="Partner 3" class="w-full h-full object-contain p-2">
-        </div>
-        <div class="flex items-center justify-center h-40">
-            <img src="https://ihf-fih.org/wp-content/uploads/2022/10/HHMGlobal-logo.png" alt="Partner 4"
-                class="w-full h-full object-contain p-2">
-        </div>
-        <div class="flex items-center justify-center h-40">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrEHBGeXWX4WYELlLs0PG7OsZPcIHHtTjOBQ&s"
-                alt="Partner 5" class="w-full h-full object-contain p-2">
-        </div>
-    </div>
-</section>
+            <div class="flex flex-wrap items-center mb-12">
+                <div class="w-full md:w-1/3 mb-8 md:mb-0">
+                    <img src="https://d1l0gza1nowsqe.cloudfront.net/wp-content/uploads/sites/4/2024/06/Lucy-Nugent-CEO-of-TUH-with-the-Cardiac-Cath-Lab-Team-of-the-Year-Award-Winners-620.jpg"
+                        alt="Hospital Building" alt="Surgery" class="w-full rounded-lg shadow-lg">
+                </div>
 
-<!-- Blog Section -->
-<section class="bg-gray-50 py-16">
-    <div class="container mx-auto px-4">
+                <div class="w-full md:w-2/3 md:pl-12">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="bg-white p-4 rounded-lg shadow-md text-center">
+                            <div class="flex justify-center mb-3">
+                                <i class="fas fa-heartbeat text-orange-600 text-2xl"></i>
+                            </div>
+                            <h4 class="font-medium text-teal-800 text-sm">Internal Medicine</h4>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-lg shadow-md text-center">
+                            <div class="flex justify-center mb-3">
+                                <i class="fas fa-brain text-orange-600 text-2xl"></i>
+                            </div>
+                            <h4 class="font-medium text-teal-800 text-sm">Neurology</h4>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-lg shadow-md text-center">
+                            <div class="flex justify-center mb-3">
+                                <i class="fas fa-heart text-orange-600 text-2xl"></i>
+                            </div>
+                            <h4 class="font-medium text-teal-800 text-sm">Cardiology</h4>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-lg shadow-md text-center">
+                            <div class="flex justify-center mb-3">
+                                <i class="fas fa-lungs text-orange-600 text-2xl"></i>
+                            </div>
+                            <h4 class="font-medium text-teal-800 text-sm">Pulmonology & Hepatology</h4>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-lg shadow-md text-center">
+                            <div class="flex justify-center mb-3">
+                                <i class="fas fa-pills text-orange-600 text-2xl"></i>
+                            </div>
+                            <h4 class="font-medium text-teal-800 text-sm">Nephrology</h4>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-lg shadow-md text-center">
+                            <div class="flex justify-center mb-3">
+                                <i class="fas fa-bone text-orange-600 text-2xl"></i>
+                            </div>
+                            <h4 class="font-medium text-teal-800 text-sm">Orthopedics</h4>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-lg shadow-md text-center">
+                            <div class="flex justify-center mb-3">
+                                <i class="fas fa-tooth text-orange-600 text-2xl"></i>
+                            </div>
+                            <h4 class="font-medium text-teal-800 text-sm">Dental & Maxillofacial Surgery</h4>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-lg shadow-md text-center">
+                            <div class="flex justify-center mb-3">
+                                <i class="fas fa-eye text-orange-600 text-2xl"></i>
+                            </div>
+                            <h4 class="font-medium text-teal-800 text-sm">Ophthalmology</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="#"
+                    class="inline-block bg-teal-600 text-white font-medium py-3 px-6 rounded-full hover:bg-teal-700 transition duration-300">View
+                    All Departments</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="bg-teal-600 py-16">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap items-center">
+                <div class="w-full md:w-1/2 mb-8 md:mb-0">
+                    <h2 class="text-3xl font-bold text-white mb-6">From the people</h2>
+                    <p class="text-teal-100 mb-6">We love hearing from our patients. Your feedback is the reason we're
+                        here and what motivates us to excel.</p>
+
+                    <div class="bg-white p-6 rounded-lg shadow-lg mb-6">
+                        <p class="text-gray-600 mb-4">I am very impressed and grateful for hospital team of doctors and
+                            ICU staff. Thank you all for your kindness and support during this difficult time of care.
+                            Once again thank you and continue to do good work that makes our lives better.</p>
+                        <div class="flex items-center">
+                            <img src="{{ asset('logo.jpg') }}" alt="Patient" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <p class="font-medium text-teal-800">Amit Ghansela</p>
+                                <p class="text-sm text-gray-500">Patient</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center">
+                        <button class="bg-teal-700 text-white p-2 rounded-full mr-2 hover:bg-teal-800">
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                        <button class="bg-teal-700 text-white p-2 rounded-full hover:bg-teal-800">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="w-full md:w-1/2 md:pl-12">
+                    <img src="{{ asset('logo.jpg') }}" alt="Hospital Building" class="w-full rounded-lg shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Corporate Partners Section -->
+    <section class="container mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold text-teal-800 text-center mb-12">Our Corporate Partners</h2>
+
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
+            <div class="flex items-center justify-center h-40">
+                <img src="https://www.tha.org/wp-content/uploads/2022/03/THA_EP_Seal_200.jpg" alt="Partner 1"
+                    class="w-full h-full object-contain p-2">
+            </div>
+            <div class="flex items-center justify-center h-40">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2FRbbka5oDQIen0YShrAL11QE-c3nmRP-SgJeaBSj5wgh4YpW3xmzalGkp574Kj7VuWQ&usqp=CAU"
+                    alt="Partner 2" class="w-full h-full object-contain p-2">
+            </div>
+            <div class="flex items-center justify-center h-40">
+                <img src="https://www.mha.org/wp-content/uploads/2021/09/endorsed-business-partner-program-logo-min.jpg"
+                    alt="Partner 3" class="w-full h-full object-contain p-2">
+            </div>
+            <div class="flex items-center justify-center h-40">
+                <img src="https://ihf-fih.org/wp-content/uploads/2022/10/HHMGlobal-logo.png" alt="Partner 4"
+                    class="w-full h-full object-contain p-2">
+            </div>
+            <div class="flex items-center justify-center h-40">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrEHBGeXWX4WYELlLs0PG7OsZPcIHHtTjOBQ&s"
+                    alt="Partner 5" class="w-full h-full object-contain p-2">
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="bg-gray-50 py-16">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-12">
+                <h2 class="text-3xl font-bold text-teal-800">What's new from us?</h2>
+                <a href="#"
+                    class="inline-block bg-teal-600 text-white font-medium py-2 px-4 rounded-full hover:bg-teal-700 transition duration-300">Read
+                    more articles</a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://english-blog.s3.amazonaws.com/uploads/2017/11/Good-Hospital_blog.png"
+                        alt="Blog Post" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center text-gray-500 text-sm mb-2">
+                            <i class="far fa-calendar-alt mr-2"></i>
+                            <span>March 15, 2025</span>
+                        </div>
+                        <h3 class="font-bold text-teal-800 mb-2">How to maintain your health during changing seasons
+                        </h3>
+                        <p class="text-gray-600 mb-4">Tips and tricks to keep your immune system strong when the
+                            weather changes.</p>
+                        <a href="#" class="text-orange-600 font-medium hover:text-teal-700">Read more</a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://www.waldenu.edu/media/4634/seo-979-bs-211343083-1200x675" alt="Blog Post"
+                        class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center text-gray-500 text-sm mb-2">
+                            <i class="far fa-calendar-alt mr-2"></i>
+                            <span>March 10, 2025</span>
+                        </div>
+                        <h3 class="font-bold text-teal-800 mb-2">Understanding the importance of regular check-ups</h3>
+                        <p class="text-gray-600 mb-4">Why preventive care is crucial for maintaining long-term health
+                            and wellbeing.</p>
+                        <a href="#" class="text-orange-600 font-medium hover:text-teal-700">Read more</a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://africanpridemagazine.com/wp-content/uploads/2024/01/nurse-2.jpeg" alt="Blog Post"
+                        class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center text-gray-500 text-sm mb-2">
+                            <i class="far fa-calendar-alt mr-2"></i>
+                            <span>March 5, 2025</span>
+                        </div>
+                        <h3 class="font-bold text-teal-800 mb-2">New cancer treatment technology now available</h3>
+                        <p class="text-gray-600 mb-4">Learn about our latest medical technology that's improving cancer
+                            treatment outcomes.</p>
+                        <a href="#" class="text-orange-600 font-medium hover:text-teal-700">Read more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="container mx-auto px-4 py-16">
         <div class="flex justify-between items-center mb-12">
-            <h2 class="text-3xl font-bold text-teal-800">What's new from us?</h2>
+            <h2 class="text-3xl font-bold text-teal-800">Videos from us</h2>
             <a href="#"
-                class="inline-block bg-teal-600 text-white font-medium py-2 px-4 rounded-full hover:bg-teal-700 transition duration-300">Read
-                more articles</a>
+                class="inline-block bg-teal-600 text-white font-medium py-2 px-4 rounded-full hover:bg-teal-700 transition duration-300">View
+                more videos</a>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                <img src="https://english-blog.s3.amazonaws.com/uploads/2017/11/Good-Hospital_blog.png" alt="Blog Post" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <div class="flex items-center text-gray-500 text-sm mb-2">
-                        <i class="far fa-calendar-alt mr-2"></i>
-                        <span>March 15, 2025</span>
+                <div class="relative">
+                    <img src="https://imperialcollege.edu.np/wp-content/uploads/2022/08/hand-cupping-stethoscope-health-concept-scaled.jpg?x72874"
+                        alt="Video Thumbnail" class="w-full h-48 object-cover">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="bg-white bg-opacity-75 rounded-full p-3">
+                            <i class="fas fa-play text-orange-600"></i>
+                        </div>
                     </div>
-                    <h3 class="font-bold text-teal-800 mb-2">How to maintain your health during changing seasons
-                    </h3>
-                    <p class="text-gray-600 mb-4">Tips and tricks to keep your immune system strong when the
-                        weather changes.</p>
-                    <a href="#" class="text-orange-600 font-medium hover:text-teal-700">Read more</a>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-bold text-teal-800 mb-2">Information on COSMETIC AND HAIR TRANSPLANT at Modern
+                        Hospital</h3>
+                    <div class="flex items-center text-gray-500 text-sm">
+                        <i class="far fa-clock mr-2"></i>
+                        <span>10:45</span>
+                    </div>
                 </div>
             </div>
 
             <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                <img src="https://www.waldenu.edu/media/4634/seo-979-bs-211343083-1200x675" alt="Blog Post" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <div class="flex items-center text-gray-500 text-sm mb-2">
-                        <i class="far fa-calendar-alt mr-2"></i>
-                        <span>March 10, 2025</span>
+                <div class="relative">
+                    <img src="https://lotusdiagnostic.com/wp-content/uploads/2023/01/close-up-doctor-with-stethoscope.jpg"
+                        alt="Video Thumbnail" class="w-full h-48 object-cover">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="bg-white bg-opacity-75 rounded-full p-3">
+                            <i class="fas fa-play text-orange-600"></i>
+                        </div>
                     </div>
-                    <h3 class="font-bold text-teal-800 mb-2">Understanding the importance of regular check-ups</h3>
-                    <p class="text-gray-600 mb-4">Why preventive care is crucial for maintaining long-term health
-                        and wellbeing.</p>
-                    <a href="#" class="text-orange-600 font-medium hover:text-teal-700">Read more</a>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-bold text-teal-800 mb-2">Pregnancy and Infant care awareness by Dr. Sasmit
+                        Manandhar</h3>
+                    <div class="flex items-center text-gray-500 text-sm">
+                        <i class="far fa-clock mr-2"></i>
+                        <span>15:30</span>
+                    </div>
                 </div>
             </div>
 
             <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                <img src="https://africanpridemagazine.com/wp-content/uploads/2024/01/nurse-2.jpeg" alt="Blog Post" class="w-full h-48 object-cover">
+                <div class="relative">
+                    <img src="https://i0.wp.com/www.nepallivetoday.com/wp-content/uploads/2022/04/child-vaccination-nepal.jpg?fit=1428%2C839&ssl=1"
+                        alt="Video Thumbnail" class="w-full h-48 object-cover">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="bg-white bg-opacity-75 rounded-full p-3">
+                            <i class="fas fa-play text-orange-600"></i>
+                        </div>
+                    </div>
+                </div>
                 <div class="p-6">
-                    <div class="flex items-center text-gray-500 text-sm mb-2">
-                        <i class="far fa-calendar-alt mr-2"></i>
-                        <span>March 5, 2025</span>
-                    </div>
-                    <h3 class="font-bold text-teal-800 mb-2">New cancer treatment technology now available</h3>
-                    <p class="text-gray-600 mb-4">Learn about our latest medical technology that's improving cancer
-                        treatment outcomes.</p>
-                    <a href="#" class="text-orange-600 font-medium hover:text-teal-700">Read more</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Video Section -->
-<section class="container mx-auto px-4 py-16">
-    <div class="flex justify-between items-center mb-12">
-        <h2 class="text-3xl font-bold text-teal-800">Videos from us</h2>
-        <a href="#"
-            class="inline-block bg-teal-600 text-white font-medium py-2 px-4 rounded-full hover:bg-teal-700 transition duration-300">View
-            more videos</a>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-white rounded-lg shadow-md overflow-hidden">
-            <div class="relative">
-                <img src="https://imperialcollege.edu.np/wp-content/uploads/2022/08/hand-cupping-stethoscope-health-concept-scaled.jpg?x72874" alt="Video Thumbnail" class="w-full h-48 object-cover">
-                <div class="absolute inset-0 flex items-center justify-center">
-                    <div class="bg-white bg-opacity-75 rounded-full p-3">
-                        <i class="fas fa-play text-orange-600"></i>
+                    <h3 class="font-bold text-teal-800 mb-2">About our new Cardiac Care Unit</h3>
+                    <div class="flex items-center text-gray-500 text-sm">
+                        <i class="far fa-clock mr-2"></i>
+                        <span>08:15</span>
                     </div>
                 </div>
             </div>
-            <div class="p-6">
-                <h3 class="font-bold text-teal-800 mb-2">Information on COSMETIC AND HAIR TRANSPLANT at Modern
-                    Hospital</h3>
-                <div class="flex items-center text-gray-500 text-sm">
-                    <i class="far fa-clock mr-2"></i>
-                    <span>10:45</span>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+
+    <section class="relative py-16  bg-teal-50 overflow-hidden" x-data="{ inView: false }" x-intersect="inView = true">
+        <!-- Background Pattern (optional) -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0 bg-pattern-dots"></div>
+        </div>
+
+        <!-- Container -->
+        <div class="container mx-auto px-4 relative z-10">
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 text-white text-center">
+
+                <!-- Medical Beds -->
+                <div class="flex flex-col items-center justify-center group">
+                    <span
+                        class="text-5xl text-orange-600 font-bold mb-2 group-hover:scale-110 transition-transform duration-300">475</span>
+                    <div class="w-12 h-0.5  mb-2"></div>
+                    <p class="text-lg text-teal-800 font-medium">Medical Bed Hospital</p>
+                </div>
+
+                <!-- Doctors -->
+                <div class="flex flex-col items-center justify-center group">
+                    <span
+                        class="text-5xl text-orange-600 font-bold mb-2 group-hover:scale-110 transition-transform duration-300">300+</span>
+                    <div class="w-12 h-0.5  mb-2"></div>
+                    <p class="text-lg text-teal-800 font-medium">Doctors</p>
+                </div>
+
+                <!-- Happy Patients -->
+                <div class="flex flex-col items-center justify-center group">
+                    <span
+                        class="text-5xl text-orange-600 font-bold mb-2 group-hover:scale-110 transition-transform duration-300">100000+</span>
+                    <div class="w-12 h-0.5  mb-2"></div>
+                    <p class="text-lg text-teal-800 font-medium">Happy Patients</p>
+                </div>
+
+                <!-- Health Centers -->
+                <div class="flex flex-col items-center justify-center group">
+                    <span
+                        class="text-5xl text-orange-600 font-bold mb-2 group-hover:scale-110 transition-transform duration-300">18</span>
+                    <div class="w-12 h-0.5  mb-2"></div>
+                    <p class="text-lg text-teal-800 font-medium">Health Centers</p>
+                </div>
+
+                <!-- Total Staff -->
+                <div class="flex flex-col items-center justify-center group">
+                    <span
+                        class="text-5xl text-orange-600 font-bold mb-2 group-hover:scale-110 transition-transform duration-300">1300+</span>
+                    <div class="w-12 h-0.5  mb-2"></div>
+                    <p class="text-lg text-teal-800 font-medium">Total staffs</p>
                 </div>
             </div>
         </div>
-
-        <div class="bg-white rounded-lg shadow-md overflow-hidden">
-            <div class="relative">
-                <img src="https://lotusdiagnostic.com/wp-content/uploads/2023/01/close-up-doctor-with-stethoscope.jpg" alt="Video Thumbnail" class="w-full h-48 object-cover">
-                <div class="absolute inset-0 flex items-center justify-center">
-                    <div class="bg-white bg-opacity-75 rounded-full p-3">
-                        <i class="fas fa-play text-orange-600"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="p-6">
-                <h3 class="font-bold text-teal-800 mb-2">Pregnancy and Infant care awareness by Dr. Sasmit
-                    Manandhar</h3>
-                <div class="flex items-center text-gray-500 text-sm">
-                    <i class="far fa-clock mr-2"></i>
-                    <span>15:30</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white rounded-lg shadow-md overflow-hidden">
-            <div class="relative">
-                <img src="https://i0.wp.com/www.nepallivetoday.com/wp-content/uploads/2022/04/child-vaccination-nepal.jpg?fit=1428%2C839&ssl=1" alt="Video Thumbnail" class="w-full h-48 object-cover">
-                <div class="absolute inset-0 flex items-center justify-center">
-                    <div class="bg-white bg-opacity-75 rounded-full p-3">
-                        <i class="fas fa-play text-orange-600"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="p-6">
-                <h3 class="font-bold text-teal-800 mb-2">About our new Cardiac Care Unit</h3>
-                <div class="flex items-center text-gray-500 text-sm">
-                    <i class="far fa-clock mr-2"></i>
-                    <span>08:15</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Statistics Section -->
-
-<section class="relative py-16  bg-teal-50 overflow-hidden" x-data="{ inView: false }" x-intersect="inView = true">
-    <!-- Background Pattern (optional) -->
-    <div class="absolute inset-0 opacity-10">
-        <div class="absolute inset-0 bg-pattern-dots"></div>
-    </div>
-
-    <!-- Container -->
-    <div class="container mx-auto px-4 relative z-10">
-        <!-- Stats Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 text-white text-center">
-
-            <!-- Medical Beds -->
-            <div class="flex flex-col items-center justify-center group">
-                <span
-                    class="text-5xl text-orange-600 font-bold mb-2 group-hover:scale-110 transition-transform duration-300">475</span>
-                <div class="w-12 h-0.5  mb-2"></div>
-                <p class="text-lg text-teal-800 font-medium">Medical Bed Hospital</p>
-            </div>
-
-            <!-- Doctors -->
-            <div class="flex flex-col items-center justify-center group">
-                <span
-                    class="text-5xl text-orange-600 font-bold mb-2 group-hover:scale-110 transition-transform duration-300">300+</span>
-                <div class="w-12 h-0.5  mb-2"></div>
-                <p class="text-lg text-teal-800 font-medium">Doctors</p>
-            </div>
-
-            <!-- Happy Patients -->
-            <div class="flex flex-col items-center justify-center group">
-                <span
-                    class="text-5xl text-orange-600 font-bold mb-2 group-hover:scale-110 transition-transform duration-300">100000+</span>
-                <div class="w-12 h-0.5  mb-2"></div>
-                <p class="text-lg text-teal-800 font-medium">Happy Patients</p>
-            </div>
-
-            <!-- Health Centers -->
-            <div class="flex flex-col items-center justify-center group">
-                <span
-                    class="text-5xl text-orange-600 font-bold mb-2 group-hover:scale-110 transition-transform duration-300">18</span>
-                <div class="w-12 h-0.5  mb-2"></div>
-                <p class="text-lg text-teal-800 font-medium">Health Centers</p>
-            </div>
-
-            <!-- Total Staff -->
-            <div class="flex flex-col items-center justify-center group">
-                <span
-                    class="text-5xl text-orange-600 font-bold mb-2 group-hover:scale-110 transition-transform duration-300">1300+</span>
-                <div class="w-12 h-0.5  mb-2"></div>
-                <p class="text-lg text-teal-800 font-medium">Total staffs</p>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 
 
 
