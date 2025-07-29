@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spa Demo Site</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.min.css" rel="stylesheet">
+    <style>
+        /* Additional styles can be added here if needed */
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <a href="#" class="text-2xl font-bold text-white">Spa Demo</a>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#hero" class="text-white hover:text-emerald-300 transition">Home</a>
+                    <a href="#services" class="text-white hover:text-emerald-300 transition">Services</a>
+                    <a href="#about" class="text-white hover:text-emerald-300 transition">About</a>
+                    <a href="#gallery" class="text-white hover:text-emerald-300 transition">Gallery</a>
+                    <a href="#testimonials" class="text-white hover:text-emerald-300 transition">Testimonials</a>
+                    <a href="#contact" class="text-white hover:text-emerald-300 transition">Contact</a>
+                </nav>
+                <button id="mobile-menu-button" class="md:hidden text-white text-2xl">
+                    <i class="ri-menu-line"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black/80 backdrop-blur-sm">
+            <nav class="flex flex-col items-center space-y-4 py-4">
+                <a href="#hero" class="text-white hover:text-emerald-300 transition">Home</a>
+                <a href="#services" class="text-white hover:text-emerald-300 transition">Services</a>
+                <a href="#about" class="text-white hover:text-emerald-300 transition">About</a>
+                <a href="#gallery" class="text-white hover:text-emerald-300 transition">Gallery</a>
+                <a href="#testimonials" class="text-white hover:text-emerald-300 transition">Testimonials</a>
+                <a href="#contact" class="text-white hover:text-emerald-300 transition">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="relative min-h-screen bg-gradient-to-br from-emerald-50 to-teal-100">
+            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                style="background-image: url('https://readdy.ai/api/search-image?query=Luxurious%20spa%20interior%20with%20soft%20lighting%2C%20natural%20stone%20elements%2C%20tropical%20plants%2C%20zen%20atmosphere%2C%20calming%20green%20and%20beige%20tones%2C%20modern%20minimalist%20design%2C%20peaceful%20ambiance%2C%20high-end%20wellness%20center%20aesthetic&width=1920&height=1080&seq=hero-spa-bg&orientation=landscape');">
+                <div class="absolute inset-0 bg-black/30"></div>
+            </div>
+            <div class="relative z-10 container mx-auto px-4 py-16">
+                <div class="grid lg:grid-cols-2 gap-12 items-center min-h-screen">
+                    <div class="text-white">
+                        <h1 class="text-5xl md:text-6xl font-light leading-tight mb-6">Spa <span
+                                class="font-serif italic">Demo</span></h1>
+                        <p class="text-xl md:text-2xl mb-8 text-gray-200">Discover tranquility and rejuvenation in our
+                            luxurious wellness sanctuary</p>
+                        <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                            <button
+                                class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-full transition-all duration-300 whitespace-nowrap">View
+                                Services</button>
+                            <button
+                                class="border-2 border-white text-white hover:bg-white hover:text-emerald-600 px-8 py-3 rounded-full transition-all duration-300 whitespace-nowrap">Gift
+                                Cards</button>
+                        </div>
+                        <div class="flex items-center gap-8 text-gray-200">
+                            <div class="flex items-center gap-2"><i class="ri-star-fill text-yellow-400"></i><span>4.9/5
+                                    Rating</span></div>
+                            <div class="flex items-center gap-2"><i class="ri-map-pin-line"></i><span>Premium
+                                    Location</span></div>
+                        </div>
+                    </div>
+                    <div class="lg:justify-self-end w-full max-w-md">
+                        <!-- BookingForm Section -->
+                        <div class="bg-white/95 backdrop-blur-sm p-8 rounded-2xl shadow-xl">
+                            <h2 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Book Your Appointment</h2>
+                            <form id="spa-booking" class="space-y-4">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                                        <input type="text" name="name" required
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300"
+                                            placeholder="Enter your name">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                        <input type="email" name="email" required
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300"
+                                            placeholder="Enter your email">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                                    <input type="tel" name="phone" required
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300"
+                                        placeholder="Enter your phone number">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Service</label>
+                                    <div class="relative">
+                                        <select name="service" required
+                                            class="w-full px-4 py-3 pr-8 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300 appearance-none">
+                                            <option value="">Select a service</option>
+                                            <option value="massage">Massage Therapy</option>
+                                            <option value="facial">Facial Treatment</option>
+                                            <option value="manicure">Manicure & Pedicure</option>
+                                            <option value="hair">Hair Styling</option>
+                                            <option value="body">Body Treatment</option>
+                                            <option value="package">Spa Package</option>
+                                        </select>
+                                        <i
+                                            class="ri-arrow-down-s-line absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none"></i>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Preferred
+                                            Date</label>
+                                        <input type="date" name="date" required
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Preferred
+                                            Time</label>
+                                        <div class="relative">
+                                            <select name="time" required
+                                                class="w-full px-4 py-3 pr-8 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300 appearance-none">
+                                                <option value="">Select time</option>
+                                                <option value="09:00">9:00 AM</option>
+                                                <option value="10:00">10:00 AM</option>
+                                                <option value="11:00">11:00 AM</option>
+                                                <option value="12:00">12:00 PM</option>
+                                                <option value="13:00">1:00 PM</option>
+                                                <option value="14:00">2:00 PM</option>
+                                                <option value="15:00">3:00 PM</option>
+                                                <option value="16:00">4:00 PM</option>
+                                                <option value="17:00">5:00 PM</option>
+                                                <option value="18:00">6:00 PM</option>
+                                            </select>
+                                            <i
+                                                class="ri-arrow-down-s-line absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Special Requests</label>
+                                    <textarea name="message" maxlength="500" rows="3"
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300 resize-none"
+                                        placeholder="Any special requests or allergies..."></textarea>
+                                    <div class="text-right text-sm text-gray-500 mt-1">0/500</div>
+                                </div>
+                                <button type="submit"
+                                    class="w-full bg-emerald-600 hover:bg-emerald-700 disabled:bg-gray-400 text-white py-3 px-6 rounded-lg font-medium transition-all duration-300 whitespace-nowrap">Book
+                                    Appointment</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20 bg-gradient-to-b from-white to-emerald-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-light text-gray-800 mb-6">Our <span
+                            class="font-serif italic text-emerald-600">Services</span></h2>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">Discover our comprehensive range of wellness and
+                        beauty treatments designed to rejuvenate your mind, body, and spirit</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service 1 -->
+                    <div
+                        class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group">
+                        <div class="relative h-48">
+                            <img src="https://readdy.ai/api/search-image?query=Professional%20massage%20therapy%20treatment%20room%20with%20warm%20lighting%2C%20natural%20stone%20elements%2C%20relaxing%20spa%20atmosphere%2C%20clean%20modern%20design%2C%20therapeutic%20massage%20table%20with%20soft%20towels%20and%20essential%20oils&width=400&height=300&seq=massage-service&orientation=landscape"
+                                alt="Massage Therapy"
+                                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+                            <div
+                                class="absolute top-4 left-4 w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center">
+                                <i class="ri-hand-heart-line text-white text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="text-xl font-semibold text-gray-800">Massage Therapy</h3><span
+                                    class="text-emerald-600 font-medium">From $80</span>
+                            </div>
+                            <p class="text-gray-600 mb-4">Relax and rejuvenate with our therapeutic massage treatments
+                            </p>
+                            <div class="mb-6">
+                                <h4 class="text-sm font-medium text-gray-700 mb-2">Available Treatments:</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm">Swedish
+                                        Massage</span>
+                                    <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm">Deep
+                                        Tissue</span>
+                                    <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm">Hot
+                                        Stone</span>
+                                    <span
+                                        class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm">Aromatherapy</span>
+                                </div>
+                            </div>
+                            <button
+                                class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 px-6 rounded-lg font-medium transition-all duration-300 whitespace-nowrap">Book
+                                Now</button>
+                        </div>
+                    </div>
+                    <!-- Service 2 -->
+                    <div
+                        class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group">
+                        <div class="relative h-48">
+                            <img src="https://readdy.ai/api/search-image?query=Luxurious%20facial%20treatment%20room%20with%20professional%20skincare%20equipment%2C%20clean%20white%20and%20green%20color%20scheme%2C%20modern%20spa%20aesthetic%2C%20calming%20environment%20with%20natural%20lighting%20and%20plants&width=400&height=300&seq=facial-service&orientation=landscape"
+                                alt="Facial Treatments"
+                                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+                            <div
+                                class="absolute top-4 left-4 w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center">
+                                <i class="ri-heart-3-line text-white text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="text-xl font-semibold text-gray-800">Facial Treatments</h3><span
+                                    class="text-emerald-600 font-medium">From $90</span>
+                            </div>
+                            <p class="text-gray-600 mb-4">Revitalize your skin with our premium facial services</p>
+                            <div class="mb-6">
+                                <h4 class="text-sm font-medium text-gray-700 mb-2">Available Treatments:</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span
+                                        class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm">Anti-Aging
+                                        Facial</span>
+                                    <span
+                                        class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm">Hydrating
+                                        Treatment</span>
+                                    <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm">Acne
+                                        Treatment</span>
+                                    <span
+                                        class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm">Brightening
+                                        Facial</span>
+                                </div>
+                            </div>
+                            <button
+                                class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 px-6 rounded-lg font-medium transition-all duration-300 whitespace-nowrap">Book
+                                Now</button>
+                        </div>
+                    </div>
+                    <!-- Service 3 -->
+                    <div
+                        class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group">
+                        <div class="relative h-48">
+                            <img src="https://readdy.ai/api/search-image?query=Modern%20nail%20salon%20station%20with%20elegant%20manicure%20setup%2C%20clean%20white%20surfaces%2C%20professional%20nail%20care%20tools%2C%20soft%20lighting%2C%20minimalist%20design%20with%20green%20accent%20colors&width=400&height=300&seq=nail-service&orientation=landscape"
+                                alt="Nail Care"
+                                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+                            <div
+                                class="absolute top-4 left-4 w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center">
+                                <i class="ri-hand-coin-line text-white text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="text-xl font-semibold text-gray-800">Nail Care</h3><span
+                                    class="text-emerald-600 font-medium">From $45</span>
+                            </div>
+                            <p class="text-gray-600 mb-4">Perfect your look with our professional nail services</p>
+                            <div class="mb-6">
+                                <h4 class="text-sm font-medium text-gray-700 mb-2">Available Treatments:</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span
+                                        class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm">Manicure</span>
+                                    <span
+                                        class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm">Pedicure</span>
+                                    <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm">Gel
+                                        Polish</span>
+                                    <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm">Nail
+                                        Art</span>
+                                </div>
+                            </div>
+                            <button
+                                class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 px-6 rounded-lg font-medium transition-all duration-300 whitespace-nowrap">Book
+                                Now</button>
+                        </div>
+                    </div>
+                    <!-- Service 4 -->
+                    <div
+                        class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group">
+                        <div class="relative h-48">
+                            <img src="https://readdy.ai/api/search-image?query=Contemporary%20hair%20salon%20with%20modern%20styling%20chairs%2C%20professional%20hair%20care%20equipment%2C%20clean%20minimalist%20design%2C%20natural%20lighting%2C%20elegant%20green%20and%20white%20color%20palette&width=400&height=300&seq=hair-service&orientation=landscape"
+                                alt="Hair Styling"
+                                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+                            <div
+                                class="absolute top-4 left-4 w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center">
+                                <i class="ri-scissors-line text-white text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="text-xl font-semibold text-gray-800">Hair Styling</h3><span
+                                    class="text-emerald-600 font-medium">From $60</span>
+                            </div>
+                            <p class="text-gray-600 mb-4">Transform your style with our expert hair services</p>
+                            <div class="mb-6">
+                                <h4 class="text-sm font-medium text-gray-700 mb-2">Available Treatments:</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm">Haircut
+                                        & Style</span>
+                                    <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm">Hair
+                                        Coloring</span>
+                                    <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm">Hair
+                                        Treatment</span>
+                                    <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm">Special
+                                        Occasion</span>
+                                </div>
+                            </div>
+                            <button
+                                class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 px-6 rounded-lg font-medium transition-all duration-300 whitespace-nowrap">Book
+                                Now</button>
+                        </div>
+                    </div>
+                    <!-- Service 5 -->
+                    <div
+                        class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group">
+                        <div class="relative h-48">
+                            <img src="https://readdy.ai/api/search-image?query=Spa%20body%20treatment%20room%20with%20professional%20massage%20table%2C%20natural%20stone%20elements%2C%20soft%20ambient%20lighting%2C%20zen%20atmosphere%2C%20green%20plants%20and%20calming%20earth%20tones&width=400&height=300&seq=body-service&orientation=landscape"
+                                alt="Body Treatments"
+                                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+                            <div
+                                class="absolute top-4 left-4 w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center">
+                                <i class="ri-body-scan-line text-white text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="text-xl font-semibold text-gray-800">Body Treatments</h3><span
+                                    class="text-emerald-600 font-medium">From $100</span>
+                            </div>
+                            <p class="text-gray-600 mb-4">Pamper yourself with our luxurious body care services</p>
+                            <div class="mb-6">
+                                <h4 class="text-sm font-medium text-gray-700 mb-2">Available Treatments:</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm">Body
+                                        Wrap</span>
+                                    <span
+                                        class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm">Exfoliation</span>
+                                    <span
+                                        class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm">Cellulite
+                                        Treatment</span>
+                                    <span
+                                        class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm">Tanning</span>
+                                </div>
+                            </div>
+                            <button
+                                class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 px-6 rounded-lg font-medium transition-all duration-300 whitespace-nowrap">Book
+                                Now</button>
+                        </div>
+                    </div>
+                    <!-- Service 6 -->
+                    <div
+                        class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group">
+                        <div class="relative h-48">
+                            <img src="https://readdy.ai/api/search-image?query=Luxury%20spa%20package%20setup%20with%20multiple%20treatment%20elements%2C%20elegant%20presentation%2C%20premium%20spa%20amenities%2C%20sophisticated%20interior%20design%2C%20warm%20welcoming%20atmosphere%20with%20natural%20elements&width=400&height=300&seq=package-service&orientation=landscape"
+                                alt="Spa Packages"
+                                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+                            <div
+                                class="absolute top-4 left-4 w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center">
+                                <i class="ri-gift-line text-white text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="text-xl font-semibold text-gray-800">Spa Packages</h3><span
+                                    class="text-emerald-600 font-medium">From $200</span>
+                            </div>
+                            <p class="text-gray-600 mb-4">Indulge in our comprehensive wellness packages</p>
+                            <div class="mb-6">
+                                <h4 class="text-sm font-medium text-gray-700 mb-2">Available Treatments:</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm">Couples
+                                        Package</span>
+                                    <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm">Bridal
+                                        Package</span>
+                                    <span
+                                        class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm">Wellness
+                                        Day</span>
+                                    <span
+                                        class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm">Mother's
+                                        Day Special</span>
+                                </div>
+                            </div>
+                            <button
+                                class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 px-6 rounded-lg font-medium transition-all duration-300 whitespace-nowrap">Book
+                                Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h2 class="text-4xl md:text-5xl font-light text-gray-800 mb-6">About <span
+                                class="font-serif italic text-emerald-600">Serenity</span></h2>
+                        <p class="text-lg text-gray-600 mb-8 leading-relaxed">For over 15 years, Serenity Spa & Salon
+                            has been a sanctuary of tranquility and rejuvenation. Our mission is to provide exceptional
+                            wellness experiences that restore balance to your life through the perfect blend of ancient
+                            healing traditions and modern therapeutic techniques.</p>
+                        <p class="text-lg text-gray-600 mb-8 leading-relaxed">Located in the heart of the city, our
+                            luxurious facility spans 8,000 square feet of carefully designed spaces that promote
+                            relaxation and renewal. From our skilled therapists to our premium organic products, every
+                            detail is crafted to ensure your complete satisfaction.</p>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="ri-award-line text-emerald-600 text-lg"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800 mb-1">Award-Winning</h3>
+                                    <p class="text-gray-600 text-sm">Recognized for excellence in spa and wellness
+                                        services</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="ri-team-line text-emerald-600 text-lg"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800 mb-1">Expert Staff</h3>
+                                    <p class="text-gray-600 text-sm">Licensed professionals with years of experience</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="ri-leaf-line text-emerald-600 text-lg"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800 mb-1">Natural Products</h3>
+                                    <p class="text-gray-600 text-sm">Organic and eco-friendly treatments for your
+                                        wellbeing</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="ri-shield-check-line text-emerald-600 text-lg"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800 mb-1">Safety First</h3>
+                                    <p class="text-gray-600 text-sm">Highest standards of hygiene and safety protocols
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="space-y-4">
+                                <img src="https://readdy.ai/api/search-image?query=Serene%20spa%20interior%20with%20natural%20lighting%2C%20modern%20zen%20design%2C%20clean%20lines%2C%20professional%20spa%20therapist%20preparing%20treatment%20room%2C%20calming%20atmosphere%20with%20green%20plants%20and%20earth%20tones&width=300&height=400&seq=about-1&orientation=portrait"
+                                    alt="Spa Interior" class="w-full rounded-2xl shadow-lg object-cover object-top">
+                                <img src="https://readdy.ai/api/search-image?query=Luxury%20spa%20relaxation%20area%20with%20comfortable%20seating%2C%20natural%20stone%20elements%2C%20soft%20lighting%2C%20peaceful%20environment%2C%20modern%20minimalist%20design%20with%20green%20accents&width=300&height=200&seq=about-2&orientation=landscape"
+                                    alt="Relaxation Area" class="w-full rounded-2xl shadow-lg object-cover object-top">
+                            </div>
+                            <div class="space-y-4 mt-8">
+                                <img src="https://readdy.ai/api/search-image?query=Professional%20spa%20treatment%20products%20display%2C%20organic%20skincare%20items%2C%20natural%20wellness%20products%2C%20clean%20modern%20presentation%2C%20eco-friendly%20packaging%20with%20green%20and%20white%20aesthetic&width=300&height=200&seq=about-3&orientation=landscape"
+                                    alt="Spa Products" class="w-full rounded-2xl shadow-lg object-cover object-top">
+                                <img src="https://readdy.ai/api/search-image?query=Spa%20reception%20area%20with%20elegant%20design%2C%20welcoming%20atmosphere%2C%20professional%20front%20desk%2C%20modern%20interior%20with%20natural%20elements%2C%20calming%20color%20scheme&width=300&height=400&seq=about-4&orientation=portrait"
+                                    alt="Reception" class="w-full rounded-2xl shadow-lg object-cover object-top">
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-8 -left-8 bg-emerald-600 text-white p-6 rounded-2xl shadow-lg">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold">15+</div>
+                                <div class="text-sm">Years Experience</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="py-20 bg-gradient-to-b from-emerald-50 to-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-light text-gray-800 mb-6">Treatment <span
+                            class="font-serif italic text-emerald-600">Gallery</span></h2>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-8">Explore our beautiful facilities and see the
+                        exceptional treatments we offer</p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <button
+                            class="px-6 py-2 rounded-full font-medium transition-all duration-300 whitespace-nowrap bg-emerald-600 text-white">All</button>
+                        <button
+                            class="px-6 py-2 rounded-full font-medium transition-all duration-300 whitespace-nowrap bg-white text-gray-700 hover:bg-emerald-100">Massage</button>
+                        <button
+                            class="px-6 py-2 rounded-full font-medium transition-all duration-300 whitespace-nowrap bg-white text-gray-700 hover:bg-emerald-100">Facial</button>
+                        <button
+                            class="px-6 py-2 rounded-full font-medium transition-all duration-300 whitespace-nowrap bg-white text-gray-700 hover:bg-emerald-100">Nail
+                            Care</button>
+                        <button
+                            class="px-6 py-2 rounded-full font-medium transition-all duration-300 whitespace-nowrap bg-white text-gray-700 hover:bg-emerald-100">Hair</button>
+                        <button
+                            class="px-6 py-2 rounded-full font-medium transition-all duration-300 whitespace-nowrap bg-white text-gray-700 hover:bg-emerald-100">Facilities</button>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Gallery Items -->
+                    <div class="group cursor-pointer">
+                        <div class="relative overflow-hidden rounded-2xl shadow-lg">
+                            <img src="https://readdy.ai/api/search-image?query=Professional%20massage%20therapy%20session%20in%20luxury%20spa%20setting%2C%20skilled%20therapist%20performing%20relaxing%20massage%2C%20serene%20treatment%20room%20with%20soft%20lighting%2C%20natural%20stone%20elements%2C%20calming%20atmosphere&width=400&height=300&seq=gallery-1&orientation=landscape"
+                                alt="Relaxing Massage Session"
+                                class="w-full h-64 object-cover object-top group-hover:scale-110 transition-transform duration-300">
+                            <div
+                                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <div class="text-white text-center">
+                                    <i class="ri-eye-line text-3xl mb-2"></i>
+                                    <h3 class="text-lg font-semibold">Relaxing Massage Session</h3>
+                                    <p class="text-sm text-gray-200">Professional therapeutic massage</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group cursor-pointer">
+                        <div class="relative overflow-hidden rounded-2xl shadow-lg">
+                            <img src="https://readdy.ai/api/search-image?query=Facial%20treatment%20in%20progress%2C%20client%20receiving%20professional%20skincare%20treatment%2C%20clean%20spa%20environment%2C%20modern%20facial%20equipment%2C%20relaxing%20atmosphere%20with%20natural%20lighting&width=400&height=300&seq=gallery-2&orientation=landscape"
+                                alt="Rejuvenating Facial"
+                                class="w-full h-64 object-cover object-top group-hover:scale-110 transition-transform duration-300">
+                            <div
+                                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <div class="text-white text-center">
+                                    <i class="ri-eye-line text-3xl mb-2"></i>
+                                    <h3 class="text-lg font-semibold">Rejuvenating Facial</h3>
+                                    <p class="text-sm text-gray-200">Anti-aging skincare treatment</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group cursor-pointer">
+                        <div class="relative overflow-hidden rounded-2xl shadow-lg">
+                            <img src="https://readdy.ai/api/search-image?query=Professional%20manicure%20service%2C%20skilled%20nail%20technician%20working%20on%20client%20hands%2C%20modern%20nail%20station%20with%20elegant%20tools%2C%20clean%20white%20surfaces%2C%20premium%20nail%20care%20setup&width=400&height=300&seq=gallery-3&orientation=landscape"
+                                alt="Premium Manicure"
+                                class="w-full h-64 object-cover object-top group-hover:scale-110 transition-transform duration-300">
+                            <div
+                                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <div class="text-white text-center">
+                                    <i class="ri-eye-line text-3xl mb-2"></i>
+                                    <h3 class="text-lg font-semibold">Premium Manicure</h3>
+                                    <p class="text-sm text-gray-200">Professional nail care service</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group cursor-pointer">
+                        <div class="relative overflow-hidden rounded-2xl shadow-lg">
+                            <img src="https://readdy.ai/api/search-image?query=Hair%20styling%20session%20at%20modern%20salon%2C%20professional%20hairstylist%20working%20on%20client%20hair%2C%20contemporary%20salon%20interior%2C%20clean%20modern%20design%20with%20natural%20lighting&width=400&height=300&seq=gallery-4&orientation=landscape"
+                                alt="Hair Transformation"
+                                class="w-full h-64 object-cover object-top group-hover:scale-110 transition-transform duration-300">
+                            <div
+                                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <div class="text-white text-center">
+                                    <i class="ri-eye-line text-3xl mb-2"></i>
+                                    <h3 class="text-lg font-semibold">Hair Transformation</h3>
+                                    <p class="text-sm text-gray-200">Expert hair styling and coloring</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group cursor-pointer">
+                        <div class="relative overflow-hidden rounded-2xl shadow-lg">
+                            <img src="https://readdy.ai/api/search-image?query=Luxury%20spa%20relaxation%20lounge%20with%20comfortable%20seating%2C%20natural%20elements%2C%20soft%20lighting%2C%20peaceful%20environment%2C%20modern%20zen%20design%20with%20green%20plants%20and%20earth%20tones&width=400&height=300&seq=gallery-5&orientation=landscape"
+                                alt="Relaxation Lounge"
+                                class="w-full h-64 object-cover object-top group-hover:scale-110 transition-transform duration-300">
+                            <div
+                                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <div class="text-white text-center">
+                                    <i class="ri-eye-line text-3xl mb-2"></i>
+                                    <h3 class="text-lg font-semibold">Relaxation Lounge</h3>
+                                    <p class="text-sm text-gray-200">Peaceful waiting area</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group cursor-pointer">
+                        <div class="relative overflow-hidden rounded-2xl shadow-lg">
+                            <img src="https://readdy.ai/api/search-image?query=Hot%20stone%20massage%20therapy%20setup%2C%20heated%20stones%20arranged%20on%20treatment%20table%2C%20spa%20therapist%20preparing%20hot%20stone%20treatment%2C%20warm%20lighting%2C%20serene%20spa%20atmosphere&width=400&height=300&seq=gallery-6&orientation=landscape"
+                                alt="Hot Stone Therapy"
+                                class="w-full h-64 object-cover object-top group-hover:scale-110 transition-transform duration-300">
+                            <div
+                                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <div class="text-white text-center">
+                                    <i class="ri-eye-line text-3xl mb-2"></i>
+                                    <h3 class="text-lg font-semibold">Hot Stone Therapy</h3>
+                                    <p class="text-sm text-gray-200">Therapeutic hot stone massage</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-20 bg-gradient-to-b from-white to-emerald-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-light text-gray-800 mb-6">Client <span
+                            class="font-serif italic text-emerald-600">Testimonials</span></h2>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">Don't just take our word for it. Here's what our
+                        valued clients have to say about their experience</p>
+                </div>
+                <div class="relative max-w-4xl mx-auto">
+                    <div class="overflow-hidden">
+                        <div class="flex transition-transform duration-500 ease-in-out"
+                            style="transform: translateX(0%);">
+                            <div class="w-full flex-shrink-0 px-8">
+                                <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12 text-center">
+                                    <div class="flex justify-center mb-4">
+                                        <i class="ri-star-fill text-yellow-400 text-xl"></i><i
+                                            class="ri-star-fill text-yellow-400 text-xl"></i><i
+                                            class="ri-star-fill text-yellow-400 text-xl"></i><i
+                                            class="ri-star-fill text-yellow-400 text-xl"></i><i
+                                            class="ri-star-fill text-yellow-400 text-xl"></i>
+                                    </div>
+                                    <blockquote class="text-lg md:text-xl text-gray-700 mb-8 italic leading-relaxed">
+                                        "The most relaxing and rejuvenating experience I've ever had! The staff was
+                                        incredibly professional, and the facilities are absolutely stunning. I left
+                                        feeling completely refreshed and renewed."</blockquote>
+                                    <div class="flex items-center justify-center gap-4">
+                                        <img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20happy%20woman%20in%20her%2030s%2C%20smiling%2C%20clean%20background%2C%20natural%20lighting%2C%20confident%20and%20relaxed%20expression%2C%20business%20casual%20style&width=100&height=100&seq=testimonial-1&orientation=squarish"
+                                            alt="Sarah Johnson" class="w-16 h-16 rounded-full object-cover object-top">
+                                        <div class="text-left">
+                                            <h4 class="font-semibold text-gray-800">Sarah Johnson</h4>
+                                            <p class="text-emerald-600 text-sm">Spa Package</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button
+                        class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white hover:bg-gray-50 rounded-full p-3 shadow-lg transition-all duration-300"><i
+                            class="ri-arrow-left-line text-xl text-gray-700"></i></button>
+                    <button
+                        class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white hover:bg-gray-50 rounded-full p-3 shadow-lg transition-all duration-300"><i
+                            class="ri-arrow-right-line text-xl text-gray-700"></i></button>
+                    <div class="flex justify-center mt-8 gap-2">
+                        <button class="w-3 h-3 rounded-full transition-all duration-300 bg-emerald-600"></button>
+                        <button class="w-3 h-3 rounded-full transition-all duration-300 bg-gray-300"></button>
+                        <button class="w-3 h-3 rounded-full transition-all duration-300 bg-gray-300"></button>
+                        <button class="w-3 h-3 rounded-full transition-all duration-300 bg-gray-300"></button>
+                        <button class="w-3 h-3 rounded-full transition-all duration-300 bg-gray-300"></button>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-4 gap-8 mt-16">
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-emerald-600 mb-2">5000+</div>
+                        <div class="text-gray-600">Happy Clients</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-emerald-600 mb-2">98%</div>
+                        <div class="text-gray-600">Satisfaction Rate</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-emerald-600 mb-2">15+</div>
+                        <div class="text-gray-600">Years Experience</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-emerald-600 mb-2">25+</div>
+                        <div class="text-gray-600">Expert Staff</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-gradient-to-b from-emerald-50 to-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-light text-gray-800 mb-6">Get In <span
+                            class="font-serif italic text-emerald-600">Touch</span></h2>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">Ready to experience the ultimate in relaxation
+                        and rejuvenation? Contact us today to schedule your appointment</p>
+                </div>
+                <div class="grid lg:grid-cols-2 gap-16">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-8">Visit Our Spa</h3>
+                        <div class="space-y-6 mb-8">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="ri-map-pin-line text-emerald-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 mb-1">Location</h4>
+                                    <p class="text-gray-600">123 Wellness Boulevard<br>Spa District, City
+                                        12345<br>United States</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="ri-time-line text-emerald-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 mb-1">Hours</h4>
+                                    <div class="text-gray-600">
+                                        <p>Monday - Friday: 9:00 AM - 8:00 PM</p>
+                                        <p>Saturday: 8:00 AM - 7:00 PM</p>
+                                        <p>Sunday: 10:00 AM - 6:00 PM</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="ri-phone-line text-emerald-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 mb-1">Phone</h4>
+                                    <p class="text-gray-600">(555) 123-4567</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="ri-mail-line text-emerald-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 mb-1">Email</h4>
+                                    <p class="text-gray-600">contact@serenityspa.com</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="#"
+                                class="w-10 h-10 bg-emerald-600 text-white rounded-full flex items-center justify-center hover:bg-emerald-700 transition-all duration-300"><i
+                                    class="ri-facebook-fill"></i></a>
+                            <a href="#"
+                                class="w-10 h-10 bg-emerald-600 text-white rounded-full flex items-center justify-center hover:bg-emerald-700 transition-all duration-300"><i
+                                    class="ri-instagram-fill"></i></a>
+                            <a href="#"
+                                class="w-10 h-10 bg-emerald-600 text-white rounded-full flex items-center justify-center hover:bg-emerald-700 transition-all duration-300"><i
+                                    class="ri-twitter-fill"></i></a>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-8">Send Us a Message</h3>
+                        <div class="bg-white p-8 rounded-2xl shadow-lg">
+                            <form class="space-y-4">
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                                        <input type="text" name="name" required
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300"
+                                            placeholder="Your full name">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Email
+                                            Address</label>
+                                        <input type="email" name="email" required
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300"
+                                            placeholder="Your email address">
+                                    </div>
+                                </div>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                                        <input type="tel" name="phone"
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300"
+                                            placeholder="Your phone number">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                                        <div class="relative">
+                                            <select name="subject" required
+                                                class="w-full px-4 py-3 pr-8 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300 appearance-none">
+                                                <option value="">Select a subject</option>
+                                                <option value="booking">Booking Inquiry</option>
+                                                <option value="services">Service Information</option>
+                                                <option value="gift">Gift Cards</option>
+                                                <option value="feedback">Feedback</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                            <i
+                                                class="ri-arrow-down-s-line absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                                    <textarea name="message" required maxlength="500" rows="4"
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300 resize-none"
+                                        placeholder="Tell us how we can help you..."></textarea>
+                                    <div class="text-right text-sm text-gray-500 mt-1">0/500</div>
+                                </div>
+                                <button type="submit"
+                                    class="w-full bg-emerald-600 hover:bg-emerald-700 disabled:bg-gray-400 text-white py-3 px-6 rounded-lg font-medium transition-all duration-300 whitespace-nowrap">Send
+                                    Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-16">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-8 text-center">Find Us</h3>
+                    <div class="bg-gray-200 rounded-2xl overflow-hidden h-96">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.2!2d-74.0059!3d40.7128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQyJzQ2LjEiTiA3NMKwMDAnMjEuMiJX!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const header = document.getElementById('header');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('bg-black/80', 'backdrop-blur-sm');
+            } else {
+                header.classList.remove('bg-black/80', 'backdrop-blur-sm');
+            }
+        });
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu on link click
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
