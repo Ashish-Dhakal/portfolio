@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashish Dhakal - Professional Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Embedded all CSS styles into HTML file */
+        :root {
+            --background: oklch(1 0 0);
+            --foreground: oklch(0.145 0 0);
+            --card: oklch(1 0 0);
+            --card-foreground: oklch(0.145 0 0);
+            --popover: oklch(1 0 0);
+            --popover-foreground: oklch(0.145 0 0);
+            --primary: oklch(0.205 0 0);
+            --primary-foreground: oklch(0.985 0 0);
+            --secondary: oklch(0.97 0 0);
+            --secondary-foreground: oklch(0.205 0 0);
+            --muted: oklch(0.97 0 0);
+            --muted-foreground: oklch(0.556 0 0);
+            --accent: oklch(0.646 0.222 41.116);
+            --accent-foreground: oklch(0.985 0 0);
+            --destructive: oklch(0.577 0.245 27.325);
+            --destructive-foreground: oklch(0.577 0.245 27.325);
+            --border: oklch(0.922 0 0);
+            --input: oklch(0.922 0 0);
+            --ring: oklch(0.708 0 0);
+            --chart-1: oklch(0.646 0.222 41.116);
+            --chart-2: oklch(0.6 0.118 184.704);
+            --chart-3: oklch(0.398 0.07 227.392);
+            --chart-4: oklch(0.828 0.189 84.429);
+            --chart-5: oklch(0.769 0.188 70.08);
+            --radius: 0.625rem;
+        }
+
+        .dark {
+            --background: oklch(0.145 0 0);
+            --foreground: oklch(0.985 0 0);
+            --card: oklch(0.145 0 0);
+            --card-foreground: oklch(0.985 0 0);
+            --popover: oklch(0.145 0 0);
+            --popover-foreground: oklch(0.985 0 0);
+            --primary: oklch(0.985 0 0);
+            --primary-foreground: oklch(0.205 0 0);
+            --secondary: oklch(0.269 0 0);
+            --secondary-foreground: oklch(0.985 0 0);
+            --muted: oklch(0.269 0 0);
+            --muted-foreground: oklch(0.708 0 0);
+            --accent: oklch(0.646 0.222 41.116);
+            --accent-foreground: oklch(0.985 0 0);
+            --destructive: oklch(0.396 0.141 25.723);
+            --destructive-foreground: oklch(0.637 0.237 25.331);
+            --border: oklch(0.269 0 0);
+            --input: oklch(0.269 0 0);
+            --ring: oklch(0.439 0 0);
+            --chart-1: oklch(0.488 0.243 264.376);
+            --chart-2: oklch(0.696 0.17 162.48);
+            --chart-3: oklch(0.769 0.188 70.08);
+            --chart-4: oklch(0.627 0.265 303.9);
+            --chart-5: oklch(0.645 0.246 16.439);
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--background);
+            color: var(--foreground);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .animate-fade-in-left {
+            animation: fadeInLeft 0.8s ease-out forwards;
+        }
+
+        .animate-fade-in-right {
+            animation: fadeInRight 0.8s ease-out forwards;
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .animate-on-scroll.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, #f97316, #ea580c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--muted);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+
+        /* Utility classes using CSS variables */
+        .bg-background {
+            background-color: var(--background);
+        }
+
+        .bg-card {
+            background-color: var(--card);
+        }
+
+        .bg-muted {
+            background-color: var(--muted);
+        }
+
+        .bg-primary {
+            background-color: var(--primary);
+        }
+
+        .bg-accent {
+            background-color: var(--accent);
+        }
+
+        .bg-input {
+            background-color: var(--input);
+        }
+
+        .text-foreground {
+            color: var(--foreground);
+        }
+
+        .text-primary {
+            color: var(--primary);
+        }
+
+        .text-muted-foreground {
+            color: var(--muted-foreground);
+        }
+
+        .text-accent {
+            color: var(--accent);
+        }
+
+        .text-primary-foreground {
+            color: var(--primary-foreground);
+        }
+
+        .text-accent-foreground {
+            color: var(--accent-foreground);
+        }
+
+        .border-border {
+            border-color: var(--border);
+        }
+
+        .border-accent {
+            border-color: var(--accent);
+        }
+
+        .hover\:bg-accent:hover {
+            background-color: var(--accent);
+        }
+
+        .hover\:bg-muted:hover {
+            background-color: var(--muted);
+        }
+
+        .hover\:text-accent:hover {
+            color: var(--accent);
+        }
+
+        .hover\:text-accent-foreground:hover {
+            color: var(--accent-foreground);
+        }
+
+        .focus\:ring-accent:focus {
+            --tw-ring-color: var(--accent);
+            box-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-border"
+        style="background-color: rgba(var(--background), 0.8);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="#home"
+                        class="text-xl font-bold text-primary hover:text-accent transition-colors duration-300">
+                        Ashish Dhakal
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home"
+                            class="nav-link text-foreground hover:text-accent transition-colors duration-300">Home</a>
+                        <a href="#about"
+                            class="nav-link text-foreground hover:text-accent transition-colors duration-300">About</a>
+                        <a href="#experience"
+                            class="nav-link text-foreground hover:text-accent transition-colors duration-300">Experience</a>
+                        <a href="#portfolio"
+                            class="nav-link text-foreground hover:text-accent transition-colors duration-300">Portfolio</a>
+                        <a href="#skills"
+                            class="nav-link text-foreground hover:text-accent transition-colors duration-300">Skills</a>
+                        <a href="#contact"
+                            class="nav-link text-foreground hover:text-accent transition-colors duration-300">Contact</a>
+                    </div>
+                </div>
+
+                <!-- Theme Toggle -->
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle"
+                        class="p-2 rounded-lg bg-muted hover:bg-accent hover:text-accent-foreground transition-all duration-300">
+                        <i class="fas fa-moon text-lg"></i>
+                    </button>
+
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden">
+                        <button id="mobile-menu-button"
+                            class="p-2 rounded-lg bg-muted hover:bg-accent hover:text-accent-foreground transition-all duration-300">
+                            <i class="fas fa-bars text-lg"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="md:hidden hidden bg-background border-t border-border">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home"
+                    class="mobile-nav-link block px-3 py-2 text-foreground hover:text-accent hover:bg-muted rounded-md transition-all duration-300">Home</a>
+                <a href="#about"
+                    class="mobile-nav-link block px-3 py-2 text-foreground hover:text-accent hover:bg-muted rounded-md transition-all duration-300">About</a>
+                <a href="#experience"
+                    class="mobile-nav-link block px-3 py-2 text-foreground hover:text-accent hover:bg-muted rounded-md transition-all duration-300">Experience</a>
+                <a href="#portfolio"
+                    class="mobile-nav-link block px-3 py-2 text-foreground hover:text-accent hover:bg-muted rounded-md transition-all duration-300">Portfolio</a>
+                <a href="#skills"
+                    class="mobile-nav-link block px-3 py-2 text-foreground hover:text-accent hover:bg-muted rounded-md transition-all duration-300">Skills</a>
+                <a href="#contact"
+                    class="mobile-nav-link block px-3 py-2 text-foreground hover:text-accent hover:bg-muted rounded-md transition-all duration-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home"
+        class="min-h-screen flex items-center justify-center bg-gradient-to-br from-background to-muted relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="animate-fade-in-up">
+                <div class="mb-8">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+                        alt="Ashish Dhakal"
+                        class="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-accent shadow-2xl animate-float object-cover">
+                </div>
+                <h1 class="text-4xl md:text-6xl font-bold text-primary mb-4">
+                    Hi, I'm <span class="gradient-text">Ashish Dhakal</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-muted-foreground mb-8">
+                    Laravel Developer & Frontend Specialist
+                </p>
+                <p class="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
+                    I create exceptional digital experiences with modern web technologies,
+                    specializing in custom website development with both frontend and backend expertise.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#portfolio"
+                        class="inline-flex items-center px-8 py-3 bg-accent text-accent-foreground rounded-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                        <span>View My Work</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="#contact"
+                        class="inline-flex items-center px-8 py-3 border-2 border-accent text-accent rounded-lg hover:bg-accent hover:text-accent-foreground transition-all duration-300 transform hover:scale-105">
+                        <span>Get In Touch</span>
+                        <i class="fas fa-envelope ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#about" class="text-accent hover:opacity-80 transition-opacity duration-300">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-background">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">About Me</h2>
+                <div class="w-20 h-1 bg-accent mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=400&fit=crop"
+                        alt="About Ashish" class="rounded-2xl shadow-2xl w-full object-cover">
+                </div>
+
+                <div class="animate-on-scroll">
+                    <h3 class="text-2xl font-semibold text-primary mb-6">Passionate Developer & Problem Solver</h3>
+                    <p class="text-muted-foreground mb-6 leading-relaxed">
+                        I'm a Laravel developer with excellent experience in custom website development.
+                        I specialize in both frontend and backend technologies, creating seamless digital experiences
+                        that combine beautiful design with robust functionality.
+                    </p>
+                    <p class="text-muted-foreground mb-8 leading-relaxed">
+                        My expertise spans across modern web technologies, and I'm passionate about writing clean,
+                        maintainable code that scales. I believe in continuous learning and staying updated with
+                        the latest industry trends and best practices.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="text-center p-4 bg-card rounded-lg shadow-md">
+                            <div class="text-2xl font-bold text-accent mb-2">3+</div>
+                            <div class="text-sm text-muted-foreground">Years Experience</div>
+                        </div>
+                        <div class="text-center p-4 bg-card rounded-lg shadow-md">
+                            <div class="text-2xl font-bold text-accent mb-2">50+</div>
+                            <div class="text-sm text-muted-foreground">Projects Completed</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-muted">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Professional Experience</h2>
+                <div class="w-20 h-1 bg-accent mx-auto rounded-full"></div>
+                <p class="text-muted-foreground mt-4 max-w-2xl mx-auto">
+                    My professional journey and the companies I've had the privilege to work with.
+                </p>
+            </div>
+
+            <div class="space-y-8">
+                <!-- Experience Item 1 -->
+                <div
+                    class="bg-card rounded-2xl shadow-lg p-8 animate-on-scroll hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+                        <div class="flex items-center mb-4 md:mb-0">
+                            <div
+                                class="w-16 h-16 bg-accent bg-opacity-10 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-building text-accent text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-primary">Senior Laravel Developer</h3>
+                                <p class="text-accent font-medium">TechCorp Solutions</p>
+                            </div>
+                        </div>
+                        <div class="text-muted-foreground">
+                            <i class="fas fa-calendar-alt mr-2"></i>
+                            Jan 2022 - Present
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-primary mb-3">Key Responsibilities & Achievements:</h4>
+                        <ul class="space-y-2 text-muted-foreground">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                                Led development of enterprise-level web applications serving 10,000+ users
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                                Architected and implemented RESTful APIs with Laravel and MySQL
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                                Mentored junior developers and conducted code reviews
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                                Improved application performance by 40% through optimization techniques
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-semibold text-primary mb-3">Technologies Used:</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-3 py-1 bg-accent bg-opacity-10 text-accent rounded-full text-sm">Laravel</span>
+                            <span class="px-3 py-1 bg-accent bg-opacity-10 text-accent rounded-full text-sm">PHP</span>
+                            <span
+                                class="px-3 py-1 bg-accent bg-opacity-10 text-accent rounded-full text-sm">MySQL</span>
+                            <span
+                                class="px-3 py-1 bg-accent bg-opacity-10 text-accent rounded-full text-sm">Vue.js</span>
+                            <span class="px-3 py-1 bg-accent bg-opacity-10 text-accent rounded-full text-sm">Tailwind
+                                CSS</span>
+                            <span
+                                class="px-3 py-1 bg-accent bg-opacity-10 text-accent rounded-full text-sm">Docker</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience Item 2 -->
+                <div
+                    class="bg-card rounded-2xl shadow-lg p-8 animate-on-scroll hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+                        <div class="flex items-center mb-4 md:mb-0">
+                            <div
+                                class="w-16 h-16 bg-accent bg-opacity-10 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-code text-accent text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-primary">Full Stack Developer</h3>
+                                <p class="text-accent font-medium">Digital Innovations Ltd</p>
+                            </div>
+                        </div>
+                        <div class="text-muted-foreground">
+                            <i class="fas fa-calendar-alt mr-2"></i>
+                            Mar 2021 - Dec 2021
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-primary mb-3">Key Responsibilities & Achievements:</h4>
+                        <ul class="space-y-2 text-muted-foreground">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                                Developed and maintained multiple client websites and web applications
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                                Collaborated with design team to implement pixel-perfect UI/UX designs
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                                Integrated third-party APIs and payment gateways
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                                Delivered projects 20% faster than estimated timelines
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-semibold text-primary mb-3">Technologies Used:</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-3 py-1 bg-accent bg-opacity-10 text-accent rounded-full text-sm">Laravel</span>
+                            <span class="px-3 py-1 bg-accent bg-opacity-10 text-accent rounded-full text-sm">PHP</span>
+                            <span
+                                class="px-3 py-1 bg-accent bg-opacity-10 text-accent rounded-full text-sm">JavaScript</span>
+                            <span
+                                class="px-3 py-1 bg-accent bg-opacity-10 text-accent rounded-full text-sm">Bootstrap</span>
+                            <span
+                                class="px-3 py-1 bg-accent bg-opacity-10 text-accent rounded-full text-sm">jQuery</span>
+                            <span class="px-3 py-1 bg-accent bg-opacity-10 text-accent rounded-full text-sm">Git</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience Item 3 -->
+                <div
+                    class="bg-card rounded-2xl shadow-lg p-8 animate-on-scroll hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+                        <div class="flex items-center mb-4 md:mb-0">
+                            <div
+                                class="w-16 h-16 bg-accent bg-opacity-10 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-laptop-code text-accent text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-primary">Junior Web Developer</h3>
+                                <p class="text-accent font-medium">StartUp Hub Nepal</p>
+                            </div>
+                        </div>
+                        <div class="text-muted-foreground">
+                            <i class="fas fa-calendar-alt mr-2"></i>
+                            Jun 2020 - Feb 2021
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-primary mb-3">Key Responsibilities & Achievements:</h4>
+                        <ul class="space-y-2 text-muted-foreground">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                                Built responsive websites and landing pages for various clients
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                                Learned and implemented modern web development practices
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                                Assisted in database design and backend development
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                                Participated in agile development processes and team meetings
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-semibold text-primary mb-3">Technologies Used:</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-3 py-1 bg-accent bg-opacity-10 text-accent rounded-full text-sm">HTML5</span>
+                            <span class="px-3 py-1 bg-accent bg-opacity-10 text-accent rounded-full text-sm">CSS3</span>
+                            <span
+                                class="px-3 py-1 bg-accent bg-opacity-10 text-accent rounded-full text-sm">JavaScript</span>
+                            <span class="px-3 py-1 bg-accent bg-opacity-10 text-accent rounded-full text-sm">PHP</span>
+                            <span
+                                class="px-3 py-1 bg-accent bg-opacity-10 text-accent rounded-full text-sm">MySQL</span>
+                            <span
+                                class="px-3 py-1 bg-accent bg-opacity-10 text-accent rounded-full text-sm">WordPress</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-background">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Skills & Technologies</h2>
+                <div class="w-20 h-1 bg-accent mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Frontend -->
+                <div
+                    class="bg-card p-8 rounded-2xl shadow-lg animate-on-scroll hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-accent text-4xl mb-6 text-center">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary mb-4 text-center">Frontend</h3>
+                    <ul class="space-y-3 text-muted-foreground">
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>HTML5 & CSS3</li>
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>JavaScript (ES6+)
+                        </li>
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Tailwind CSS</li>
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Bootstrap</li>
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Responsive Design
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Backend -->
+                <div
+                    class="bg-card p-8 rounded-2xl shadow-lg animate-on-scroll hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-accent text-4xl mb-6 text-center">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary mb-4 text-center">Backend</h3>
+                    <ul class="space-y-3 text-muted-foreground">
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>PHP & Laravel</li>
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>MySQL Database</li>
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>RESTful APIs</li>
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Authentication</li>
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>MVC Architecture</li>
+                    </ul>
+                </div>
+
+                <!-- Tools -->
+                <div
+                    class="bg-card p-8 rounded-2xl shadow-lg animate-on-scroll hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-accent text-4xl mb-6 text-center">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary mb-4 text-center">Tools & Others</h3>
+                    <ul class="space-y-3 text-muted-foreground">
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Git & GitHub</li>
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>VS Code</li>
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Composer</li>
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>npm/yarn</li>
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Linux/Ubuntu</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-background">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">My Portfolio</h2>
+                <div class="w-20 h-1 bg-accent mx-auto rounded-full"></div>
+                <p class="text-muted-foreground mt-4 max-w-2xl mx-auto">
+                    Here are some of my recent projects that showcase my skills and expertise in web development.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div
+                    class="bg-card rounded-2xl shadow-lg overflow-hidden animate-on-scroll hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=250&fit=crop"
+                            alt="E-commerce Platform"
+                            class="w-full h-48 object-cover transition-transform duration-300 hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-accent bg-opacity-80 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div class="text-center">
+                                <a href="#"
+                                    class="inline-flex items-center px-4 py-2 bg-white text-accent rounded-lg hover:bg-gray-100 transition-colors duration-300 mr-2">
+                                    <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                                </a>
+                                <a href="#"
+                                    class="inline-flex items-center px-4 py-2 bg-white text-accent rounded-lg hover:bg-gray-100 transition-colors duration-300">
+                                    <i class="fab fa-github mr-2"></i>Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2">E-commerce Platform</h3>
+                        <p class="text-muted-foreground mb-4">A full-featured e-commerce platform built with Laravel and
+                            modern frontend technologies.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-3 py-1 bg-accent bg-opacity-10 text-accent rounded-full text-sm">Laravel</span>
+                            <span
+                                class="px-3 py-1 bg-accent bg-opacity-10 text-accent rounded-full text-sm">MySQL</span>
+                            <span
+                                class="px-3 py-1 bg-accent bg-opacity-10 text-accent rounded-full text-sm">Tailwind</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div
+                    class="bg-card rounded-2xl shadow-lg overflow-hidden animate-on-scroll hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=250&fit=crop"
+                            alt="Task Management System"
+                            class="w-full h-48 object-cover transition-transform duration-300 hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-accent bg-opacity-80 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div class="text-center">
+                                <a href="#"
+                                    class="inline-flex items-center px-4 py-2 bg-white text-accent rounded-lg hover:bg-gray-100 transition-colors duration-300 mr-2">
+                                    <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                                </a>
+                                <a href="#"
+                                    class="inline-flex items-center px-4 py-2 bg-white text-accent rounded-lg hover:bg-gray-100 transition-colors duration-300">
+                                    <i class="fab fa-github mr-2"></i>Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2">Task Management System</h3>
+                        <p class="text-muted-foreground mb-4">A comprehensive task management application with real-time
+                            updates and team collaboration features.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-accent bg-opacity-10 text-accent rounded-full text-sm">PHP</span>
+                            <span
+                                class="px-3 py-1 bg-accent bg-opacity-10 text-accent rounded-full text-sm">JavaScript</span>
+                            <span
+                                class="px-3 py-1 bg-accent bg-opacity-10 text-accent rounded-full text-sm">Bootstrap</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div
+                    class="bg-card rounded-2xl shadow-lg overflow-hidden animate-on-scroll hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=250&fit=crop"
+                            alt="Restaurant Website"
+                            class="w-full h-48 object-cover transition-transform duration-300 hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-accent bg-opacity-80 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div class="text-center">
+                                <a href="#"
+                                    class="inline-flex items-center px-4 py-2 bg-white text-accent rounded-lg hover:bg-gray-100 transition-colors duration-300 mr-2">
+                                    <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                                </a>
+                                <a href="#"
+                                    class="inline-flex items-center px-4 py-2 bg-white text-accent rounded-lg hover:bg-gray-100 transition-colors duration-300">
+                                    <i class="fab fa-github mr-2"></i>Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2">Restaurant Website</h3>
+                        <p class="text-muted-foreground mb-4">A beautiful restaurant website with online menu,
+                            reservation system, and customer reviews.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-3 py-1 bg-accent bg-opacity-10 text-accent rounded-full text-sm">Laravel</span>
+                            <span
+                                class="px-3 py-1 bg-accent bg-opacity-10 text-accent rounded-full text-sm">Vue.js</span>
+                            <span class="px-3 py-1 bg-accent bg-opacity-10 text-accent rounded-full text-sm">CSS3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div
+                    class="bg-card rounded-2xl shadow-lg overflow-hidden animate-on-scroll hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1486312338219-ce68e2c6b7d3?w=400&h=250&fit=crop"
+                            alt="Blog Platform"
+                            class="w-full h-48 object-cover transition-transform duration-300 hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-accent bg-opacity-80 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div class="text-center">
+                                <a href="#"
+                                    class="inline-flex items-center px-4 py-2 bg-white text-accent rounded-lg hover:bg-gray-100 transition-colors duration-300 mr-2">
+                                    <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                                </a>
+                                <a href="#"
+                                    class="inline-flex items-center px-4 py-2 bg-white text-accent rounded-lg hover:bg-gray-100 transition-colors duration-300">
+                                    <i class="fab fa-github mr-2"></i>Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2">Blog Platform</h3>
+                        <p class="text-muted-foreground mb-4">A modern blog platform with content management, user
+                            authentication, and SEO optimization.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-3 py-1 bg-accent bg-opacity-10 text-accent rounded-full text-sm">Laravel</span>
+                            <span
+                                class="px-3 py-1 bg-accent bg-opacity-10 text-accent rounded-full text-sm">MySQL</span>
+                            <span
+                                class="px-3 py-1 bg-accent bg-opacity-10 text-accent rounded-full text-sm">Tailwind</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div
+                    class="bg-card rounded-2xl shadow-lg overflow-hidden animate-on-scroll hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400&h=250&fit=crop"
+                            alt="Portfolio Website"
+                            class="w-full h-48 object-cover transition-transform duration-300 hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-accent bg-opacity-80 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div class="text-center">
+                                <a href="#"
+                                    class="inline-flex items-center px-4 py-2 bg-white text-accent rounded-lg hover:bg-gray-100 transition-colors duration-300 mr-2">
+                                    <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                                </a>
+                                <a href="#"
+                                    class="inline-flex items-center px-4 py-2 bg-white text-accent rounded-lg hover:bg-gray-100 transition-colors duration-300">
+                                    <i class="fab fa-github mr-2"></i>Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2">Portfolio Website</h3>
+                        <p class="text-muted-foreground mb-4">A responsive portfolio website showcasing creative work
+                            with smooth animations and modern design.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-3 py-1 bg-accent bg-opacity-10 text-accent rounded-full text-sm">HTML5</span>
+                            <span class="px-3 py-1 bg-accent bg-opacity-10 text-accent rounded-full text-sm">CSS3</span>
+                            <span
+                                class="px-3 py-1 bg-accent bg-opacity-10 text-accent rounded-full text-sm">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div
+                    class="bg-card rounded-2xl shadow-lg overflow-hidden animate-on-scroll hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop"
+                            alt="Business Website"
+                            class="w-full h-48 object-cover transition-transform duration-300 hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-accent bg-opacity-80 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div class="text-center">
+                                <a href="#"
+                                    class="inline-flex items-center px-4 py-2 bg-white text-accent rounded-lg hover:bg-gray-100 transition-colors duration-300 mr-2">
+                                    <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                                </a>
+                                <a href="#"
+                                    class="inline-flex items-center px-4 py-2 bg-white text-accent rounded-lg hover:bg-gray-100 transition-colors duration-300">
+                                    <i class="fab fa-github mr-2"></i>Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2">Business Website</h3>
+                        <p class="text-muted-foreground mb-4">A professional business website with service showcase,
+                            contact forms, and client testimonials.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-accent bg-opacity-10 text-accent rounded-full text-sm">PHP</span>
+                            <span
+                                class="px-3 py-1 bg-accent bg-opacity-10 text-accent rounded-full text-sm">Bootstrap</span>
+                            <span
+                                class="px-3 py-1 bg-accent bg-opacity-10 text-accent rounded-full text-sm">jQuery</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-muted">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Get In Touch</h2>
+                <div class="w-20 h-1 bg-accent mx-auto rounded-full"></div>
+                <p class="text-muted-foreground mt-4 max-w-2xl mx-auto">
+                    Ready to start your next project? Let's work together to create something amazing.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div class="animate-on-scroll">
+                    <h3 class="text-2xl font-semibold text-primary mb-6">Let's Connect</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <div
+                                class="w-12 h-12 bg-accent text-accent-foreground rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-primary">Email</h4>
+                                <p class="text-muted-foreground">ashish@example.com</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center">
+                            <div
+                                class="w-12 h-12 bg-accent text-accent-foreground rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-primary">Phone</h4>
+                                <p class="text-muted-foreground">+977 98XXXXXXXX</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center">
+                            <div
+                                class="w-12 h-12 bg-accent text-accent-foreground rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-primary">Location</h4>
+                                <p class="text-muted-foreground">Nepal</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="mt-8">
+                        <h4 class="font-semibold text-primary mb-4">Follow Me</h4>
+                        <div class="flex space-x-4">
+                            <a href="#"
+                                class="w-10 h-10 bg-accent text-accent-foreground rounded-lg flex items-center justify-center hover:opacity-80 transition-opacity duration-300">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#"
+                                class="w-10 h-10 bg-accent text-accent-foreground rounded-lg flex items-center justify-center hover:opacity-80 transition-opacity duration-300">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#"
+                                class="w-10 h-10 bg-accent text-accent-foreground rounded-lg flex items-center justify-center hover:opacity-80 transition-opacity duration-300">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#"
+                                class="w-10 h-10 bg-accent text-accent-foreground rounded-lg flex items-center justify-center hover:opacity-80 transition-opacity duration-300">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="animate-on-scroll">
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-primary mb-2">Name</label>
+                            <input type="text" id="name" name="name" required
+                                class="w-full px-4 py-3 bg-input border border-border rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-300">
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-primary mb-2">Email</label>
+                            <input type="email" id="email" name="email" required
+                                class="w-full px-4 py-3 bg-input border border-border rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-300">
+                        </div>
+
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-primary mb-2">Subject</label>
+                            <input type="text" id="subject" name="subject" required
+                                class="w-full px-4 py-3 bg-input border border-border rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-300">
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-primary mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" required
+                                class="w-full px-4 py-3 bg-input border border-border rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-300 resize-none"></textarea>
+                        </div>
+
+                        <button type="submit"
+                            class="w-full bg-accent text-accent-foreground py-3 px-6 rounded-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105 font-medium">
+                            Send Message
+                            <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-primary-foreground py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h3 class="text-2xl font-bold mb-4">Ashish Dhakal</h3>
+                <p class="text-primary-foreground opacity-80 mb-6">Laravel Developer & Frontend Specialist</p>
+
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="#"
+                        class="text-primary-foreground opacity-80 hover:opacity-100 transition-opacity duration-300">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#"
+                        class="text-primary-foreground opacity-80 hover:opacity-100 transition-opacity duration-300">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#"
+                        class="text-primary-foreground opacity-80 hover:opacity-100 transition-opacity duration-300">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#"
+                        class="text-primary-foreground opacity-80 hover:opacity-100 transition-opacity duration-300">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                </div>
+
+                <div class="border-t border-primary-foreground opacity-20 pt-8">
+                    <p class="text-primary-foreground opacity-60">
+                        © 2024 Ashish Dhakal. All rights reserved. Built with ❤️ and modern web technologies.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top"
+        class="fixed bottom-8 right-8 w-12 h-12 bg-accent text-accent-foreground rounded-full shadow-lg hover:opacity-90 transition-all duration-300 transform hover:scale-110 opacity-0 invisible">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+        /* Embedded all JavaScript functionality into HTML file */
+        // DOM Content Loaded
+        document.addEventListener("DOMContentLoaded", () => {
+            // Initialize all functionality
+            initNavigation()
+            initThemeToggle()
+            initScrollAnimations()
+            initContactForm()
+            initBackToTop()
+            initSmoothScrolling()
+        })
+
+        // Navigation functionality
+        function initNavigation() {
+            const mobileMenuButton = document.getElementById("mobile-menu-button")
+            const mobileMenu = document.getElementById("mobile-menu")
+            const navLinks = document.querySelectorAll(".nav-link, .mobile-nav-link")
+
+            // Mobile menu toggle
+            mobileMenuButton.addEventListener("click", () => {
+                mobileMenu.classList.toggle("hidden")
+                const icon = mobileMenuButton.querySelector("i")
+                icon.classList.toggle("fa-bars")
+                icon.classList.toggle("fa-times")
+            })
+
+            // Close mobile menu when clicking on a link
+            navLinks.forEach((link) => {
+                link.addEventListener("click", () => {
+                    mobileMenu.classList.add("hidden")
+                    const icon = mobileMenuButton.querySelector("i")
+                    icon.classList.add("fa-bars")
+                    icon.classList.remove("fa-times")
+                })
+            })
+
+            // Active navigation highlighting
+            window.addEventListener("scroll", () => {
+                const sections = document.querySelectorAll("section[id]")
+                const scrollPos = window.scrollY + 100
+
+                sections.forEach((section) => {
+                    const sectionTop = section.offsetTop
+                    const sectionHeight = section.offsetHeight
+                    const sectionId = section.getAttribute("id")
+
+                    if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                        // Remove active class from all nav links
+                        navLinks.forEach((link) => {
+                            link.classList.remove("text-accent")
+                            link.classList.add("text-foreground")
+                        })
+
+                        // Add active class to current section nav link
+                        const activeLink = document.querySelector(`a[href="#${sectionId}"]`)
+                        if (activeLink) {
+                            activeLink.classList.remove("text-foreground")
+                            activeLink.classList.add("text-accent")
+                        }
+                    }
+                })
+            })
+        }
+
+        // Theme toggle functionality
+        function initThemeToggle() {
+            const themeToggle = document.getElementById("theme-toggle")
+            const html = document.documentElement
+            const icon = themeToggle.querySelector("i")
+
+            // Check for saved theme preference or default to light mode
+            const savedTheme = localStorage.getItem("theme") || "light"
+            html.classList.toggle("dark", savedTheme === "dark")
+            updateThemeIcon(icon, savedTheme === "dark")
+
+            themeToggle.addEventListener("click", () => {
+                const isDark = html.classList.toggle("dark")
+                localStorage.setItem("theme", isDark ? "dark" : "light")
+                updateThemeIcon(icon, isDark)
+            })
+
+            function updateThemeIcon(icon, isDark) {
+                icon.classList.toggle("fa-moon", !isDark)
+                icon.classList.toggle("fa-sun", isDark)
+            }
+        }
+
+        // Scroll animations
+        function initScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px",
+            }
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("animate")
+                    }
+                })
+            }, observerOptions)
+
+            // Observe all elements with animate-on-scroll class
+            document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+                observer.observe(el)
+            })
+        }
+
+        // Contact form functionality
+        function initContactForm() {
+            const contactForm = document.getElementById("contact-form")
+
+            contactForm.addEventListener("submit", (e) => {
+                e.preventDefault()
+
+                // Get form data
+                const formData = new FormData(contactForm)
+                const name = formData.get("name")
+                const email = formData.get("email")
+                const subject = formData.get("subject")
+                const message = formData.get("message")
+
+                // Simple validation
+                if (!name || !email || !subject || !message) {
+                    showNotification("Please fill in all fields.", "error")
+                    return
+                }
+
+                if (!isValidEmail(email)) {
+                    showNotification("Please enter a valid email address.", "error")
+                    return
+                }
+
+                // Simulate form submission
+                const submitButton = contactForm.querySelector('button[type="submit"]')
+                const originalText = submitButton.innerHTML
+
+                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...'
+                submitButton.disabled = true
+
+                setTimeout(() => {
+                    showNotification("Thank you for your message! I'll get back to you soon.", "success")
+                    contactForm.reset()
+                    submitButton.innerHTML = originalText
+                    submitButton.disabled = false
+                }, 2000)
+            })
+        }
+
+        // Email validation
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+            return emailRegex.test(email)
+        }
+
+        // Notification system
+        function showNotification(message, type = "info") {
+            // Remove existing notifications
+            const existingNotification = document.querySelector(".notification")
+            if (existingNotification) {
+                existingNotification.remove()
+            }
+
+            // Create notification element
+            const notification = document.createElement("div")
+            notification.className = `notification fixed top-4 right-4 z-50 px-6 py-4 rounded-lg shadow-lg transform translate-x-full transition-transform duration-300 ${type === "success"
+                    ? "bg-green-500 text-white"
+                    : type === "error"
+                        ? "bg-red-500 text-white"
+                        : "bg-blue-500 text-white"
+                }`
+
+            notification.innerHTML = `
+                <div class="flex items-center">
+                    <i class="fas ${type === "success" ? "fa-check-circle" : type === "error" ? "fa-exclamation-circle" : "fa-info-circle"
+                } mr-2"></i>
+                    <span>${message}</span>
+                    <button class="ml-4 text-white hover:text-gray-200" onclick="this.parentElement.parentElement.remove()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            `
+
+            document.body.appendChild(notification)
+
+            // Animate in
+            setTimeout(() => {
+                notification.classList.remove("translate-x-full")
+            }, 100)
+
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.classList.add("translate-x-full")
+                    setTimeout(() => {
+                        if (notification.parentElement) {
+                            notification.remove()
+                        }
+                    }, 300)
+                }
+            }, 5000)
+        }
+
+        // Back to top functionality
+        function initBackToTop() {
+            const backToTopButton = document.getElementById("back-to-top")
+
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.remove("opacity-0", "invisible")
+                    backToTopButton.classList.add("opacity-100", "visible")
+                } else {
+                    backToTopButton.classList.add("opacity-0", "invisible")
+                    backToTopButton.classList.remove("opacity-100", "visible")
+                }
+            })
+
+            backToTopButton.addEventListener("click", () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth",
+                })
+            })
+        }
+
+        // Smooth scrolling for navigation links
+        function initSmoothScrolling() {
+            document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+                anchor.addEventListener("click", function (e) {
+                    e.preventDefault()
+                    const target = document.querySelector(this.getAttribute("href"))
+                    if (target) {
+                        const offsetTop = target.offsetTop - 80 // Account for fixed header
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: "smooth",
+                        })
+                    }
+                })
+            })
+        }
+
+        // Handle window resize
+        window.addEventListener("resize", () => {
+            // Close mobile menu on resize
+            const mobileMenu = document.getElementById("mobile-menu")
+            const mobileMenuButton = document.getElementById("mobile-menu-button")
+
+            if (window.innerWidth >= 768) {
+                mobileMenu.classList.add("hidden")
+                const icon = mobileMenuButton.querySelector("i")
+                icon.classList.add("fa-bars")
+                icon.classList.remove("fa-times")
+            }
+        })
+    </script>
+</body>
+
+</html>
