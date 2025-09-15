@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nepal Private Guide Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#16a34a',
+                        'primary-dark': '#15803d',
+                        'primary-light': '#22c55e',
+                        secondary: '#ffffff',
+                        'secondary-dark': '#f8fafc',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* Smooth animation for mobile dropdown */
+        .mobile-menu-enter {
+            transform: translateY(-10px);
+            opacity: 0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .mobile-menu-enter-active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-900">
+
+    <!-- Responsive Navbar -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+
+                <!-- Logo & Company Name -->
+                <div class="flex items-center space-x-3 flex-1 min-w-0">
+                    <img src="https://www.nepalprivatetours.com/wp-content/uploads/2019/12/logo-nepal.png"
+                        class="h-10 w-auto flex-shrink-0" alt="Logo">
+                    <span class="text-base sm:text-lg font-bold text-black whitespace-normal break-words">
+                        Nepal Private Guide Services
+                    </span>
+                </div>
+
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-6 pr-10">
+                    <a href="#home" class="text-black hover:text-primary transition text-sm font-medium">Home</a>
+                    <a href="#tours" class="text-black hover:text-primary transition text-sm font-medium">Tours</a>
+                    <a href="#trekking"
+                        class="text-black hover:text-primary transition text-sm font-medium">Trekking</a>
+                    <a href="#about" class="text-black hover:text-primary transition text-sm font-medium">About</a>
+                    <a href="#contact" class="text-black hover:text-primary transition text-sm font-medium">Contact</a>
+                </div>
+
+                <!-- Desktop CTA Button -->
+                <div class="hidden md:block">
+                    <button
+                        class="bg-primary text-white px-5 py-2 rounded-lg text-sm font-semibold hover:bg-primary-dark transition">
+                        Get Quote
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" class="text-black hover:text-primary focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden absolute w-full bg-white shadow-md border-t border-gray-100 md:hidden">
+            <div class="px-4 py-4 space-y-4">
+                <a href="#home" class="block text-gray-800 hover:text-primary text-base">Home</a>
+                <a href="#tours" class="block text-gray-800 hover:text-primary text-base">Tours</a>
+                <a href="#trekking" class="block text-gray-800 hover:text-primary text-base">Trekking</a>
+                <a href="#about" class="block text-gray-800 hover:text-primary text-base">About</a>
+                <a href="#contact" class="block text-gray-800 hover:text-primary text-base">Contact</a>
+                <button
+                    class="w-full bg-primary text-white px-5 py-2 rounded-lg text-sm font-semibold hover:bg-primary-dark transition">
+                    Get Quote
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        // Toggle Mobile Menu
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.add('mobile-menu-enter');
+            setTimeout(() => {
+                mobileMenu.classList.remove('mobile-menu-enter');
+            }, 300);
+        });
+    </script>
+
+
+
+    <!-- Fixed hero section with proper font sizes and green/white theme -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- <div class="absolute inset-0 bg-gradient-to-br from-black/50 via-black/30 to-black/50"></div> -->
+        <img src="https://www.nepalprivatetours.com/wp-content/uploads/2018/03/Photos.jpg" alt="Nepal Himalayas"
+            class="absolute inset-0 w-full h-full object-cover opacity-50 ">
+              <div class="absolute inset-0 bg-green-600/20"></div>
+        <div class="relative z-10 text-center text-white max-w-4xl mx-auto px-4 py-16">
+            <div class="animate-fade-in-up">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                    Discover the Beauty of <span class="text-primary-light">Nepal</span>
+                </h1>
+                <p class="text-lg md:text-xl mb-4 text-gray-200 max-w-2xl mx-auto">
+                    Private Tours & Trekking Adventures
+                </p>
+                <p class="text-base mb-8 text-gray-300 max-w-xl mx-auto">
+                    Experience authentic Nepal with personalized itineraries and expert local guides
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <button
+                        class="bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-lg text-base font-semibold transition-all duration-300 shadow-lg">
+                        <i class="fas fa-compass mr-2"></i>Explore Now
+                    </button>
+                    <button
+                        class="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-6 py-3 rounded-lg text-base font-semibold transition-all duration-300">
+                        <i class="fas fa-play mr-2"></i>Watch Video
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+            <i class="fas fa-chevron-down text-lg"></i>
+        </div>
+    </section>
+
+    <!-- Redesigned Why Choose Us section with two-column layout and green/white theme -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Why Choose Us</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Experience Nepal like never before with our
+                    personalized approach and local expertise</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Column - Content -->
+                <div class="space-y-8">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-user-tie text-primary text-lg"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900 mb-2">Expert Local Guides</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">Our native guides possess deep knowledge of
+                                Nepal's rich culture and hidden gems that only locals can provide.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-users text-primary text-lg"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900 mb-2">Private & Personalized</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">Enjoy dedicated personal guides and
+                                completely customized itineraries tailored to your interests and preferences.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-calendar-alt text-primary text-lg"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900 mb-2">Flexible Itineraries</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">Our tours adapt to you. Change plans on the
+                                go, extend stays at favorite locations, or discover spontaneous adventures.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-star text-primary text-lg"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900 mb-2">Trusted by 500+ Travelers</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">Join hundreds of satisfied adventurers
+                                who've discovered Nepal's magic with us. Our 5-star reviews speak for themselves.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column - Visual Element -->
+                <div class="relative">
+                    <div class="relative rounded-2xl overflow-hidden shadow-xl">
+                        <img src="https://nepalrecreation.com/wp-content/uploads/2021/01/Trek-1024x473.jpg"
+                            alt="Nepal trekking experience with local guide" class="w-full h-[400px] object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+
+                        <!-- Floating stats card -->
+                        <div
+                            class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-lg">
+                            <div class="grid grid-cols-3 gap-3 text-center">
+                                <div>
+                                    <div class="text-xl font-bold text-primary">500+</div>
+                                    <div class="text-xs text-gray-600">Happy Travelers</div>
+                                </div>
+                                <div>
+                                    <div class="text-xl font-bold text-primary">15+</div>
+                                    <div class="text-xs text-gray-600">Years Experience</div>
+                                </div>
+                                <div>
+                                    <div class="text-xl font-bold text-primary">4.9</div>
+                                    <div class="text-xs text-gray-600">Average Rating</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Decorative elements -->
+                    <div class="absolute -top-4 -right-4 w-16 h-16 bg-primary/20 rounded-full blur-lg"></div>
+                    <div class="absolute -bottom-4 -left-4 w-20 h-20 bg-primary/10 rounded-full blur-lg"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Featured Tours -->
+    <section id="tours" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Featured Tours & Packages</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Discover our most popular adventures across Nepal</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border">
+                    <img src="https://www.nepalprivatetours.com/wp-content/uploads/2025/08/Swayambhunath-monkey-temple-350x220.jpg"
+                        alt="Everest Base Camp Trek" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm text-primary font-semibold">14 Days</span>
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-400 text-sm"></i>
+                                <span class="text-sm text-gray-600 ml-1">4.9</span>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Everest Base Camp Trek</h3>
+                        <p class="text-gray-600 mb-4 text-sm">Experience the ultimate adventure to the base of the
+                            world's highest peak</p>
+                        <button
+                            class="w-full bg-primary hover:bg-primary-dark text-white py-2 rounded-lg font-semibold transition-colors text-sm">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border">
+                    <img src="https://www.nepalprivatetours.com/wp-content/uploads/2018/03/Photos-350x220.jpg"
+                        alt="Kathmandu-Pokhara Cultural Tour" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm text-primary font-semibold">7 Days</span>
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-400 text-sm"></i>
+                                <span class="text-sm text-gray-600 ml-1">4.8</span>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Kathmandu-Pokhara Cultural Tour</h3>
+                        <p class="text-gray-600 mb-4 text-sm">Explore ancient temples, vibrant markets, and stunning
+                            lake views</p>
+                        <button
+                            class="w-full bg-primary hover:bg-primary-dark text-white py-2 rounded-lg font-semibold transition-colors text-sm">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border">
+                    <img src="https://www.nepalprivatetours.com/wp-content/uploads/2023/02/IMG_20190901_144440-01-350x220.jpeg"
+                        alt="Chitwan Safari Adventure" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm text-primary font-semibold">3 Days</span>
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-400 text-sm"></i>
+                                <span class="text-sm text-gray-600 ml-1">4.7</span>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Chitwan Safari Adventure</h3>
+                        <p class="text-gray-600 mb-4 text-sm">Wildlife safari in Nepal's premier national park with
+                            rhinos and tigers</p>
+                        <button
+                            class="w-full bg-primary hover:bg-primary-dark text-white py-2 rounded-lg font-semibold transition-colors text-sm">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-8">
+                <button
+                    class="bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+                    View All Tours
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">How It Works</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Simple steps to your perfect Nepal adventure</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div
+                        class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-bold">
+                        1</div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Choose Your Tour</h3>
+                    <p class="text-gray-600 text-sm">Browse our curated selection of tours and adventures</p>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-bold">
+                        2</div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Customize</h3>
+                    <p class="text-gray-600 text-sm">Tailor the itinerary to match your preferences and interests</p>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-bold">
+                        3</div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Book Securely</h3>
+                    <p class="text-gray-600 text-sm">Secure your adventure with our safe and easy booking process</p>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-bold">
+                        4</div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Enjoy Nepal</h3>
+                    <p class="text-gray-600 text-sm">Experience the adventure of a lifetime with our expert guides</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">What Our Travelers Say</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Real stories from real adventures</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-lg border">
+                    <div class="flex items-center mb-4">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHJ-KbZxIBPjVPIkMPhrVixnFS1AQi0U7OgQ&s"
+                            alt="Sarah Johnson" class="w-10 h-10 rounded-full object-cover mr-3">
+                        <div>
+                            <h4 class="font-semibold text-gray-900 text-sm">Sarah Johnson</h4>
+                            <p class="text-xs text-gray-600">USA</p>
+                        </div>
+                    </div>
+                    <div class="flex mb-3">
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                    </div>
+                    <p class="text-gray-600 text-sm">Absolutely incredible experience! The team customized everything
+                        perfectly for our family. Nepal exceeded all expectations.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg border">
+                    <div class="flex items-center mb-4">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHJ-KbZxIBPjVPIkMPhrVixnFS1AQi0U7OgQ&s"
+                            alt="David Chen" class="w-10 h-10 rounded-full object-cover mr-3">
+                        <div>
+                            <h4 class="font-semibold text-gray-900 text-sm">David Chen</h4>
+                            <p class="text-xs text-gray-600">Canada</p>
+                        </div>
+                    </div>
+                    <div class="flex mb-3">
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                    </div>
+                    <p class="text-gray-600 text-sm">The Everest Base Camp trek was life-changing. Professional guides,
+                        perfect organization, and memories that will last forever.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg border">
+                    <div class="flex items-center mb-4">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHJ-KbZxIBPjVPIkMPhrVixnFS1AQi0U7OgQ&s"
+                            alt="Emma & James" class="w-10 h-10 rounded-full object-cover mr-3">
+                        <div>
+                            <h4 class="font-semibold text-gray-900 text-sm">Emma & James</h4>
+                            <p class="text-xs text-gray-600">UK</p>
+                        </div>
+                    </div>
+                    <div class="flex mb-3">
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                    </div>
+                    <p class="text-gray-600 text-sm">From Kathmandu's temples to Pokhara's lakes, every moment was
+                        magical. The local insights made all the difference.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Highlights -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Travel Tips & Insights</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Expert advice for your Nepal adventure</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <article class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border">
+                    <img src="https://lh3.googleusercontent.com/gpms-cs-s/AB8u6HbKl9yndy9t1FfvWBBrx7fOjJL0r9dGUXNGRz_cgB10MXIcSk9Yz_xTID61aGfwrJVBe9Qpy7ECg9dCCT9RJxhEkHir2WpNqSakKbFP2b6SOiQNwQnstEdkrr8pevCT5DZDMCrtoQ=s294-w294-h220-n-k-no"
+                        alt="Top 10 Things to Do in Kathmandu" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-sm text-primary font-semibold">Travel Guide</span>
+                        <h3 class="text-lg font-bold text-gray-900 mt-2 mb-3">Top 10 Things to Do in Kathmandu</h3>
+                        <p class="text-gray-600 mb-4 text-sm">Discover the must-visit temples, markets, and cultural
+                            sites in Nepal's vibrant capital city.</p>
+                        <a href="#" class="text-primary hover:text-primary-dark font-semibold text-sm">Read More →</a>
+                    </div>
+                </article>
+                <article class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border">
+                    <img src="https://alpineecotrek.com/wp-content/uploads/2023/07/best-times-to-visit-himalaya.webp"
+                        alt="Best Time to Visit Nepal" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-sm text-primary font-semibold">Planning Tips</span>
+                        <h3 class="text-lg font-bold text-gray-900 mt-2 mb-3">Best Time to Visit Nepal</h3>
+                        <p class="text-gray-600 mb-4 text-sm">Learn about Nepal's seasons and find the perfect time for
+                            your trekking and cultural adventures.</p>
+                        <a href="#" class="text-primary hover:text-primary-dark font-semibold text-sm">Read More →</a>
+                    </div>
+                </article>
+                <article class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border">
+                    <img src="https://www.satoriadventuresnepal.com/pagegallery/trekking-equipments24.jpg"
+                        alt="Essential Trekking Gear for Nepal" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-sm text-primary font-semibold">Preparation</span>
+                        <h3 class="text-lg font-bold text-gray-900 mt-2 mb-3">Essential Trekking Gear for Nepal</h3>
+                        <p class="text-gray-600 mb-4 text-sm">Complete packing checklist and gear recommendations for
+                            your Himalayan trekking adventure.</p>
+                        <a href="#" class="text-primary hover:text-primary-dark font-semibold text-sm">Read More →</a>
+                    </div>
+                </article>
+            </div>
+            <div class="text-center mt-8">
+                <button
+                    class="bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+                    Read More Travel Tips
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <!-- <section class="py-16 bg-primary/10">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-black mb-4">Ready for Your Nepal Adventure?</h2>
+            <p class="text-lg text-black/90 mb-6 max-w-2xl mx-auto">
+                Let us create a personalized itinerary that matches your dreams and interests
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button
+                    class="bg-green-100 text-primary  px-6 py-3 rounded-lg font-semibold transition-colors">
+                    Request a Free Itinerary
+                </button>
+                <div class="flex items-center justify-center text-black">
+                    <i class="fab fa-whatsapp text-xl mr-2"></i>
+                    <span>+977-1-234-5678</span>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <section
+        class="py-16 bg-primary/10 bg-[url('https://english.dcnepal.com/wp-content/uploads/2020/12/tourists-at-nepal-1.jpg')] bg-fixed bg-cover bg-center">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white mb-4 drop-shadow-lg">Ready for Your Nepal Adventure?</h2>
+            <p class="text-lg text-white/90 mb-6 max-w-2xl mx-auto drop-shadow-md">
+                Let us create a personalized itinerary that matches your dreams and interests
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button class="bg-green-100  text-primary px-6 py-3 rounded-lg font-semibold transition-colors ">
+                    <span> <i class="fab fa-whatsapp text-xl mr-2"></i> +977-1-234-5678</span>
+                </button>
+                <!-- <div class="flex items-center justify-center text-white drop-shadow-md">
+                    <i class="fab fa-whatsapp text-xl mr-2"></i>
+                    <span>+977-1-234-5678</span>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+       <div class="fixed bottom-6 right-6">
+            <button class="bg-green-600 text-white p-4 rounded-full shadow- transition duration-300">
+                <i class="fas fa-comments text-2xl"></i>
+            </button>
+        </div>
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-50 text-black pt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Grid Layout -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
+
+                <!-- Brand Section -->
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="https://www.nepalprivatetours.com/wp-content/uploads/2019/12/logo-nepal.png"
+                            class="h-12 w-auto flex-shrink-0" alt="Nepal Private Guide Logo">
+                        <span class="text-lg font-bold text-black ml-3">
+                            Nepal Private Guide Services
+                        </span>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-5">
+                        Creating unforgettable experiences in Nepal with personalized tours, treks, and expert local
+                        guidance.
+                        Let us guide you through the adventure of a lifetime.
+                    </p>
+
+                    <!-- Social Media Links -->
+                    <div class="flex space-x-5">
+                        <a href="#" class="text-gray-500 hover:text-primary transition">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-primary transition">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-primary transition">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-primary transition">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-base font-semibold mb-4 text-black">Quick Links</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition">About Us</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition">Tours</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition">Trekking</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition">Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- More Info -->
+                <div>
+                    <h3 class="text-base font-semibold mb-4 text-black">More Info</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition">Terms & Conditions</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition">FAQ</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-base font-semibold mb-4 text-black">Get in Touch</h3>
+                    <div class="space-y-4 text-sm text-gray-600">
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-primary mr-3"></i>
+                            <span>+977-1-234-5678</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-primary mr-3"></i>
+                            <span>info@nepaljourney.com</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-primary mr-3"></i>
+                            <span>Thamel, Kathmandu, Nepal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Divider & Copyright -->
+            <div class="border-t border-gray-200 m-10 pt-6 text-center">
+                <p class="text-gray-500 text-sm">
+                    © 2025 <span class="font-semibold text-black">Nepal Private Guide Services</span>.
+                    All rights reserved. Designed by Ashish Dhakal.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- All JavaScript inline for single file -->
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -30px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe sections for animation
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(15px)';
+            section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+
+</html>
