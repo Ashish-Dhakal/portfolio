@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobMatch | Find Your Dream Job</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #C71719;
+            --secondary: #1A3D79;
+            --light-bg: #EFF8FD;
+        }
+
+        .dark {
+            --primary: #FF4B4D;
+            --secondary: #4D72B8;
+            --light-bg: #172A46;
+        }
+
+        .theme-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .theme-secondary {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        .theme-light {
+            background-color: var(--light-bg);
+        }
+
+        .text-theme-primary {
+            color: var(--primary);
+        }
+
+        .text-theme-secondary {
+            color: var(--secondary);
+        }
+
+        .border-theme-primary {
+            border-color: var(--primary);
+        }
+
+        .border-theme-secondary {
+            border-color: var(--secondary);
+        }
+
+        .custom-transition {
+            transition: all 0.3s ease;
+        }
+
+        .dark body {
+            background-color: #121826;
+            color: #e5e7eb;
+        }
+
+        .light body {
+            background-color: #ffffff;
+            color: #1f2937;
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased">
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 bg-white dark:bg-gray-800 shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <span class="text-3xl font-bold text-theme-primary">Job<span
+                            class="text-theme-secondary">Match</span></span>
+                </div>
+
+                <div class="hidden md:flex space-x-8">
+                    <a href="#"
+                        class="text-gray-700 dark:text-gray-300 hover:text-theme-primary font-medium custom-transition">Home</a>
+                    <a href="#"
+                        class="text-gray-700 dark:text-gray-300 hover:text-theme-primary font-medium custom-transition">Find
+                        Jobs</a>
+                    <a href="#"
+                        class="text-gray-700 dark:text-gray-300 hover:text-theme-primary font-medium custom-transition">Companies</a>
+                    <a href="#"
+                        class="text-gray-700 dark:text-gray-300 hover:text-theme-primary font-medium custom-transition">Career
+                        Resources</a>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="p-2 rounded-full bg-gray-100 dark:bg-gray-700">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block text-yellow-300"></i>
+                    </button>
+
+                    <div class="hidden md:flex space-x-3">
+                        <button
+                            class="px-4 py-2 border border-theme-secondary text-theme-secondary hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md font-medium custom-transition">Log
+                            In</button>
+                        <button
+                            class="px-4 py-2 bg-theme-primary text-white rounded-md font-medium hover:opacity-90 custom-transition">Post
+                            a Job</button>
+                    </div>
+
+                    <button class="md:hidden focus:outline-none">
+                        <i class="fas fa-bars text-gray-700 dark:text-gray-300 text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+                <!-- Logo and Description -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="text-3xl font-bold text-theme-primary">Job<span
+                                class="text-white">Match</span></span>
+                    </div>
+                    <p class="text-gray-400 mb-6">JobMatch connects talented professionals with top employers worldwide.
+                        Find your dream job or the perfect candidate with our innovative platform.</p>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="bg-gray-800 hover:bg-theme-primary w-10 h-10 rounded-full flex items-center justify-center custom-transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#"
+                            class="bg-gray-800 hover:bg-theme-primary w-10 h-10 rounded-full flex items-center justify-center custom-transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#"
+                            class="bg-gray-800 hover:bg-theme-primary w-10 h-10 rounded-full flex items-center justify-center custom-transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#"
+                            class="bg-gray-800 hover:bg-theme-primary w-10 h-10 rounded-full flex items-center justify-center custom-transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h5 class="text-lg font-semibold mb-4">For Job Seekers</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white custom-transition">Browse Jobs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white custom-transition">Create Profile</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white custom-transition">Job Alerts</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white custom-transition">Career Resources</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white custom-transition">Resume Builder</a></li>
+                    </ul>
+                </div>
+
+                <!-- For Employers -->
+                <div>
+                    <h5 class="text-lg font-semibold mb-4">For Employers</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white custom-transition">Post a Job</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white custom-transition">Search Candidates</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white custom-transition">Pricing Plans</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white custom-transition">Recruitment Tools</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white custom-transition">Success Stories</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h5 class="text-lg font-semibold mb-4">Contact Us</h5>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-theme-primary"></i>
+                            <span class="text-gray-400">123 Job Street, Opportunity City, JB 45678</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-theme-primary"></i>
+                            <a href="tel:+12345678900" class="text-gray-400 hover:text-white custom-transition">+1 (234)
+                                567-8900</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-theme-primary"></i>
+                            <a href="mailto:contact@jobmatch.com"
+                                class="text-gray-400 hover:text-white custom-transition">contact@jobmatch.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2025 JobMatch. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm custom-transition">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm custom-transition">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm custom-transition">Help Center</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        // const htmlElement = document.documentElement;
+        // const themeToggle = document.getElementById('theme-toggle');
+
+        // themeToggle.addEventListener('click', function () {
+        //     if (htmlElement.classList.contains('light')) {
+        //         htmlElement.classList.remove('light');
+        //         htmlElement.classList.add('dark');
+        //         localStorage.setItem('theme', 'dark');
+        //     } else {
+        //         htmlElement.classList.remove('dark');
+        //         htmlElement.classList.add('light');
+        //         localStorage.setItem('theme', 'light');
+        //     }
+        // });
+
+        // Check for saved theme preference
+        // const savedTheme = localStorage.getItem('theme');
+        // if (savedTheme === 'dark') {
+        //     htmlElement.classList.remove('light');
+        //     htmlElement.classList.add('dark');
+        // } else {
+        //     htmlElement.classList.remove('dark');
+        //     htmlElement.classList.add('light');
+        // }
+    </script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

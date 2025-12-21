@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobMatch | Find Your Dream Job</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #C71719;
+            --secondary: #1A3D79;
+            --light-bg: #EFF8FD;
+        }
+        
+        .dark {
+            --primary: #FF4B4D;
+            --secondary: #4D72B8;
+            --light-bg: #172A46;
+        }
+
+        .theme-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .theme-secondary {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .theme-light {
+            background-color: var(--light-bg);
+        }
+
+        .text-theme-primary {
+            color: var(--primary);
+        }
+
+        .text-theme-secondary {
+            color: var(--secondary);
+        }
+
+        .border-theme-primary {
+            border-color: var(--primary);
+        }
+
+        .border-theme-secondary {
+            border-color: var(--secondary);
+        }
+
+        .custom-transition {
+            transition: all 0.3s ease;
+        }
+        
+        .dark body {
+            background-color: #121826;
+            color: #e5e7eb;
+        }
+        
+        .light body {
+            background-color: #ffffff;
+            color: #1f2937;
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased">
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 bg-white dark:bg-gray-800 shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <span class="text-3xl font-bold text-theme-primary">Job<span class="text-theme-secondary">Match</span></span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-theme-primary font-medium custom-transition">Home</a>
+                    <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-theme-primary font-medium custom-transition">Find Jobs</a>
+                    <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-theme-primary font-medium custom-transition">Companies</a>
+                    <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-theme-primary font-medium custom-transition">Career Resources</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="p-2 rounded-full bg-gray-100 dark:bg-gray-700">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block text-yellow-300"></i>
+                    </button>
+                    
+                    <div class="hidden md:flex space-x-3">
+                        <button class="px-4 py-2 border border-theme-secondary text-theme-secondary hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md font-medium custom-transition">Log In</button>
+                        <button class="px-4 py-2 bg-theme-primary text-white rounded-md font-medium hover:opacity-90 custom-transition">Post a Job</button>
+                    </div>
+                    
+                    <button class="md:hidden focus:outline-none">
+                        <i class="fas fa-bars text-gray-700 dark:text-gray-300 text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section with Search -->
+    <section class="theme-light dark:bg-gray-900 py-16 md:py-24">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center mb-12">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-800 dark:text-white">Find Your Dream Job Today</h1>
+                <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8">Connecting talented professionals with top employers worldwide</p>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-2 md:p-4">
+                    <form class="flex flex-col md:flex-row gap-4">
+                        <div class="flex-1 relative">
+                            <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                            <input type="text" placeholder="Job title, keywords, or company" class="w-full pl-12 pr-4 py-3 rounded-md border border-gray-200 dark:border-gray-700 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-theme-primary">
+                        </div>
+                        
+                        <div class="flex-1 relative">
+                            <i class="fas fa-map-marker-alt absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                            <input type="text" placeholder="City, state, or remote" class="w-full pl-12 pr-4 py-3 rounded-md border border-gray-200 dark:border-gray-700 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-theme-primary">
+                        </div>
+                        
+                        <button type="submit" class="theme-primary px-8 py-3 rounded-md font-medium text-white hover:opacity-90 custom-transition flex items-center justify-center">
+                            <span>Search</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="mt-6 flex flex-wrap justify-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+                    <span>Popular:</span>
+                    <a href="#" class="hover:text-theme-primary custom-transition">Remote</a>
+                    <span>•</span>
+                    <a href="#" class="hover:text-theme-primary custom-transition">Software Developer</a>
+                    <span>•</span>
+                    <a href="#" class="hover:text-theme-primary custom-transition">Marketing</a>
+                    <span>•</span>
+                    <a href="#" class="hover:text-theme-primary custom-transition">Design</a>
+                    <span>•</span>
+                    <a href="#" class="hover:text-theme-primary custom-transition">Healthcare</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Job Filter & Results Section -->
+    <section class="py-16 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row gap-8">
+                <!-- Filters Sidebar -->
+                <div class="md:w-1/4">
+                    <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-6 sticky top-24">
+                        <h3 class="text-xl font-semibold mb-6 text-gray-800 dark:text-white">Filter Jobs</h3>
+                        
+                        <div class="space-y-6">
+                            <!-- Job Type Filter -->
+                            <div>
+                                <h4 class="font-medium mb-3 text-gray-700 dark:text-gray-200">Job Type</h4>
+                                <div class="space-y-2">
+                                    <label class="flex items-center text-gray-600 dark:text-gray-300">
+                                        <input type="checkbox" class="form-checkbox h-5 w-5 text-theme-primary rounded">
+                                        <span class="ml-2">Full-time</span>
+                                    </label>
+                                    <label class="flex items-center text-gray-600 dark:text-gray-300">
+                                        <input type="checkbox" class="form-checkbox h-5 w-5 text-theme-primary rounded">
+                                        <span class="ml-2">Part-time</span>
+                                    </label>
+                                    <label class="flex items-center text-gray-600 dark:text-gray-300">
+                                        <input type="checkbox" class="form-checkbox h-5 w-5 text-theme-primary rounded">
+                                        <span class="ml-2">Contract</span>
+                                    </label>
+                                    <label class="flex items-center text-gray-600 dark:text-gray-300">
+                                        <input type="checkbox" class="form-checkbox h-5 w-5 text-theme-primary rounded">
+                                        <span class="ml-2">Internship</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <!-- Experience Level -->
+                            <div>
+                                <h4 class="font-medium mb-3 text-gray-700 dark:text-gray-200">Experience Level</h4>
+                                <div class="space-y-2">
+                                    <label class="flex items-center text-gray-600 dark:text-gray-300">
+                                        <input type="checkbox" class="form-checkbox h-5 w-5 text-theme-primary rounded">
+                                        <span class="ml-2">Entry Level</span>
+                                    </label>
+                                    <label class="flex items-center text-gray-600 dark:text-gray-300">
+                                        <input type="checkbox" class="form-checkbox h-5 w-5 text-theme-primary rounded">
+                                        <span class="ml-2">Mid Level</span>
+                                    </label>
+                                    <label class="flex items-center text-gray-600 dark:text-gray-300">
+                                        <input type="checkbox" class="form-checkbox h-5 w-5 text-theme-primary rounded">
+                                        <span class="ml-2">Senior Level</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <!-- Salary Range -->
+                            <div>
+                                <h4 class="font-medium mb-3 text-gray-700 dark:text-gray-200">Salary Range</h4>
+                                <input type="range" min="0" max="200000" step="10000" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-600">
+                                <div class="flex justify-between text-xs text-gray-500 dark:text-gray-400 mt-1">
+                                    <span>$0</span>
+                                    <span>$100k</span>
+                                    <span>$200k+</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Location -->
+                            <div>
+                                <h4 class="font-medium mb-3 text-gray-700 dark:text-gray-200">Location</h4>
+                                <div class="space-y-2">
+                                    <label class="flex items-center text-gray-600 dark:text-gray-300">
+                                        <input type="checkbox" class="form-checkbox h-5 w-5 text-theme-primary rounded">
+                                        <span class="ml-2">Remote</span>
+                                    </label>
+                                    <label class="flex items-center text-gray-600 dark:text-gray-300">
+                                        <input type="checkbox" class="form-checkbox h-5 w-5 text-theme-primary rounded">
+                                        <span class="ml-2">Hybrid</span>
+                                    </label>
+                                    <label class="flex items-center text-gray-600 dark:text-gray-300">
+                                        <input type="checkbox" class="form-checkbox h-5 w-5 text-theme-primary rounded">
+                                        <span class="ml-2">On-site</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button class="w-full py-2 theme-primary text-white rounded-md font-medium hover:opacity-90 custom-transition">Apply Filters</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Job Listings -->
+                <div class="md:w-3/4">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-2xl font-bold text-gray-800 dark:text-white">Available Jobs</h2>
+                        <div class="flex items-center text-sm">
+                            <span class="text-gray-600 dark:text-gray-300 mr-2">Sort by:</span>
+                            <select class="bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-theme-primary text-gray-700 dark:text-gray-200">
+                                <option>Most Relevant</option>
+                                <option>Newest</option>
+                                <option>Highest Paid</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Job Cards -->
+                    <div class="space-y-4">
+                        <!-- Job Card 1 -->
+                        <div class="job-card bg-white dark:bg-gray-700 rounded-lg shadow-md p-6 border-l-4 border-theme-primary custom-transition">
+                            <div class="flex justify-between">
+                                <div class="flex space-x-4">
+                                    <div class="w-16 h-16 flex-shrink-0 bg-gray-100 dark:bg-gray-600 rounded-md flex items-center justify-center">
+                                        <span class="text-xl font-bold text-theme-secondary">GD</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Senior Frontend Developer</h3>
+                                        <p class="text-theme-secondary font-medium">GlobalDesign Inc.</p>
+                                        <div class="flex items-center mt-1 text-gray-500 dark:text-gray-400 text-sm">
+                                            <i class="fas fa-map-marker-alt mr-1"></i>
+                                            <span>San Francisco, CA (Remote)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <span class="inline-block px-3 py-1 bg-green-100 dark:bg-green-800 text-green-800 dark:text-green-100 rounded-full text-sm font-medium">Full-time</span>
+                                    <p class="mt-2 text-gray-600 dark:text-gray-300 font-medium">$120k - $150k</p>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <p class="text-gray-600 dark:text-gray-300 line-clamp-2">Join our team of passionate designers and developers to create beautiful, intuitive web experiences for our global client base.</p>
+                            </div>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded text-xs">React</span>
+                                <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded text-xs">Tailwind CSS</span>
+                                <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded text-xs">JavaScript</span>
+                                <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded text-xs">UI/UX</span>
+                            </div>
+                            <div class="mt-4 flex justify-between items-center">
+                                <span class="text-sm text-gray-500 dark:text-gray-400">Posted 2 days ago</span>
+                                <a href="/jobdetail.html">
+                                    <button class="px-4 py-2 border border-theme-secondary text-theme-secondary hover:bg-theme-secondary  rounded font-medium custom-transition">Apply Now</button>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Job Card 2 -->
+                        <div class="job-card bg-white dark:bg-gray-700 rounded-lg shadow-md p-6 border-l-4 border-yellow-500 custom-transition">
+                            <div class="absolute -top-2 -right-2">
+                                <span class="bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded-full uppercase">Urgent</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <div class="flex space-x-4">
+                                    <div class="w-16 h-16 flex-shrink-0 bg-gray-100 dark:bg-gray-600 rounded-md flex items-center justify-center">
+                                        <span class="text-xl font-bold text-theme-secondary">TT</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xl font-semibold text-gray-800 dark:text-white">UX/UI Designer</h3>
+                                        <p class="text-theme-secondary font-medium">TechTrend Solutions</p>
+                                        <div class="flex items-center mt-1 text-gray-500 dark:text-gray-400 text-sm">
+                                            <i class="fas fa-map-marker-alt mr-1"></i>
+                                            <span>New York, NY (Hybrid)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <span class="inline-block px-3 py-1 bg-blue-100 dark:bg-blue-800 text-blue-800 dark:text-blue-100 rounded-full text-sm font-medium">Contract</span>
+                                    <p class="mt-2 text-gray-600 dark:text-gray-300 font-medium">$90k - $110k</p>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <p class="text-gray-600 dark:text-gray-300 line-clamp-2">We're looking for a talented UX/UI Designer to join our fast-growing product team to help design beautiful, user-centered digital experiences.</p>
+                            </div>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded text-xs">Figma</span>
+                                <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded text-xs">Adobe XD</span>
+                                <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded text-xs">User Research</span>
+                                <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded text-xs">Prototyping</span>
+                            </div>
+                            <div class="mt-4 flex justify-between items-center">
+                                <span class="text-sm text-gray-500 dark:text-gray-400">Posted 1 day ago</span>
+                                <a href="/jobdetail.html">
+                                    <button class="px-4 py-2 border border-theme-secondary text-theme-secondary hover:bg-theme-secondary  rounded font-medium custom-transition">Apply Now</button>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Job Card 3 -->
+                        <div class="job-card bg-white dark:bg-gray-700 rounded-lg shadow-md p-6 border-l-4 border-theme-secondary custom-transition">
+                            <div class="flex justify-between">
+                                <div class="flex space-x-4">
+                                    <div class="w-16 h-16 flex-shrink-0 bg-gray-100 dark:bg-gray-600 rounded-md flex items-center justify-center">
+                                        <span class="text-xl font-bold text-theme-secondary">IS</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Backend Developer</h3>
+                                        <p class="text-theme-secondary font-medium">InnovateSoft</p>
+                                        <div class="flex items-center mt-1 text-gray-500 dark:text-gray-400 text-sm">
+                                            <i class="fas fa-map-marker-alt mr-1"></i>
+                                            <span>Austin, TX (Remote)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <span class="inline-block px-3 py-1 bg-green-100 dark:bg-green-800 text-green-800 dark:text-green-100 rounded-full text-sm font-medium">Full-time</span>
+                                    <p class="mt-2 text-gray-600 dark:text-gray-300 font-medium">$110k - $140k</p>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <p class="text-gray-600 dark:text-gray-300 line-clamp-2">Seeking a skilled backend developer to work on our microservices architecture and help scale our platform to millions of users.</p>
+                            </div>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded text-xs">Node.js</span>
+                                <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded text-xs">Python</span>
+                                <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded text-xs">AWS</span>
+                                <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded text-xs">Docker</span>
+                                <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded text-xs">Kubernetes</span>
+                            </div>
+                            <div class="mt-4 flex justify-between items-center">
+                                <span class="text-sm text-gray-500 dark:text-gray-400">Posted 3 days ago</span>
+                                <a href="/jobdetail.html">
+                                    <button class="px-4 py-2 border border-theme-secondary text-theme-secondary hover:bg-theme-secondary  rounded font-medium custom-transition">Apply Now</button>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Load More Button -->
+                        <div class="mt-8 text-center">
+                            <button class="px-6 py-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600 custom-transition">
+                                Load More Jobs
+                                <i class="fas fa-arrow-down ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Jobs Section -->
+    <section class="py-16 theme-light dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 dark:text-white">Featured Jobs</h2>
+                <p class="text-gray-600 dark:text-gray-300 mt-2">Handpicked opportunities from top employers</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Featured Job Card 1 -->
+                <div class="job-card bg-white dark:bg-gray-700 rounded-lg shadow-md p-6 border-t-4 border-theme-primary custom-transition">
+                    <div class="absolute top-4 right-4">
+                        <button class="text-gray-400 hover:text-theme-primary custom-transition">
+                            <i class="far fa-bookmark text-xl"></i>
+                        </button>
+                    </div>
+                    <div class="flex items-center space-x-4 mb-4">
+                        <div class="w-12 h-12 flex-shrink-0 bg-gray-100 dark:bg-gray-600 rounded-md flex items-center justify-center">
+                            <span class="text-lg font-bold text-theme-secondary">GD</span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Product Manager</h3>
+                            <p class="text-theme-secondary">GlobalDesign Inc.</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <div class="flex items-center text-gray-500 dark:text-gray-400 text-sm mb-1">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>San Francisco, CA (Remote)</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 dark:text-gray-400 text-sm mb-1">
+                            <i class="fas fa-briefcase mr-2"></i>
+                            <span>Full-time</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 dark:text-gray-400 text-sm">
+                            <i class="fas fa-dollar-sign mr-2"></i>
+                            <span>$130k - $160k</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between mt-4 pt-4 border-t border-gray-200 dark:border-gray-600">
+                        <span class="text-sm text-gray-500 dark:text-gray-400">Featured 3 days ago</span>
+                        <a href="/jobdetail.html">
+                            <button class="px-4 py-2 theme-primary text-white rounded font-medium hover:opacity-90 custom-transition">Apply Now</button>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Featured Job Card 2 -->
+                <div class="job-card bg-white dark:bg-gray-700 rounded-lg shadow-md p-6 border-t-4 border-theme-secondary custom-transition">
+                    <div class="absolute top-4 right-4">
+                        <button class="text-gray-400 hover:text-theme-primary custom-transition">
+                            <i class="far fa-bookmark text-xl"></i>
+                        </button>
+                    </div>
+                    <div class="flex items-center space-x-4 mb-4">
+                        <div class="w-12 h-12 flex-shrink-0 bg-gray-100 dark:bg-gray-600 rounded-md flex items-center justify-center">
+                            <span class="text-lg font-bold text-theme-secondary">SF</span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Full-Stack Developer</h3>
+                            <p class="text-theme-secondary">StreamFlow</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <div class="flex items-center text-gray-500 dark:text-gray-400 text-sm mb-1">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Boston, MA (Hybrid)</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 dark:text-gray-400 text-sm mb-1">
+                            <i class="fas fa-briefcase mr-2"></i>
+                            <span>Full-time</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 dark:text-gray-400 text-sm">
+                            <i class="fas fa-dollar-sign mr-2"></i>
+                            <span>$110k - $140k</span>
+                        </div>
+                    </div>
+                   
+                    <div class="flex items-center justify-between mt-4 pt-4 border-t border-gray-200 dark:border-gray-600">
+                        <span class="text-sm text-gray-500 dark:text-gray-400">Featured 1 day ago</span>
+                        <a href="/jobdetail.html">
+                            <button class="px-4 py-2 theme-primary text-white rounded font-medium hover:opacity-90 custom-transition">Apply Now</button>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Featured Job Card 3 -->
+                <div class="job-card bg-white dark:bg-gray-700 rounded-lg shadow-md p-6 border-t-4 border-theme-primary custom-transition">
+                    <div class="absolute top-4 right-4">
+                        <button class="text-gray-400 hover:text-theme-primary custom-transition">
+                            <i class="far fa-bookmark text-xl"></i>
+                        </button>
+                    </div>
+                    <div class="flex items-center space-x-4 mb-4">
+                        <div class="w-12 h-12 flex-shrink-0 bg-gray-100 dark:bg-gray-600 rounded-md flex items-center justify-center">
+                            <span class="text-lg font-bold text-theme-secondary">HC</span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Data Scientist</h3>
+                            <p class="text-theme-secondary">HealthCare AI</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <div class="flex items-center text-gray-500 dark:text-gray-400 text-sm mb-1">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Chicago, IL (On-site)</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 dark:text-gray-400 text-sm mb-1">
+                            <i class="fas fa-briefcase mr-2"></i>
+                            <span>Full-time</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 dark:text-gray-400 text-sm">
+                            <i class="fas fa-dollar-sign mr-2"></i>
+                            <span>$120k - $150k</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between mt-4 pt-4 border-t border-gray-200 dark:border-gray-600">
+                        <span class="text-sm text-gray-500 dark:text-gray-400">Featured 2 days ago</span>
+                        <a href="/jobdetail.html">
+                            <button class="px-4 py-2 theme-primary text-white rounded font-medium hover:opacity-90 custom-transition">Apply Now</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <a href="#" class="inline-flex items-center text-theme-secondary font-medium hover:text-theme-primary custom-transition">
+                    View All Featured Jobs
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Urgent Hiring Section -->
+    <section class="py-16 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 dark:text-white">Urgent Hiring</h2>
+                <p class="text-gray-600 dark:text-gray-300 mt-2">Jobs that need to be filled immediately</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Urgent Job Card 1 -->
+                <div class="job-card bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden custom-transition">
+                    <div class="p-4 border-b border-gray-200 dark:border-gray-600 flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 flex-shrink-0 bg-gray-100 dark:bg-gray-600 rounded-md flex items-center justify-center">
+                                <span class="text-md font-bold text-theme-secondary">TS</span>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800 dark:text-white">TechSolutions</h3>
+                            </div>
+                        </div>
+                        <span class="bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded-full uppercase">Urgent</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="text-lg font-medium text-gray-800 dark:text-white mb-2">DevOps Engineer</h4>
+                        <div class="flex items-center text-gray-500 dark:text-gray-400 text-sm mb-1">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Seattle, WA (Remote)</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 dark:text-gray-400 text-sm">
+                            <i class="fas fa-dollar-sign mr-2"></i>
+                            <span>$130k - $160k</span>
+                        </div>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded text-xs">AWS</span>
+                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded text-xs">CI/CD</span>
+                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded text-xs">Docker</span>
+                        </div>
+                    </div>
+                    <div class="px-4 py-3 bg-gray-50 dark:bg-gray-600">
+                        <a href="/jobdetail.html">
+                            <button class="w-full py-2 theme-primary text-white rounded font-medium hover:opacity-90 custom-transition text-sm">Apply Now</button>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Urgent Job Card 2 -->
+                <div class="job-card bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden custom-transition">
+                    <div class="p-4 border-b border-gray-200 dark:border-gray-600 flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 flex-shrink-0 bg-gray-100 dark:bg-gray-600 rounded-md flex items-center justify-center">
+                                <span class="text-md font-bold text-theme-secondary">FM</span>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800 dark:text-white">FinanceMatch</h3>
+                            </div>
+                        </div>
+                        <span class="bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded-full uppercase">Urgent</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="text-lg font-medium text-gray-800 dark:text-white mb-2">Financial Analyst</h4>
+                        <div class="flex items-center text-gray-500 dark:text-gray-400 text-sm mb-1">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>New York, NY (Hybrid)</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 dark:text-gray-400 text-sm">
+                            <i class="fas fa-dollar-sign mr-2"></i>
+                            <span>$90k - $110k</span>
+                        </div>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded text-xs">Excel</span>
+                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded text-xs">Financial Modeling</span>
+                        </div>
+                    </div>
+                    <div class="px-4 py-3 bg-gray-50 dark:bg-gray-600">
+                        <a href="/jobdetail.html">
+                            <button class="w-full py-2 theme-primary text-white rounded font-medium hover:opacity-90 custom-transition text-sm">Apply Now</button>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Urgent Job Card 3 -->
+                <div class="job-card bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden custom-transition">
+                    <div class="p-4 border-b border-gray-200 dark:border-gray-600 flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 flex-shrink-0 bg-gray-100 dark:bg-gray-600 rounded-md flex items-center justify-center">
+                                <span class="text-md font-bold text-theme-secondary">HC</span>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800 dark:text-white">HealthCorp</h3>
+                            </div>
+                        </div>
+                        <span class="bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded-full uppercase">Urgent</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="text-lg font-medium text-gray-800 dark:text-white mb-2">Registered Nurse</h4>
+                        <div class="flex items-center text-gray-500 dark:text-gray-400 text-sm mb-1">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Chicago, IL (On-site)</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 dark:text-gray-400 text-sm">
+                            <i class="fas fa-dollar-sign mr-2"></i>
+                            <span>$80k - $95k</span>
+                        </div>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded text-xs">Healthcare</span>
+                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded text-xs">BSN</span>
+                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded text-xs">ICU</span>
+                        </div>
+                    </div>
+                    <div class="px-4 py-3 bg-gray-50 dark:bg-gray-600">
+                        <a href="/jobdetail.html"> 
+                            <button class="w-full py-2 theme-primary text-white rounded font-medium hover:opacity-90 custom-transition text-sm">Apply Now</button>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Urgent Job Card 4 -->
+                <div class="job-card bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden custom-transition">
+                    <div class="p-4 border-b border-gray-200 dark:border-gray-600 flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 flex-shrink-0 bg-gray-100 dark:bg-gray-600 rounded-md flex items-center justify-center">
+                                <span class="text-md font-bold text-theme-secondary">DM</span>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800 dark:text-white">DigitalMarketing</h3>
+                            </div>
+                        </div>
+                        <span class="bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded-full uppercase">Urgent</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="text-lg font-medium text-gray-800 dark:text-white mb-2">SEO Specialist</h4>
+                        <div class="flex items-center text-gray-500 dark:text-gray-400 text-sm mb-1">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Los Angeles, CA (Remote)</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 dark:text-gray-400 text-sm">
+                            <i class="fas fa-dollar-sign mr-2"></i>
+                            <span>$70k - $90k</span>
+                        </div>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded text-xs">SEO</span>
+                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded text-xs">Analytics</span>
+                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded text-xs">Content</span>
+                        </div>
+                    </div>
+                    <div class="px-4 py-3 bg-gray-50 dark:bg-gray-600">
+                        <a href="/jobdetail.html"> 
+                            <button class="w-full py-2 theme-primary text-white rounded font-medium hover:opacity-90 custom-transition text-sm">Apply Now</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Mobile App Section -->
+    <section class="py-16 theme-light dark:bg-gray-900 overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+                <div class="lg:w-1/2 space-y-6">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">Take Your Job Search On The Go</h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-300">Get real-time job alerts, apply to positions, and track your applications from anywhere with our mobile app.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="mr-4 mt-1 bg-theme-primary rounded-full p-2 text-white">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Instant Notifications</h3>
+                                <p class="text-gray-600 dark:text-gray-300">Get alerts for new jobs that match your preferences in real-time.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="mr-4 mt-1 bg-theme-primary rounded-full p-2 text-white">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Easy Applications</h3>
+                                <p class="text-gray-600 dark:text-gray-300">Apply to jobs with just a few taps using your saved resume and profile.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="mr-4 mt-1 bg-theme-primary rounded-full p-2 text-white">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Track Progress</h3>
+                                <p class="text-gray-600 dark:text-gray-300">Monitor your application status and interview schedule all in one place.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <a href="#" class="inline-flex items-center bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-900 custom-transition">
+                            <i class="fab fa-apple text-2xl mr-3"></i>
+                            <div class="text-left">
+                                <div class="text-xs">Download on the</div>
+                                <div class="text-lg font-semibold">App Store</div>
+                            </div>
+                        </a>
+                        
+                        <a href="#" class="inline-flex items-center bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-900 custom-transition">
+                            <i class="fab fa-google-play text-2xl mr-3"></i>
+                            <div class="text-left">
+                                <div class="text-xs">Get it on</div>
+                                <div class="text-lg font-semibold">Google Play</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 relative mt-8 lg:mt-0">
+                    <div class="absolute -top-12 -left-12 w-64 h-64 bg-theme-secondary rounded-full opacity-20 filter blur-3xl"></div>
+                    <div class="absolute -bottom-12 -right-12 w-64 h-64 bg-theme-primary rounded-full opacity-20 filter blur-3xl"></div>
+                    
+                    <div class="relative">
+                        <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl overflow-hidden border-8 border-white dark:border-gray-700 h-96 w-64 mx-auto">
+                            <!-- Mobile app mockup content -->
+                            <div class="h-10 bg-gray-100 dark:bg-gray-700 flex items-center justify-center">
+                                <div class="w-20 h-4 rounded-full bg-gray-200 dark:bg-gray-600"></div>
+                            </div>
+                            <div class="p-4 space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <div class="text-lg font-bold text-theme-primary">Job<span class="text-theme-secondary">Match</span></div>
+                                        <div class="text-xs text-gray-500 dark:text-gray-400">Find your dream job</div>
+                                    </div>
+                                    <div class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700"></div>
+                                </div>
+                                
+                                <div class="mt-4 space-y-2">
+                                    <!-- Search bar mockup -->
+                                    <div class="h-10 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center px-3">
+                                        <i class="fas fa-search text-gray-400 text-sm"></i>
+                                        <div class="h-4 w-32 bg-gray-200 dark:bg-gray-600 ml-2 rounded"></div>
+                                    </div>
+                                    
+                                    <!-- Job card mockups -->
+                                    <div class="bg-gray-50 dark:bg-gray-700 p-3 rounded-lg border border-gray-200 dark:border-gray-600">
+                                        <div class="flex justify-between items-start">
+                                            <div>
+                                                <div class="h-4 w-32 bg-gray-200 dark:bg-gray-600 rounded"></div>
+                                                <div class="h-3 w-20 bg-gray-200 dark:bg-gray-600 mt-2 rounded"></div>
+                                                <div class="h-3 w-16 bg-gray-200 dark:bg-gray-600 mt-2 rounded"></div>
+                                            </div>
+                                            <div class="h-6 w-6 rounded-full bg-theme-primary"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="bg-gray-50 dark:bg-gray-700 p-3 rounded-lg border border-gray-200 dark:border-gray-600">
+                                        <div class="flex justify-between items-start">
+                                            <div>
+                                                <div class="h-4 w-28 bg-gray-200 dark:bg-gray-600 rounded"></div>
+                                                <div class="h-3 w-24 bg-gray-200 dark:bg-gray-600 mt-2 rounded"></div>
+                                                <div class="h-3 w-16 bg-gray-200 dark:bg-gray-600 mt-2 rounded"></div>
+                                            </div>
+                                            <div class="h-6 w-6 rounded-full bg-theme-secondary"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="bg-gray-50 dark:bg-gray-700 p-3 rounded-lg border border-gray-200 dark:border-gray-600">
+                                        <div class="flex justify-between items-start">
+                                            <div>
+                                                <div class="h-4 w-36 bg-gray-200 dark:bg-gray-600 rounded"></div>
+                                                <div class="h-3 w-20 bg-gray-200 dark:bg-gray-600 mt-2 rounded"></div>
+                                                <div class="h-3 w-16 bg-gray-200 dark:bg-gray-600 mt-2 rounded"></div>
+                                            </div>
+                                            <div class="h-6 w-6 rounded-full bg-gray-300 dark:bg-gray-500"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Bottom navigation mockup -->
+                            <div class="absolute bottom-0 left-0 right-0 h-14 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 flex justify-around items-center">
+                                <div class="text-theme-primary"><i class="fas fa-home"></i></div>
+                                <div class="text-gray-400"><i class="fas fa-search"></i></div>
+                                <div class="text-gray-400"><i class="fas fa-bell"></i></div>
+                                <div class="text-gray-400"><i class="fas fa-user"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+                <!-- Logo and Description -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="text-3xl font-bold text-theme-primary">Job<span class="text-white">Match</span></span>
+                    </div>
+                    <p class="text-gray-400 mb-6">JobMatch connects talented professionals with top employers worldwide. Find your dream job or the perfect candidate with our innovative platform.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-gray-800 hover:bg-theme-primary w-10 h-10 rounded-full flex items-center justify-center custom-transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-gray-800 hover:bg-theme-primary w-10 h-10 rounded-full flex items-center justify-center custom-transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="bg-gray-800 hover:bg-theme-primary w-10 h-10 rounded-full flex items-center justify-center custom-transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="bg-gray-800 hover:bg-theme-primary w-10 h-10 rounded-full flex items-center justify-center custom-transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h5 class="text-lg font-semibold mb-4">For Job Seekers</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white custom-transition">Browse Jobs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white custom-transition">Create Profile</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white custom-transition">Job Alerts</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white custom-transition">Career Resources</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white custom-transition">Resume Builder</a></li>
+                    </ul>
+                </div>
+                
+                <!-- For Employers -->
+                <div>
+                    <h5 class="text-lg font-semibold mb-4">For Employers</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white custom-transition">Post a Job</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white custom-transition">Search Candidates</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white custom-transition">Pricing Plans</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white custom-transition">Recruitment Tools</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white custom-transition">Success Stories</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h5 class="text-lg font-semibold mb-4">Contact Us</h5>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-theme-primary"></i>
+                            <span class="text-gray-400">123 Job Street, Opportunity City, JB 45678</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-theme-primary"></i>
+                            <a href="tel:+12345678900" class="text-gray-400 hover:text-white custom-transition">+1 (234) 567-8900</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-theme-primary"></i>
+                            <a href="mailto:contact@jobmatch.com" class="text-gray-400 hover:text-white custom-transition">contact@jobmatch.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2025 JobMatch. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm custom-transition">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm custom-transition">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm custom-transition">Help Center</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        const htmlElement = document.documentElement;
+        const themeToggle = document.getElementById('theme-toggle');
+        
+        themeToggle.addEventListener('click', function() {
+            if (htmlElement.classList.contains('light')) {
+                htmlElement.classList.remove('light');
+                htmlElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                htmlElement.classList.remove('dark');
+                htmlElement.classList.add('light');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+        
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            htmlElement.classList.remove('light');
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+            htmlElement.classList.add('light');
+        }
+    </script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
