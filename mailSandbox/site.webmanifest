@@ -1,0 +1,16 @@
+{
+  "name": "Mail Sandbox Documentation",
+  "short_name": "Mail Sandbox",
+  "description": "Blazing-fast, lightweight email interception package for Laravel.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#fb6b09",
+  "icons": [
+    {
+      "src": "./favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

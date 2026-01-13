@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mail Sandbox | Blazing-Fast Email Interception for Laravel</title>
+    <meta
+      name="description"
+      content="Mail Sandbox is a lightweight, zero-config email interception package for Laravel. Capture and inspect outgoing mails locally with a beautiful Gmail-like UI."
+    />
+    <meta
+      name="keywords"
+      content="Laravel, Mail Sandbox, Email Interception, Local Testing, PHP, Developer Tools, SMTP Sandbox"
+    />
+    <meta name="author" content="Ashish Dhakal" />
+    <meta name="robots" content="index, follow" />
+    <link
+      rel="canonical"
+      href="https://portfolio.ashishdhakal.com.np/mailSandbox/"
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://portfolio.ashishdhakal.com.np/mailSandbox/"
+    />
+    <meta
+      property="og:title"
+      content="Mail Sandbox | Laravel Email Interception"
+    />
+    <meta
+      property="og:description"
+      content="Stop relying on external services for local testing. Inspect every pixel of your outgoing mails instantly with Mail Sandbox."
+    />
+    <meta property="og:image" content="./logo.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://portfolio.ashishdhakal.com.np/mailSandbox/"
+    />
+    <meta
+      property="twitter:title"
+      content="Mail Sandbox | Laravel Email Interception"
+    />
+    <meta
+      property="twitter:description"
+      content="Blazing-fast, lightweight email interception package for Laravel. Stop relying on external services for local testing."
+    />
+    <meta property="twitter:image" content="./logo.png" />
+
+    <!-- Favicon & Manifest -->
+    <link rel="icon" type="image/png" href="./favicon.png?v=1.0" />
+    <link rel="apple-touch-icon" href="./favicon.png?v=1.0" />
+    <link rel="manifest" href="./site.webmanifest?v=1.0" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #fb6b09;
+        --primary-glow: rgba(251, 107, 9, 0.15);
+        --bg: #ffffff;
+        --navy: #151e42;
+        --card-bg: rgba(255, 255, 255, 0.8);
+      }
+
+      body {
+        font-family: "Outfit", sans-serif;
+        background-color: var(--bg);
+        color: var(--navy);
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+      }
+
+      .glass {
+        background: var(--card-bg);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(21, 30, 66, 0.08);
+        box-shadow: 0 10px 30px -10px rgba(21, 30, 66, 0.1);
+      }
+
+      .gradient-text {
+        background: linear-gradient(
+          135deg,
+          #fb6b09 0%,
+          #f97316 50%,
+          #ea580c 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .hero-glow {
+        position: absolute;
+        top: -10%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        height: 60%;
+        background: radial-gradient(
+          circle,
+          var(--primary-glow) 0%,
+          transparent 70%
+        );
+        z-index: -1;
+        filter: blur(80px);
+        opacity: 0.8;
+      }
+
+      code,
+      pre {
+        font-family: "JetBrains Mono", monospace;
+      }
+
+      .nav-link {
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary);
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .feature-card {
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      .feature-card:hover {
+        transform: translateY(-8px);
+      }
+
+      .blob {
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        background: var(--primary);
+        filter: blur(140px);
+        border-radius: 50%;
+        z-index: -2;
+        opacity: 0.15;
+        animation: move 20s infinite alternate;
+      }
+
+      @keyframes move {
+        from {
+          transform: translate(-20%, -20%);
+        }
+        to {
+          transform: translate(20%, 20%);
+        }
+      }
+
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--bg);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #334155;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #475569;
+      }
+    </style>
+  </head>
+  <body class="selection:bg-orange-500/30">
+    <div class="hero-glow"></div>
+    <div
+      class="blob"
+      style="top: 20%; left: -10%; background: #fb6b09; opacity: 0.1"
+    ></div>
+    <div
+      class="blob"
+      style="bottom: 10%; right: -10%; background: #fb6b09; opacity: 0.05"
+    ></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-5xl">
+      <div
+        class="glass rounded-2xl px-8 py-4 flex items-center justify-between shadow-2xl"
+      >
+        <div class="flex items-center space-x-3">
+          <img src="./logo.png" alt="Mail Sandbox Logo" class="h-14 w-auto" />
+        </div>
+        <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+          <a
+            href="#features"
+            class="nav-link text-slate-600 hover:text-[#151e42]"
+            >Features</a
+          >
+          <a href="#setup" class="nav-link text-slate-600 hover:text-[#151e42]"
+            >Setup</a
+          >
+          <a href="#usage" class="nav-link text-slate-600 hover:text-[#151e42]"
+            >Usage</a
+          >
+          <a href="#cases" class="nav-link text-slate-600 hover:text-[#151e42]"
+            >Use Cases</a
+          >
+        </div>
+        <a
+          href="https://github.com/Ashish-Dhakal/laravel-mailSandbox-package"
+          target="_blank"
+          class="bg-[#151e42]/5 hover:bg-[#151e42]/10 transition-all px-4 py-2 rounded-xl text-sm font-semibold flex items-center space-x-2 border border-[#151e42]/10 text-[#151e42]"
+        >
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.416-4.041-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+            />
+          </svg>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen pt-48 pb-20 px-6 overflow-hidden">
+      <div class="max-w-5xl mx-auto text-center">
+        <div
+          class="inline-flex items-center space-x-2 px-3 py-1 rounded-full glass border border-orange-500/20 text-orange-300 text-xs font-semibold mb-8 animate-bounce"
+        >
+          <span>NEW</span>
+          <span class="w-1 h-1 bg-orange-500 rounded-full"></span>
+          <span>Laravel 12 Support Added</span>
+        </div>
+        <h1 class="text-6xl md:text-8xl font-black mb-6 tracking-tighter">
+          Intercepts Emails. <br />
+          <span class="gradient-text">Master Workflow.</span>
+        </h1>
+        <p class="text-xl text-slate-600 max-w-2xl mx-auto mb-12 font-medium">
+          Mail Sandbox is a blazing-fast, lightweight email interception package
+          for Laravel. Stop relying on external services for local testing.
+          Inspect every pixel of your outgoing mails instantly.
+        </p>
+        <div
+          class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6"
+        >
+          <a
+            href="#setup"
+            class="w-full sm:w-auto bg-[#fb6b09] hover:bg-[#e85a00] transition-all px-8 py-4 rounded-2xl text-lg font-bold shadow-xl shadow-orange-600/20 active:scale-95 text-white"
+          >
+            Start Integration
+          </a>
+          <div
+            class="w-full sm:w-auto glass px-8 py-4 rounded-2xl flex items-center space-x-4"
+          >
+            <code class="text-[#fb6b09] font-bold"
+              >composer require ashishdhakal/mail-sandbox</code
+            >
+            <button
+              onclick="copyCommand()"
+              class="hover:text-white transition-colors p-2"
+              aria-label="Copy installation command"
+            >
+              <svg
+                class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Dashboard Mockup -->
+        <div class="mt-24 relative">
+          <div class="absolute inset-0 bg-[#fb6b09]/20 blur-[100px] z-0"></div>
+          <div class="glass p-2 rounded-[2rem] shadow-2xl relative z-10">
+            <img
+              src="./image.png"
+              class="rounded-[1.5rem] opacity-70 grayscale hover:grayscale-0 transition-all duration-700"
+              alt="Dashboard Preview"
+            />
+            <div
+              class="absolute inset-x-0 bottom-12 text-center pointer-events-none"
+            >
+              <span
+                class="bg-[#fb6b09] text-white px-6 py-2 rounded-full font-bold shadow-lg"
+                >Beautiful Gmail-like UI</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-32 px-6">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-20">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">
+            Core <span class="text-[#fb6b09]">Features</span>
+          </h2>
+          <p class="text-slate-600 font-medium">
+            Engineered for developer productivity and seamless local testing.
+          </p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Feature 1 -->
+          <div class="feature-card glass p-8 rounded-3xl group">
+            <div
+              class="w-14 h-14 bg-orange-500/10 text-orange-400 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#fb6b09] group-hover:text-white transition-all duration-500"
+            >
+              <svg
+                class="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-[#151e42]">
+              Live Discovery
+            </h3>
+            <p class="text-slate-600 leading-relaxed font-medium">
+              Lightning-fast full-text search across subjects, recipients, and
+              even attachment filenames with debounced AJAX updates.
+            </p>
+          </div>
+          <!-- Feature 2 -->
+          <div class="feature-card glass p-8 rounded-3xl group">
+            <div
+              class="w-14 h-14 bg-emerald-500/10 text-emerald-400 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-500"
+            >
+              <svg
+                class="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.414a4 4 0 00-5.656-5.656l-6.415 6.414a6 6 0 108.486 8.486L20.5 13"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-[#151e42]">
+              Absolute Attachments
+            </h3>
+            <p class="text-slate-600 leading-relaxed font-medium">
+              Zero-loss capture. Handles unlimited duplicate filenames and
+              identical files using unique index-based routing.
+            </p>
+          </div>
+          <!-- Feature 3 -->
+          <div class="feature-card glass p-8 rounded-3xl group">
+            <div
+              class="w-14 h-14 bg-rose-500/10 text-rose-400 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-rose-500 group-hover:text-white transition-all duration-500"
+            >
+              <svg
+                class="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-[#151e42]">Zero Config</h3>
+            <p class="text-slate-600 leading-relaxed font-medium">
+              Drop it in and it works. Intercepts all outgoing mail traffic
+              automatically based on your environment settings.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Setup Section -->
+    <section id="setup" class="py-32 px-6 bg-[#151e42]/5">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-4xl font-black mb-12 text-center">
+          Quick <span class="text-[#fb6b09]">Setup</span>
+        </h2>
+        <div class="space-y-6">
+          <!-- Step 1 -->
+          <div class="glass p-8 rounded-3xl">
+            <div class="flex items-start space-x-6">
+              <div
+                class="bg-[#fb6b09] w-10 h-10 rounded-full flex items-center text-white text-bold justify-center flex-shrink-0 font-bold"
+              >
+                1
+              </div>
+              <div class="flex-1">
+                <h4 class="text-xl font-bold mb-4 text-[#151e42]">
+                  Install via Composer
+                </h4>
+                <div
+                  class="bg-black/40 p-4 rounded-xl border border-white/5 font-mono text-white"
+                >
+                  composer require ashishdhakal/mail-sandbox
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="glass p-8 rounded-3xl">
+            <div class="flex items-start space-x-6">
+              <div
+                class="bg-[#fb6b09] w-10 h-10 rounded-full flex items-center text-white text-bold justify-center flex-shrink-0 font-bold"
+              >
+                2
+              </div>
+              <div class="flex-1">
+                <h4 class="text-xl font-bold mb-4">Publish & Migrate</h4>
+                <p class="text-slate-600 mb-4 font-medium">
+                  Publish the package configuration and database migrations:
+                </p>
+                <div class="space-y-4">
+                  <div
+                    class="bg-black/40 p-4 rounded-xl border border-white/5 font-mono text-white text-sm"
+                  >
+                    php artisan vendor:publish --tag=mail-sandbox-config<br />
+                    php artisan vendor:publish --tag=mail-sandbox-migrations
+                  </div>
+                  <div
+                    class="bg-black/40 p-4 rounded-xl border border-white/5 font-mono text-white text-sm"
+                  >
+                    php artisan migrate
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="glass p-8 rounded-3xl">
+            <div class="flex items-start space-x-6">
+              <div
+                class="bg-[#fb6b09] w-10 h-10 rounded-full flex items-center text-white text-bold justify-center flex-shrink-0 font-bold"
+              >
+                3
+              </div>
+              <div class="flex-1">
+                <h4 class="text-xl font-bold mb-4">Configure Mailer</h4>
+                <p class="text-slate-600 mb-4 font-medium">
+                  Add the custom driver to your
+                  <code class="text-rose-600 font-bold">config/mail.php</code>:
+                </p>
+                <div
+                  class="bg-black/40 p-4 rounded-xl border border-white/5 font-mono text-white font-bold text-xs mb-4"
+                >
+                  <pre>
+'mailers' => [
+    'sandbox' => [
+        'transport' => 'sandbox',
+    ],
+],</pre
+                  >
+                </div>
+                <p class="text-slate-600 mb-4 font-medium">
+                  Update your
+                  <code class="text-rose-600 font-bold">.env</code> to activate
+                  it:
+                </p>
+                <div
+                  class="bg-black/40 p-4 rounded-xl border border-white/5 font-mono text-white text-bold"
+                >
+                  MAIL_MAILER=sandbox
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section id="cases" class="py-32 px-6">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-4xl font-black mb-16 text-center">
+          Use <span class="text-[#fb6b09]">Cases</span>
+        </h2>
+        <div class="grid md:grid-cols-2 gap-12">
+          <div class="space-y-4">
+            <h4
+              class="text-2xl font-bold flex items-center space-x-3 text-[#151e42]"
+            >
+              <span class="text-[#fb6b09]">01.</span>
+              <span>Multi-Recipient Flows</span>
+            </h4>
+            <p class="text-slate-600 font-medium leading-relaxed">
+              Testing notifications that go to 5 different users? Don't fill
+              your personal inbox. See all 5 messages side-by-side in your local
+              dashboard.
+            </p>
+          </div>
+          <div class="space-y-4">
+            <h4
+              class="text-2xl font-bold flex items-center space-x-3 text-[#151e42]"
+            >
+              <span class="text-[#fb6b09]">02.</span>
+              <span>Complex Attachments</span>
+            </h4>
+            <p class="text-slate-600 font-medium leading-relaxed">
+              Verify that your automated Invoice PDFs are generating correctly
+              without waiting for slow Mailtrap API requests.
+            </p>
+          </div>
+          <div class="space-y-4">
+            <h4
+              class="text-2xl font-bold flex items-center space-x-3 text-[#151e42]"
+            >
+              <span class="text-[#fb6b09]">03.</span>
+              <span>Air-Gapped Development</span>
+            </h4>
+            <p class="text-slate-600 font-medium leading-relaxed">
+              Working without internet? Local Sandbox doesn't need an external
+              API to capture and display emails. Total offline independence.
+            </p>
+          </div>
+          <div class="space-y-4">
+            <h4
+              class="text-2xl font-bold flex items-center space-x-3 text-[#151e42]"
+            >
+              <span class="text-[#fb6b09]">04.</span>
+              <span>UX/Design Refinement</span>
+            </h4>
+            <p class="text-slate-600 font-medium leading-relaxed">
+              With the Gmail-style UI, you can inspect HTML layouts, responsive
+              images (CIDs), and plain-text fallbacks in real-time.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-20 border-t border-[#151e42]/5 mt-20">
+      <div
+        class="max-w-6xl mx-auto px-6 flex flex-col md:row-row items-center justify-between text-slate-500"
+      >
+        <div class="mb-8 md:mb-0">
+          <span class="text-[#151e42] font-bold">Mail Sandbox</span> &copy;
+          2026. All rights reserved.
+        </div>
+        <div class="flex items-center space-x-6">
+          <a
+            href="https://github.com/Ashish-Dhakal/laravel-mailSandbox-package"
+            target="_blank"
+            class="hover:text-[#fb6b09] transition-colors flex items-center space-x-2"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.416-4.041-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+              />
+            </svg>
+            <span>GitHub</span>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/dhakal09/"
+            target="_blank"
+            class="hover:text-[#fb6b09] transition-colors flex items-center space-x-2"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+              />
+            </svg>
+            <span>LinkedIn</span>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      function copyCommand() {
+        navigator.clipboard.writeText(
+          "composer require ashishdhakal/mail-sandbox"
+        );
+        alert("Copied to clipboard!");
+      }
+
+      // Smooth scroll for nav links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
