@@ -214,6 +214,9 @@
           <a href="#setup" class="nav-link text-slate-600 hover:text-[#151e42]"
             >Setup</a
           >
+          <a href="#usage" class="nav-link text-slate-600 hover:text-[#151e42]"
+            >Usage</a
+          >
           <a href="#cases" class="nav-link text-slate-600 hover:text-[#151e42]"
             >Use Cases</a
           >
@@ -433,7 +436,7 @@
             </div>
             <div>
               <h4 class="text-lg font-bold text-[#151e42]">PHP Version</h4>
-              <p class="text-2xl font-black text-[#fb6b09]">v8.2+</p>
+              <p class="text-2xl font-black text-[#fb6b09]">v8.1 +</p>
             </div>
           </div>
           <div class="glass p-8 rounded-3xl flex items-center space-x-6">
@@ -456,7 +459,7 @@
             </div>
             <div>
               <h4 class="text-lg font-bold text-[#151e42]">Laravel</h4>
-              <p class="text-2xl font-black text-rose-500">v12.0</p>
+              <p class="text-2xl font-black text-rose-500">v10 +</p>
             </div>
           </div>
         </div>
@@ -558,6 +561,84 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Usage Section -->
+    <section id="usage" class="py-32 px-6">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-4xl font-black mb-12 text-center">
+          Usage & <span class="text-[#fb6b09]">Access</span>
+        </h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="glass p-8 rounded-3xl h-full">
+            <div
+              class="w-14 h-14 bg-[#fb6b09]/10 rounded-2xl flex items-center justify-center mb-6 text-[#fb6b09]"
+            >
+              <svg
+                class="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-[#151e42]">Usage</h3>
+            <p class="text-slate-600 leading-relaxed font-medium">
+              Once installed and enabled, any email sent by your application
+              will be intercepted and stored.
+            </p>
+          </div>
+
+          <div class="glass p-8 rounded-3xl h-full">
+            <div
+              class="w-14 h-14 bg-[#fb6b09]/10 rounded-2xl flex items-center justify-center mb-6 text-[#fb6b09]"
+            >
+              <svg
+                class="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                ></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-[#151e42]">
+              Accessing the Interface
+            </h3>
+            <p class="text-slate-600 leading-relaxed font-medium mb-4">
+              You can view the intercepted emails at:
+            </p>
+            <div
+              class="bg-black/40 p-3 rounded-xl border border-white/5 font-mono text-white text-sm mb-4 text-center"
+            >
+              /mail-sandbox
+            </div>
+            <p class="text-sm text-slate-500 font-medium">
+              For example:
+              <span class="text-[#fb6b09]"
+                >http://localhost:8000/mail-sandbox</span
+              >
+            </p>
           </div>
         </div>
       </div>
