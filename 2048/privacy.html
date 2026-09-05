@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy — 2048</title>
+  <meta name="description" content="Privacy Policy for the 2048 puzzle game by Dhakal Appify." />
+  <link rel="icon" href="img/app-icon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="img/app-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #faf8ef;
+      --surface: #eee4da;
+      --ink: #776e65;
+      --ink-strong: #3d3a34;
+      --accent: #edc22e;
+      --tile: #f2b179;
+      --line: #d6ccc0;
+      --max: 42rem;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Rubik", system-ui, sans-serif;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(237, 194, 46, 0.28), transparent 55%),
+        linear-gradient(180deg, #faf8ef 0%, #f3ebe0 100%);
+      color: var(--ink);
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 4rem;
+    }
+
+    header {
+      margin-bottom: 2.25rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 3px solid var(--accent);
+    }
+
+    .cover {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 0.75rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 8px 24px rgba(61, 58, 52, 0.12);
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      margin-bottom: 1rem;
+    }
+
+    .app-icon {
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 0.75rem;
+      flex-shrink: 0;
+      box-shadow: 0 2px 0 rgba(119, 110, 101, 0.2);
+    }
+
+    .brand {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: #f9f6f2;
+      background: linear-gradient(145deg, #edc22e, #f2b179);
+      padding: 0.35rem 0.75rem;
+      border-radius: 0.35rem;
+      box-shadow: 0 2px 0 rgba(119, 110, 101, 0.25);
+    }
+
+    h1 {
+      font-size: clamp(1.6rem, 4vw, 2rem);
+      font-weight: 700;
+      color: var(--ink-strong);
+      margin-bottom: 0.4rem;
+    }
+
+    .meta {
+      font-size: 0.9rem;
+      color: var(--ink);
+      opacity: 0.85;
+    }
+
+    h2 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--ink-strong);
+      margin: 1.75rem 0 0.65rem;
+    }
+
+    p, li { margin-bottom: 0.75rem; }
+
+    ul {
+      padding-left: 1.2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    a { color: #b8870b; font-weight: 500; }
+    a:hover { color: var(--ink-strong); }
+
+    .card {
+      background: rgba(255, 255, 255, 0.55);
+      border: 1px solid var(--line);
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.35rem;
+      margin-top: 1rem;
+    }
+
+    footer {
+      margin-top: 2.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--line);
+      font-size: 0.85rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.25rem;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <img class="cover" src="img/cover-image.png" alt="2048 — Themes, Daily Challenges, Achievements" width="1200" height="630" />
+      <div class="brand-row">
+        <img class="app-icon" src="img/app-icon.png" alt="2048 app icon" width="112" height="112" />
+        <div class="brand">2048</div>
+      </div>
+      <h1>Privacy Policy</h1>
+      <p class="meta">Effective date: September 5, 2026 · Dhakal Appify</p>
+    </header>
+
+    <div class="card">
+      <p>
+        This Privacy Policy explains how <strong>Dhakal Appify</strong> (“we”, “us”)
+        handles information in the mobile game <strong>2048</strong>
+        (package <code>com.dhakalappify.game2048</code>).
+        The game is designed to work offline and does not require an account.
+      </p>
+    </div>
+
+    <h2>1. Information we store on your device</h2>
+    <p>
+      Gameplay data is saved locally on your device using on-device storage
+      (for example SharedPreferences). This may include:
+    </p>
+    <ul>
+      <li>Saved and in-progress games</li>
+      <li>Scores, statistics, and high scores</li>
+      <li>Achievement progress and unlocked themes</li>
+      <li>Daily challenge completion state</li>
+      <li>Settings such as board size, theme, sound, and haptics</li>
+      <li>Ad frequency preferences used to limit how often ads are shown</li>
+    </ul>
+    <p>
+      This information stays on your device. We do not operate a user account
+      system and we do not sync this data to our own servers.
+    </p>
+
+    <h2>2. Advertising (Google AdMob)</h2>
+    <p>
+      The app shows advertisements through <strong>Google AdMob</strong>
+      (banner, interstitial, rewarded, app open, and similar formats).
+      Google and its partners may collect device and advertising identifiers,
+      IP address, approximate location derived from IP, interaction data with ads,
+      and diagnostic information needed to deliver, measure, and secure ads.
+    </p>
+    <p>
+      Where required (for example under GDPR/UMP), we request advertising
+      consent before personalized ads are shown. You can change consent choices
+      through system or in-app consent controls when available.
+    </p>
+    <p>
+      Learn more:
+      <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">Google Privacy Policy</a>
+      and
+      <a href="https://support.google.com/admob/answer/6128543" rel="noopener noreferrer" target="_blank">AdMob &amp; privacy</a>.
+    </p>
+
+    <h2>3. Fonts and network use</h2>
+    <p>
+      The app may load fonts from Google Fonts when a network connection is
+      available. If fonts cannot be fetched, the app falls back to system fonts.
+      Other network traffic is primarily related to loading ads.
+    </p>
+
+    <h2>4. Children’s privacy</h2>
+    <p>
+      The app is a casual puzzle game and is not directed at children under 13
+      (or the equivalent minimum age in your region). We do not knowingly collect
+      personal information from children. If you believe a child has provided
+      personal information through ads or related services, contact us and we
+      will take appropriate steps.
+    </p>
+
+    <h2>5. Data retention and deletion</h2>
+    <p>
+      Local game data remains on your device until you clear the app’s storage,
+      uninstall the app, or reset progress within the app (if such an option is
+      available). Uninstalling removes locally stored game data.
+      Advertising partners retain data according to their own policies.
+    </p>
+
+    <h2>6. Your choices</h2>
+    <ul>
+      <li>Limit or reset advertising ID in your device settings</li>
+      <li>Respond to consent prompts where shown</li>
+      <li>Clear app data or uninstall the app to remove local progress</li>
+      <li>Use a network firewall / offline mode (ads may not load)</li>
+    </ul>
+
+    <h2>7. Third-party services</h2>
+    <p>
+      We rely on third parties that process data under their own policies,
+      including Google (AdMob, Play services, and related SDKs). We do not
+      control those services beyond configuring the ad units used in the app.
+    </p>
+
+    <h2>8. Changes to this policy</h2>
+    <p>
+      We may update this Privacy Policy from time to time. The “Effective date”
+      at the top will change when we do. Continued use of the app after an update
+      means you accept the revised policy.
+    </p>
+
+    <h2>9. Contact</h2>
+    <p>
+      Questions about this Privacy Policy or the 2048 app:
+      <br />
+      <strong>Dhakal Appify</strong><br />
+      Email: <a href="mailto:support@dhakalappify.com">support@dhakalappify.com</a>
+    </p>
+    <p class="meta">
+      Update the email above if you use a different support address before publishing.
+    </p>
+
+    <footer>
+      <a href="termsandcondition.html">Terms &amp; Conditions</a>
+      <span>© 2026 Dhakal Appify</span>
+    </footer>
+  </main>
+</body>
+</html>
