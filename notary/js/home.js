@@ -40,28 +40,28 @@
 
   function hero() {
     return (
-      '<section class="hero">' +
-      '<div class="container hero__inner">' +
-      '<p class="eyebrow">' +
+      '<section class="' + UI.hero + '">' +
+      '<div class="' + UI.heroInner + '">' +
+      '<p class="' + UI.eyebrow + '">' +
       esc(site.city + ", " + site.state) +
       "</p>" +
-      "<h1 class=\"page-title\">Professional Mobile Notary Services in " +
+      '<h1 class="' + UI.h1 + '">Professional Mobile Notary Services in ' +
       esc(site.city + ", " + site.state) +
       "</h1>" +
-      '<p class="lede">' +
+      '<p class="' + UI.lede + '">' +
       esc(site.description) +
       "</p>" +
-      '<div class="button-row">' +
-      button(site.cta.book, site.bookHref, "btn btn--primary") +
-      callButton("btn btn--secondary") +
+      '<div class="' + UI.buttonRow + '">' +
+      button(site.cta.book, site.bookHref, UI.btnPrimary) +
+      callButton(UI.btnSecondary) +
       "</div>" +
-      '<p class="hero__quote">' +
-      '<a class="text-link" href="' +
+      '<p class="' + UI.quoteLink + '">' +
+      '<a class="' + UI.textLink + '" href="' +
       href(site.quoteHref) +
       '">' +
       esc(site.cta.quote) +
       "</a></p>" +
-      '<dl class="hero__meta">' +
+      '<dl class="' + UI.meta + '">' +
       "<div><dt>Phone</dt><dd>" +
       phoneLink() +
       "</dd></div>" +
@@ -83,7 +83,7 @@
     const items = (site.trust || [])
       .map(function (item) {
         return (
-          "<li class=\"trust-item\"><h3>" +
+          '<li class="' + UI.trustItem + '"><h3>' +
           esc(item.title) +
           "</h3><p>" +
           esc(item.text) +
@@ -92,10 +92,10 @@
       })
       .join("");
     return (
-      '<section class="section" aria-labelledby="trust-title">' +
-      '<div class="container">' +
+      '<section class="' + UI.section + '" aria-labelledby="trust-title">' +
+      '<div class="' + UI.container + '">' +
       heading("trust-title", "Why people call", "Straightforward notary visits, arranged around your schedule.") +
-      '<ul class="trust-grid">' +
+      '<ul class="' + UI.trustGrid + '">' +
       items +
       "</ul>" +
       "</div></section>"
@@ -106,8 +106,8 @@
     const cards = preview
       .map(function (item) {
         return (
-          '<article class="card service-card">' +
-          '<span class="card__icon" aria-hidden="true">' +
+          '<article class="' + UI.serviceCard + '">' +
+          '<span class="' + UI.iconWrap + '" aria-hidden="true">' +
           icon(item.icon) +
           "</span>" +
           "<h3>" +
@@ -116,9 +116,9 @@
           "<p>" +
           esc(item.summary) +
           "</p>" +
-          '<a class="text-link" href="' +
+          '<a class="' + UI.textLink + '" href="' +
           href(item.href) +
-          '">Learn more<span class="visually-hidden"> about ' +
+          '">Learn more<span class="' + UI.sr + '"> about ' +
           esc(item.name) +
           "</span></a>" +
           "</article>"
@@ -126,16 +126,16 @@
       })
       .join("");
     return (
-      '<section class="section band" id="services" aria-labelledby="services-title">' +
-      '<div class="container">' +
+      '<section class="' + UI.sectionBand + '" id="services" aria-labelledby="services-title">' +
+      '<div class="' + UI.container + '">' +
       heading("services-title", "Services", "Common reasons people book a notary.") +
-      '<div class="card-grid card-grid--3">' +
+      '<div class="' + UI.grid3 + '">' +
       cards +
       "</div>" +
-      '<p class="notice">' +
+      '<p class="' + UI.notice + '">' +
       esc(site.qualifyNote) +
       "</p>" +
-      '<p class="section-link"><a class="text-link" href="' +
+      '<p class="' + UI.sectionLink + '"><a class="' + UI.textLink + '" href="' +
       href("services.html") +
       '">View all services</a></p>' +
       "</div></section>"
@@ -146,18 +146,18 @@
     const experience = String(site.about.experience || "").trim();
     const photo =
       site.flags && site.flags.showPhoto && site.photo
-        ? '<img class="photo" src="' +
+        ? '<img class="' + UI.photo + '" src="' +
           esc(href(site.photo)) +
           '" alt="Portrait of ' +
           esc(site.ownerName) +
-          '" width="640" height="800" loading="lazy" onerror="this.onerror=null;this.replaceWith(Object.assign(document.createElement(\'div\'),{className:\'photo-placeholder\',innerHTML:\'<span>Photo coming soon</span>\'}))">'
-        : '<div class="photo-placeholder"><span>Photo coming soon</span></div>';
+          '" width="640" height="800" loading="lazy" onerror="this.onerror=null;var n=document.createElement(\'div\');n.className=window.UI.photoPh;n.innerHTML=\'<span>Photo coming soon</span>\';this.replaceWith(n)">'
+        : '<div class="' + UI.photoPh + '"><span>Photo coming soon</span></div>';
     return (
-      '<section class="section" id="about" aria-labelledby="about-title">' +
-      '<div class="container about-preview">' +
+      '<section class="' + UI.section + '" id="about" aria-labelledby="about-title">' +
+      '<div class="' + UI.aboutGrid + '">' +
       photo +
       "<div>" +
-      '<p class="eyebrow">About</p>' +
+      '<p class="' + UI.eyebrow + '">About</p>' +
       '<h2 id="about-title">' +
       esc(site.ownerName) +
       "</h2>" +
@@ -168,7 +168,7 @@
       "<p>" +
       esc(site.about.philosophy) +
       "</p>" +
-      button(site.cta.about, "about.html", "btn btn--primary") +
+      button(site.cta.about, "about.html", UI.btnPrimary) +
       "</div></div></section>"
     );
   }
@@ -180,13 +180,13 @@
       })
       .join("");
     return (
-      '<section class="section band" id="mobile-notary" aria-labelledby="mobile-title">' +
-      '<div class="container narrow">' +
+      '<section class="' + UI.sectionBand + '" id="mobile-notary" aria-labelledby="mobile-title">' +
+      '<div class="' + UI.narrow + '">' +
       heading("mobile-title", "We come to you.", "A mobile notary meets you at a place that works for you.") +
-      '<ul class="chip-list">' +
+      '<ul class="' + UI.chipList + '">' +
       places +
       "</ul>" +
-      button(site.cta.mobile, site.bookHref, "btn btn--primary") +
+      button(site.cta.mobile, site.bookHref, UI.btnPrimary) +
       "</div></section>"
     );
   }
@@ -198,18 +198,18 @@
       })
       .join("");
     return (
-      '<section class="section" id="loan-signing" aria-labelledby="signing-title">' +
-      '<div class="container narrow">' +
+      '<section class="' + UI.section + '" id="loan-signing" aria-labelledby="signing-title">' +
+      '<div class="' + UI.narrow + '">' +
       heading("signing-title", "Loan signing", "Notary signing for loan packages that this business handles.") +
-      '<ul class="check-list">' +
+      '<ul class="' + UI.checkList + '">' +
       items +
       "</ul>" +
-      '<p class="notice">' +
+      '<p class="' + UI.notice + '">' +
       esc(site.signingNotice) +
       "</p>" +
-      '<div class="button-row">' +
-      button(site.cta.signing, site.bookHref, "btn btn--primary") +
-      '<a class="text-link" href="' +
+      '<div class="' + UI.buttonRow + '">' +
+      button(site.cta.signing, site.bookHref, UI.btnPrimary) +
+      '<a class="' + UI.textLink + '" href="' +
       href("services/loan-signing.html") +
       '">Signing details</a>' +
       "</div></div></section>"
@@ -220,14 +220,14 @@
     const cards = (site.areas || [])
       .map(function (area) {
         return (
-          '<article class="card">' +
+          '<article class="' + UI.card + '">' +
           "<h3>" +
           esc(area.name) +
           "</h3>" +
           "<p>" +
           esc(area.blurb) +
           "</p>" +
-          '<a class="text-link" href="' +
+          '<a class="' + UI.textLink + '" href="' +
           href("service-areas/" + area.slug + ".html") +
           '">Notary service in ' +
           esc(area.name) +
@@ -236,14 +236,14 @@
       })
       .join("");
     const body = cards
-      ? '<div class="card-grid">' + cards + "</div>"
+      ? '<div class="' + UI.grid + '">' + cards + "</div>"
       : "<p>Serving " + esc(site.serviceAreaLabel) + ".</p>";
     return (
-      '<section class="section band" id="service-areas" aria-labelledby="areas-title">' +
-      '<div class="container">' +
+      '<section class="' + UI.sectionBand + '" id="service-areas" aria-labelledby="areas-title">' +
+      '<div class="' + UI.container + '">' +
       heading("areas-title", "Service areas", "Serving " + site.serviceAreaLabel + ".") +
       body +
-      '<p class="section-link"><a class="text-link" href="' +
+      '<p class="' + UI.sectionLink + '"><a class="' + UI.textLink + '" href="' +
       href("service-areas.html") +
       '">See the service area</a></p>' +
       "</div></section>"
@@ -254,7 +254,7 @@
     const items = (site.steps || [])
       .map(function (step, index) {
         return (
-          "<li><span class=\"step__num\" aria-hidden=\"true\">" +
+          '<li><span class="' + UI.stepNum + '" aria-hidden="true">' +
           (index + 1) +
           "</span><h3>" +
           esc(step.title) +
@@ -265,13 +265,13 @@
       })
       .join("");
     return (
-      '<section class="section" id="how-it-works" aria-labelledby="steps-title">' +
-      '<div class="container">' +
+      '<section class="' + UI.section + '" id="how-it-works" aria-labelledby="steps-title">' +
+      '<div class="' + UI.container + '">' +
       heading("steps-title", "How it works", "Three steps from the first call to a finished notarization.") +
-      '<ol class="steps">' +
+      '<ol class="' + UI.steps + '">' +
       items +
       "</ol>" +
-      button(site.cta.book, site.bookHref, "btn btn--primary") +
+      button(site.cta.book, site.bookHref, UI.btnPrimary) +
       "</div></section>"
     );
   }
@@ -280,20 +280,20 @@
     let body;
     if (showReviews) {
       body =
-        '<div class="card-grid">' +
+        '<div class="' + UI.grid + '">' +
         site.testimonials
           .map(function (item) {
             const rating =
               typeof item.rating === "number"
-                ? '<p class="review__rating">' + esc(String(item.rating)) + " out of 5</p>"
+                ? '<p class="' + UI.reviewMeta + '">' + esc(String(item.rating)) + " out of 5</p>"
                 : "";
-            const source = item.source ? "<p class=\"review__source\">" + esc(item.source) + "</p>" : "";
+            const source = item.source ? '<p class="' + UI.reviewMeta + '">' + esc(item.source) + "</p>" : "";
             return (
-              '<article class="card"><p>' +
+              '<article class="' + UI.card + '"><p>' +
               esc(item.review) +
               "</p>" +
               rating +
-              '<p class="review__name">' +
+              '<p class="' + UI.reviewName + '">' +
               esc(item.name) +
               "</p>" +
               source +
@@ -303,11 +303,11 @@
           .join("") +
         "</div>";
     } else {
-      body = '<p class="empty-note">Reviews will appear here.</p>';
+      body = '<p class="' + UI.empty + '">Reviews will appear here.</p>';
     }
     return (
-      '<section class="section band" id="reviews" aria-labelledby="reviews-title">' +
-      '<div class="container narrow">' +
+      '<section class="' + UI.sectionBand + '" id="reviews" aria-labelledby="reviews-title">' +
+      '<div class="' + UI.narrow + '">' +
       heading("reviews-title", "Reviews", "") +
       body +
       "</div></section>"
@@ -318,20 +318,20 @@
     const items = homeFaqs
       .map(function (item) {
         return (
-          "<details class=\"faq\"><summary>" +
+          '<details class="' + UI.faq + '"><summary>' +
           esc(item.question) +
-          "</summary><p>" +
+          '<span class="' + UI.faqMark + '" aria-hidden="true">+</span><span class="' + UI.faqMarkOpen + '" aria-hidden="true">–</span></summary><p>' +
           esc(item.answer) +
           "</p></details>"
         );
       })
       .join("");
     return (
-      '<section class="section" id="faq" aria-labelledby="faq-title">' +
-      '<div class="container narrow">' +
+      '<section class="' + UI.section + '" id="faq" aria-labelledby="faq-title">' +
+      '<div class="' + UI.narrow + '">' +
       heading("faq-title", "Questions", "Short answers. The full list is on the FAQ page.") +
       items +
-      '<p class="section-link"><a class="text-link" href="' +
+      '<p class="' + UI.sectionLink + '"><a class="' + UI.textLink + '" href="' +
       href("faq.html") +
       '">Read all questions</a></p>' +
       "</div></section>"
@@ -340,17 +340,17 @@
 
   function finalCta() {
     return (
-      '<section class="final-cta" id="schedule" aria-labelledby="cta-title">' +
-      '<div class="container final-cta__layout">' +
-      '<div class="final-cta__copy">' +
-      '<p class="eyebrow">' +
+      '<section class="' + UI.cta + '" id="schedule" aria-labelledby="cta-title">' +
+      '<div class="' + UI.ctaLayout + '">' +
+      '<div class="' + UI.ctaCopy + '">' +
+      '<p class="' + UI.eyebrowLight + '">' +
       esc(site.city + ", " + site.state) +
       "</p>" +
-      "<h2 id=\"cta-title\">Ready to set a time?</h2>" +
-      "<p>Call, text, or request an appointment. The visit comes to a place you choose.</p>" +
-      '<div class="button-row">' +
-      button(site.cta.book, site.bookHref, "btn btn--primary") +
-      callButton("btn btn--secondary") +
+      '<h2 id="cta-title" class="' + UI.ctaTitle + '">Ready to set a time?</h2>' +
+      '<p class="' + UI.ctaText + '">Call, text, or request an appointment. The visit comes to a place you choose.</p>' +
+      '<div class="' + UI.buttonRow + '">' +
+      button(site.cta.book, site.bookHref, UI.btnOnDark) +
+      callButton(UI.btnSecondaryOnDark) +
       "</div>" +
       "</div>" +
       ctaFacts() +
@@ -372,7 +372,7 @@
     const area = site.serviceAreaLabel || (site.city ? site.city + ", " + site.state : "");
     if (area) rows.push(fact("Service area", esc(area)));
     if (!rows.length) return "";
-    return '<dl class="final-cta__facts">' + rows.join("") + "</dl>";
+    return '<dl class="' + UI.ctaFacts + '">' + rows.join("") + "</dl>";
   }
 
   function fact(label, valueHtml) {
@@ -390,9 +390,9 @@
     const sms = contactUrl("sms", value);
     if (!sms) return call;
     return (
-      '<span class="final-cta__reach">' +
+      '<span class="' + UI.ctaReach + '">' +
       call +
-      '<a class="final-cta__text" href="' +
+      '<a class="' + UI.ctaTextLink + '" href="' +
       esc(sms) +
       '">Text</a></span>'
     );
@@ -404,7 +404,7 @@
 
   function heading(id, title, text) {
     return (
-      '<div class="section-heading"><h2 id="' +
+      '<div class="' + UI.heading + '"><h2 id="' +
       id +
       '">' +
       esc(title) +
@@ -460,7 +460,7 @@
       heart: '<path d="M10 16.5s-6-3.6-6-7.2A3.2 3.2 0 0 1 10 7a3.2 3.2 0 0 1 6 2.3c0 3.6-6 7.2-6 7.2Z"/>',
     };
     return (
-      '<svg class="icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round">' +
+      '<svg class="' + UI.icon + '" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round">' +
       (paths[name] || paths.file) +
       "</svg>"
     );

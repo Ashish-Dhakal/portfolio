@@ -53,7 +53,7 @@
       errors.forEach(function (e) {
         markError(e.id, e.msg);
       });
-      var firstErrField = form.querySelector(".form-field--error");
+      var firstErrField = form.querySelector("[data-invalid]");
       if (firstErrField) {
         var input = firstErrField.querySelector("input, select, textarea");
         if (input) input.focus();
@@ -142,20 +142,20 @@
     var el = document.getElementById(fieldId);
     if (!el) return;
     el.setAttribute("aria-invalid", "true");
-    var wrapper = el.closest(".form-field");
-    if (wrapper) wrapper.classList.add("form-field--error");
+    var wrapper = el.closest("[data-field]");
+    if (wrapper) wrapper.dataset.invalid = "true";
     var errSpan = document.getElementById(fieldId + "-error");
     if (errSpan) errSpan.textContent = message;
   }
 
   function clearErrors() {
-    form.querySelectorAll(".form-field--error").forEach(function (el) {
-      el.classList.remove("form-field--error");
+    form.querySelectorAll("[data-invalid]").forEach(function (el) {
+      delete el.dataset.invalid;
     });
     form.querySelectorAll("[aria-invalid]").forEach(function (el) {
       el.removeAttribute("aria-invalid");
     });
-    form.querySelectorAll(".form-field__error").forEach(function (el) {
+    form.querySelectorAll("[data-field-error]").forEach(function (el) {
       el.textContent = "";
     });
     if (formErrEl) formErrEl.textContent = "";

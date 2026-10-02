@@ -32,6 +32,8 @@
     if (value) node.textContent = value;
   });
 
+  applyShell();
+
   const headerMount = document.getElementById("site-header");
   const footerMount = document.getElementById("site-footer");
   const barMount = document.getElementById("site-action-bar");
@@ -42,36 +44,54 @@
   barMount.replaceWith(renderActionBar());
   bindMenu();
 
+  function applyShell() {
+    addClasses(document.documentElement, UI.html);
+    addClasses(document.body, UI.body);
+    const main = document.getElementById("main");
+    if (main) addClasses(main, UI.main);
+    const skip = document.querySelector('a[href="#main"]');
+    if (skip) skip.className = UI.skip;
+  }
+
+  function addClasses(el, value) {
+    String(value || "")
+      .split(/\s+/)
+      .forEach(function (name) {
+        if (name) el.classList.add(name);
+      });
+  }
+
   function renderHeader() {
     const header = document.createElement("header");
-    header.className = "site-header";
+    header.id = "site-header";
+    header.className = UI.header;
     header.innerHTML =
-      '<div class="header__bar container">' +
-      '<a class="brand" href="' +
+      '<div id="header-bar" class="' + UI.headerBar + '">' +
+      '<a class="' + UI.brand + '" href="' +
       href("index.html") +
       '">' +
-      '<span class="brand__mark" aria-hidden="true">' +
+      '<span class="' + UI.brandMark + '" aria-hidden="true">' +
       esc(brandInitial()) +
       "</span>" +
-      '<span class="brand__name">' +
+      '<span class="' + UI.brandName + '">' +
       esc(site.businessName) +
       "</span>" +
       "</a>" +
-      '<nav class="desktop-nav" aria-label="Primary">' +
-      navLinks() +
-      bookLink("header") +
+      '<nav class="' + UI.desktopNav + '" aria-label="Primary">' +
+      navLinks(UI.navLink) +
+      bookLink() +
       "</nav>" +
-      '<div class="header__tools">' +
-      contactControl("tel", site.phone, barLabel("call", "Call"), "header-call", true, true) +
-      '<button type="button" class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav">' +
-      '<span class="visually-hidden">Open menu</span>' +
-      '<span class="menu-toggle__bars" aria-hidden="true"></span>' +
+      '<div class="' + UI.headerTools + '">' +
+      contactControl("tel", site.phone, barLabel("call", "Call"), UI.iconBtn, true, true) +
+      '<button type="button" id="menu-toggle" class="' + UI.iconBtn + '" aria-expanded="false" aria-controls="mobile-nav">' +
+      '<span id="menu-label" class="' + UI.sr + '">Open menu</span>' +
+      '<svg class="' + UI.icon + '" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 5h14M3 10h14M3 15h14"/></svg>' +
       "</button>" +
       "</div>" +
       "</div>" +
-      '<nav class="mobile-nav" id="mobile-nav" hidden aria-label="Mobile">' +
-      '<div class="container mobile-nav__inner">' +
-      navLinks() +
+      '<nav id="mobile-nav" class="' + UI.mobileNav + '" hidden aria-label="Mobile">' +
+      '<div class="' + UI.mobileInner + '">' +
+      navLinks(UI.mobileLink) +
       "</div>" +
       "</nav>";
     return header;
@@ -80,29 +100,29 @@
   function renderFooter() {
     const year = new Date().getFullYear();
     const footer = document.createElement("footer");
-    footer.className = "site-footer";
+    footer.className = UI.footer;
     footer.innerHTML =
-      '<div class="container footer__grid">' +
+      '<div class="' + UI.footerGrid + '">' +
       "<div>" +
-      '<p class="footer__name">' +
+      '<p class="' + UI.footerName + '">' +
       esc(site.businessName) +
       "</p>" +
-      '<p class="footer__description">' +
+      '<p class="' + UI.footerText + '">' +
       esc(site.description) +
       "</p>" +
       socialLinks() +
       "</div>" +
       "<div>" +
-      '<h2 class="footer__heading">Contact</h2>' +
-      "<ul class=\"footer__list\">" +
+      '<h2 class="' + UI.footerHeading + '">Contact</h2>' +
+      '<ul class="' + UI.footerList + '">' +
       "<li>" +
-      contactControl("tel", site.phone, site.phone, "footer-phone") +
+      contactControl("tel", site.phone, site.phone, UI.footerLink) +
       "</li>" +
       "<li>" +
-      contactControl("sms", site.textNumber, "Text " + site.textNumber, "footer-text") +
+      contactControl("sms", site.textNumber, "Text " + site.textNumber, UI.footerLink) +
       "</li>" +
       "<li>" +
-      contactControl("mail", site.email, site.email, "footer-email") +
+      contactControl("mail", site.email, site.email, UI.footerLink) +
       "</li>" +
       hoursLine() +
       "<li>Serving " +
@@ -111,26 +131,26 @@
       "</ul>" +
       "</div>" +
       "<div>" +
-      '<h2 class="footer__heading">Explore</h2>' +
-      '<ul class="footer__list">' +
+      '<h2 class="' + UI.footerHeading + '">Explore</h2>' +
+      '<ul class="' + UI.footerList + '">' +
       linkList(site.nav) +
       "</ul>" +
       "</div>" +
       "<div>" +
-      '<h2 class="footer__heading">Services</h2>' +
-      '<ul class="footer__list">' +
+      '<h2 class="' + UI.footerHeading + '">Services</h2>' +
+      '<ul class="' + UI.footerList + '">' +
       linkList(serviceLinks()) +
       "</ul>" +
       "</div>" +
       "</div>" +
-      '<div class="footer__legal">' +
-      '<div class="container footer__legal-inner">' +
+      '<div class="' + UI.footerLegal + '">' +
+      '<div class="' + UI.footerLegalInner + '">' +
       "<p>© " +
       year +
       " " +
       esc(site.businessName) +
       "</p>" +
-      '<p class="footer__legal-links">' +
+      '<p class="' + UI.footerLegalLinks + '">' +
       '<a href="' +
       href("privacy-policy.html") +
       '">Privacy Policy</a>' +
@@ -145,12 +165,12 @@
 
   function renderActionBar() {
     const nav = document.createElement("nav");
-    nav.className = "action-bar";
+    nav.className = UI.actionBar;
     nav.setAttribute("aria-label", "Quick contact");
     nav.innerHTML =
-      contactControl("tel", site.phone, barLabel("call", "Call"), "action-bar__btn", true) +
-      contactControl("sms", site.textNumber, barLabel("text", "Text"), "action-bar__btn", true) +
-      '<a class="action-bar__btn" href="' +
+      contactControl("tel", site.phone, barLabel("call", "Call"), UI.barBtn, true) +
+      contactControl("sms", site.textNumber, barLabel("text", "Text"), UI.barBtn, true) +
+      '<a class="' + UI.barBtn + '" href="' +
       href(site.bookHref) +
       '">' +
       icon("book") +
@@ -162,13 +182,20 @@
   }
 
   function bindMenu() {
-    const header = document.querySelector(".site-header");
-    const toggle = header.querySelector(".menu-toggle");
-    const panel = header.querySelector(".mobile-nav");
-    const label = toggle.querySelector(".visually-hidden");
+    const header = document.getElementById("site-header");
+    const toggle = document.getElementById("menu-toggle");
+    const panel = document.getElementById("mobile-nav");
+    const label = document.getElementById("menu-label");
+
+    function paintChrome(open) {
+      const active = open || window.scrollY > 4;
+      header.classList.toggle("border-transparent", !active);
+      header.classList.toggle("border-line", active);
+      header.classList.toggle("shadow-[0_8px_24px_rgba(16,36,62,0.06)]", active);
+    }
 
     function setOpen(open) {
-      const bar = header.querySelector(".header__bar");
+      const bar = document.getElementById("header-bar");
       document.documentElement.style.setProperty(
         "--header-offset",
         bar.getBoundingClientRect().height + "px"
@@ -176,8 +203,8 @@
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
       label.textContent = open ? "Close menu" : "Open menu";
       panel.hidden = !open;
-      document.body.classList.toggle("nav-open", open);
-      header.classList.toggle("is-open", open);
+      document.body.classList.toggle("overflow-hidden", open);
+      paintChrome(open);
     }
 
     toggle.addEventListener("click", function () {
@@ -201,20 +228,22 @@
     });
 
     window.addEventListener("resize", function () {
-      if (window.innerWidth >= 960) setOpen(false);
+      if (window.innerWidth >= 1024) setOpen(false);
     });
 
     window.addEventListener("scroll", function () {
-      header.classList.toggle("is-stuck", window.scrollY > 4);
+      paintChrome(toggle.getAttribute("aria-expanded") === "true");
     });
   }
 
-  function navLinks() {
+  function navLinks(className) {
     return site.nav
       .map(function (item) {
         const current = isCurrent(item.href) ? ' aria-current="page"' : "";
         return (
-          '<a href="' +
+          '<a class="' +
+          className +
+          '" href="' +
           href(item.href) +
           '"' +
           current +
@@ -228,7 +257,9 @@
 
   function bookLink() {
     return (
-      '<a class="btn btn--primary" href="' +
+      '<a class="' +
+      UI.btnHeader +
+      '" href="' +
       href(site.bookHref) +
       '">' +
       esc(site.cta && site.cta.book ? site.cta.book : "Book Appointment") +
@@ -266,9 +297,11 @@
     return items
       .map(function (item) {
         return (
-          "<li><a href=\"" +
+          '<li><a class="' +
+          UI.footerLink +
+          '" href="' +
           href(item.href) +
-          "\">" +
+          '">' +
           esc(item.label) +
           "</a></li>"
         );
@@ -283,7 +316,9 @@
       })
       .map(function (key) {
         return (
-          '<li><a href="' +
+          '<li><a class="' +
+          UI.footerPill +
+          '" href="' +
           esc(site.social[key]) +
           '" rel="noopener noreferrer">' +
           esc(SOCIAL_LABELS[key]) +
@@ -292,9 +327,9 @@
       });
     if (!items.length) return "";
     return (
-      '<div class="footer__find">' +
-      '<h2 class="footer__heading">Find us</h2>' +
-      '<ul class="footer__social">' +
+      '<div class="' + UI.footerFind + '">' +
+      '<h2 class="' + UI.footerHeading + '">Find us</h2>' +
+      '<ul class="' + UI.footerSocial + '">' +
       items.join("") +
       "</ul></div>"
     );
@@ -308,8 +343,8 @@
   function contactControl(kind, value, label, className, withIcon, iconOnly) {
     const url = contactUrl(kind, value);
     const iconName = kind === "mail" ? "mail" : kind === "sms" ? "text" : "call";
-    const textClass = iconOnly ? "visually-hidden" : "";
-    const pendingNote = url ? "" : '<span class="visually-hidden"> Not set yet.</span>';
+    const textClass = iconOnly ? UI.sr : "";
+    const pendingNote = url ? "" : '<span class="' + UI.sr + '"> Not set yet.</span>';
     const content =
       (withIcon ? icon(iconName) : "") +
       '<span class="' +
@@ -322,7 +357,9 @@
       return (
         '<button type="button" class="' +
         className +
-        ' is-pending" aria-disabled="true">' +
+        " " +
+        UI.pending +
+        '" aria-disabled="true">' +
         content +
         "</button>"
       );
@@ -372,7 +409,7 @@
       mail: '<path d="M3.5 5.5h13v9h-13v-9Z"/><path d="m4 6 6 4.5L16 6"/>',
     };
     return (
-      '<svg class="icon" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round">' +
+      '<svg class="' + UI.icon + '" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round">' +
       (paths[name] || "") +
       "</svg>"
     );
