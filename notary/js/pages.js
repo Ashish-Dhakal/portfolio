@@ -73,49 +73,86 @@
 
   function renderServices() {
     const blocks = (site.services || [])
-      .map(function (service) {
-        return (
-          '<article class="' + UI.card + '" id="' +
-          esc(service.id) +
-          '">' +
-          '<span class="' + UI.iconWrap + '" aria-hidden="true">' +
-          icon(service.icon) +
-          "</span>" +
-          '<div class="' + UI.heading + '"><h2>' +
-          esc(service.name) +
-          "</h2><p>" +
-          esc(service.summary) +
-          "</p></div>" +
-          facts(service) +
-          serviceActions(service) +
-          "</article>"
-        );
-      })
+      .map(serviceBlock)
       .join("");
 
     return [
-      '<section class="' + UI.hero + '">' +
-        '<div class="' + UI.heroInner + '">' +
+      '<section class="' + UI.heroHome + '">' +
+        '<div class="' + UI.heroLayout + '">' +
+        '<div class="' + UI.heroCopy + '">' +
         '<p class="' + UI.eyebrow + '">' +
         esc(site.city + ", " + site.state) +
         "</p>" +
         '<h1 class="' + UI.h1 + '">Notary services</h1>' +
-        '<p class="' + UI.lede + '">A notary meets you for the documents and visits listed here.</p>' +
-        '<p class="' + UI.notice + '">' +
+        '<p class="' + UI.lede + ' max-w-[38rem]">A notary meets you for the documents and visits listed here.</p>' +
+        '<div class="' + UI.buttonRow + '">' +
+        button(site.cta.book, site.bookHref, UI.btnPrimary) +
+        callButton(UI.btnSecondary) +
+        "</div>" +
+        "</div>" +
+        '<aside class="' + UI.heroPanel + '" aria-label="Before you book">' +
+        '<span class="' + UI.heroRule + '" aria-hidden="true"></span>' +
+        '<p class="' + UI.heroPanelLabel + '">Before you book</p>' +
+        '<p class="' + UI.heroPanelText + '">' +
         esc(site.qualifyNote) +
         "</p>" +
-        '<p class="' + UI.notice + '">' +
+        '<p class="' + UI.heroPanelText + '">' +
         esc(site.legalNotice) +
         "</p>" +
+        "</aside>" +
         "</div></section>",
       '<section class="' + UI.section + '" aria-labelledby="service-list-title">' +
-        '<div class="' + UI.narrow + '">' +
+        '<div class="' + UI.container + '">' +
         '<h2 id="service-list-title" class="' + UI.sr + '">All services</h2>' +
-        '<div class="' + UI.serviceList + '">' +
+        '<div class="' + UI.serviceGrid + '">' +
         blocks +
         "</div></div></section>",
       closing(site.cta.book, site.bookHref),
     ].join("");
+  }
+
+  function serviceBlock(service) {
+    const docs = service.documents || [];
+    const documents = docs.length
+      ? '<ul class="' + UI.chipList + '">' +
+        docs
+          .map(function (item) {
+            return "<li>" + esc(item) + "</li>";
+          })
+          .join("") +
+        "</ul>"
+      : '<p class="' + UI.serviceValue + '">Examples will appear here.</p>';
+    return (
+      '<article class="' + UI.serviceArticle + '" id="' +
+      esc(service.id) +
+      '">' +
+      '<div class="' + UI.serviceHead + '">' +
+      '<span class="' + UI.serviceIcon + '" aria-hidden="true">' +
+      icon(service.icon) +
+      "</span>" +
+      '<div class="min-w-0">' +
+      '<h2 class="' + UI.serviceTitle + '">' +
+      esc(service.name) +
+      "</h2>" +
+      '<p class="' + UI.serviceSummary + '">' +
+      esc(service.summary) +
+      "</p>" +
+      "</div></div>" +
+      '<dl class="' + UI.serviceMeta + '">' +
+      "<div><dt class=\"" + UI.serviceLabel + '">Who may need this</dt><dd class="' +
+      UI.serviceValue +
+      '">' +
+      esc(String(service.audience || "").trim() || "Details will appear here.") +
+      "</dd></div>" +
+      '<div><dt class="' + UI.serviceLabel + '">Common documents</dt><dd>' +
+      documents +
+      "</dd></div>" +
+      "</dl>" +
+      '<div class="' + UI.serviceActions + '">' +
+      button(site.cta.book, site.bookHref, UI.btnPrimary) +
+      moreLink(service) +
+      "</div></article>"
+    );
   }
 
   function renderMobile() {

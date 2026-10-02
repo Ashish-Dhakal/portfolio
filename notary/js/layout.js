@@ -82,7 +82,7 @@
       bookLink() +
       "</nav>" +
       '<div class="' + UI.headerTools + '">' +
-      contactControl("tel", site.phone, barLabel("call", "Call"), UI.iconBtn, true, true) +
+      contactControl("tel", site.phone, "Call", UI.iconBtn, true, true) +
       '<button type="button" id="menu-toggle" class="' + UI.iconBtn + '" aria-expanded="false" aria-controls="mobile-nav">' +
       '<span id="menu-label" class="' + UI.sr + '">Open menu</span>' +
       '<svg class="' + UI.icon + '" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 5h14M3 10h14M3 15h14"/></svg>' +
@@ -164,20 +164,32 @@
   }
 
   function renderActionBar() {
+    const items = [
+      { key: "home", label: "Home", path: "index.html", icon: "home" },
+      { key: "services", label: "Services", path: "services.html", icon: "services" },
+      { key: "contact", label: "Contact", path: "contact.html", icon: "mail" },
+    ];
     const nav = document.createElement("nav");
     nav.className = UI.actionBar;
-    nav.setAttribute("aria-label", "Quick contact");
-    nav.innerHTML =
-      contactControl("tel", site.phone, barLabel("call", "Call"), UI.barBtn, true) +
-      contactControl("sms", site.textNumber, barLabel("text", "Text"), UI.barBtn, true) +
-      '<a class="' + UI.barBtn + '" href="' +
-      href(site.bookHref) +
-      '">' +
-      icon("book") +
-      "<span>" +
-      esc(barLabel("book", "Book")) +
-      "</span>" +
-      "</a>";
+    nav.setAttribute("aria-label", "Navigation");
+    nav.innerHTML = items
+      .map(function (item) {
+        const current = isCurrent(item.path) ? ' aria-current="page"' : "";
+        return (
+          '<a class="' +
+          UI.barBtn +
+          '" href="' +
+          href(item.path) +
+          '"' +
+          current +
+          ">" +
+          icon(item.icon) +
+          "<span>" +
+          esc(barLabel(item.key, item.label)) +
+          "</span></a>"
+        );
+      })
+      .join("");
     return nav;
   }
 
@@ -407,6 +419,8 @@
       text: '<path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h7A2.5 2.5 0 0 1 16 5.5v6A2.5 2.5 0 0 1 13.5 14H8l-3.2 2.2c-.5.3-1.1 0-1.1-.6V5.5Z"/>',
       book: '<path d="M6 3.5h8.5A1.5 1.5 0 0 1 16 5v11H7.2A2.2 2.2 0 0 0 5 18.2V5.2A1.7 1.7 0 0 1 6.7 3.5H6Zm0 0V16"/><path d="M8.5 7.5h5M8.5 10.5h5"/>',
       mail: '<path d="M3.5 5.5h13v9h-13v-9Z"/><path d="m4 6 6 4.5L16 6"/>',
+      home: '<path d="M3.5 9.5 10 4l6.5 5.5"/><path d="M5.5 8.5V16h9V8.5"/>',
+      services: '<circle cx="10" cy="10" r="6.2"/><circle cx="10" cy="10" r="2.3"/>',
     };
     return (
       '<svg class="' + UI.icon + '" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round">' +

@@ -40,15 +40,16 @@
 
   function hero() {
     return (
-      '<section class="' + UI.hero + '">' +
-      '<div class="' + UI.heroInner + '">' +
+      '<section class="' + UI.heroHome + '">' +
+      '<div class="' + UI.heroLayout + '">' +
+      '<div class="' + UI.heroCopy + '">' +
       '<p class="' + UI.eyebrow + '">' +
       esc(site.city + ", " + site.state) +
       "</p>" +
       '<h1 class="' + UI.h1 + '">Professional Mobile Notary Services in ' +
       esc(site.city + ", " + site.state) +
       "</h1>" +
-      '<p class="' + UI.lede + '">' +
+      '<p class="' + UI.lede + ' max-w-[38rem]">' +
       esc(site.description) +
       "</p>" +
       '<div class="' + UI.buttonRow + '">' +
@@ -61,7 +62,18 @@
       '">' +
       esc(site.cta.quote) +
       "</a></p>" +
-      '<dl class="' + UI.meta + '">' +
+      "</div>" +
+      heroPanel() +
+      "</div></section>"
+    );
+  }
+
+  function heroPanel() {
+    return (
+      '<aside class="' + UI.heroPanel + '" aria-label="Visit details">' +
+      '<span class="' + UI.heroRule + '" aria-hidden="true"></span>' +
+      '<p class="' + UI.heroPanelLabel + '">Visit details</p>' +
+      '<dl class="' + UI.heroFacts + '">' +
       "<div><dt>Phone</dt><dd>" +
       phoneLink() +
       "</dd></div>" +
@@ -70,12 +82,12 @@
       "</dd></div>" +
       "<div><dt>Hours</dt><dd>" +
       esc(site.hours) +
-      ". " +
+      '</dd><p class="' +
+      UI.heroNote +
+      '">' +
       esc(site.availability) +
-      "</dd></div>" +
-      "</dl>" +
-      "</div>" +
-      "</section>"
+      "</p></div>" +
+      "</dl></aside>"
     );
   }
 

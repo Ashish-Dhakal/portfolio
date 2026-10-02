@@ -58,9 +58,9 @@ window.SITE = {
   },
 
   actionBar: {
-    call: "Call",
-    text: "Text",
-    book: "Book",
+    home: "Home",
+    services: "Services",
+    contact: "Contact",
   },
 
   nav: [
