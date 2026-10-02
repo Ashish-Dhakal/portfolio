@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--
+  CITY PAGE TEMPLATE
+  ==================
+  To add a new city:
+  1. Add a new entry to the `areas` array in js/site-data.js:
+       { name: "Round Rock", slug: "round-rock-notary", blurb: "...", nearby: ["Austin"] }
+  2. Copy this file to service-areas/[slug].html
+     (e.g. service-areas/round-rock-notary.html)
+  3. Update the <title> and data-page-city attributes below to match the new city name.
+  No other markup changes are needed — the page builds itself from site-data.js.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10243e">
+  <title>Austin Notary</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body data-page="city-page" data-page-city="austin-notary" data-page-label="Austin Notary">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div id="site-header"></div>
+  <main id="main"></main>
+  <div id="site-footer"></div>
+  <div id="site-action-bar"></div>
+  <script src="../js/site-data.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/pages.js"></script>
+  <script src="../js/seo.js"></script>
+</body>
+</html>

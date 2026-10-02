@@ -1,0 +1,1051 @@
+# Project: Professional US Notary Business Website
+
+Build a modern, professional, mobile-first website for a US-based Notary Public / Mobile Notary / Notary Signing Agent.
+
+The main purpose of the website is to help the notary:
+
+- Build trust and credibility
+- Clearly present their services
+- Rank better for local notary-related searches
+- Allow customers to easily call, text, contact, or request an appointment
+- Showcase service areas, experience, reviews, and qualifications
+- Convert website visitors into real leads
+
+The website should look premium and trustworthy, but remain simple and easy to navigate.
+
+---
+
+# 1. Project Goal
+
+Create a professional business website for a notary who currently does not have a website.
+
+The website should act as their main online presence.
+
+Primary conversions:
+
+- Call the notary
+- Send a text message
+- Request an appointment
+- Submit a contact form
+- Request a quote
+
+The website should not feel like a generic template.
+
+It should feel like a real local professional service business.
+
+---
+
+# 2. Target Audience
+
+The website should be designed for people who need notary services, including:
+
+- Individuals
+- Homeowners
+- Buyers and sellers
+- Borrowers
+- Attorneys
+- Title companies
+- Escrow companies
+- Real estate professionals
+- Businesses
+- Hospitals
+- Nursing homes
+- Senior care facilities
+- Families
+- Loan signing companies
+
+Many users will visit from mobile devices, so mobile UX is extremely important.
+
+---
+
+# 3. Design Style
+
+Use a clean, professional, trustworthy design.
+
+Suggested style:
+
+- White/light background
+- Dark navy or deep blue primary color
+- Optional gold or warm accent
+- Modern typography
+- Large clear headings
+- Soft shadows
+- Rounded cards
+- Good spacing
+- Professional imagery
+- Minimal unnecessary animation
+
+Avoid:
+
+- Neon colors
+- Overly playful UI
+- Heavy gradients
+- Complicated dashboards
+- Too many animations
+- Cluttered layouts
+
+The website should feel appropriate for a legal/document-related professional service.
+
+---
+
+# 4. Global Website Layout
+
+Include:
+
+## Header
+
+Desktop:
+
+- Logo / Business Name
+- Home
+- About
+- Services
+- Service Areas
+- FAQ
+- Contact
+- Book Appointment button
+
+Mobile:
+
+- Logo
+- Hamburger menu
+- Call button if appropriate
+
+Sticky header is preferred.
+
+---
+
+# 5. Homepage
+
+Create a strong homepage optimized for conversions.
+
+## Hero Section
+
+Include:
+
+Headline example:
+
+"Professional Mobile Notary Services in [City, State]"
+
+Subheading example:
+
+"Reliable and convenient notary services delivered to your home, office, hospital, or preferred meeting location."
+
+Primary CTA:
+
+"Book an Appointment"
+
+Secondary CTA:
+
+"Call Now"
+
+Optional CTA:
+
+"Get a Quote"
+
+Also display:
+
+- Phone number
+- Service area
+- Availability message
+
+Example:
+
+"Serving [City] and surrounding areas."
+
+---
+
+# 6. Trust / Credibility Section
+
+Immediately after the hero, display trust indicators.
+
+Examples:
+
+- Mobile Notary Service
+- Professional & Reliable
+- Flexible Appointments
+- Experienced Signing Agent
+- Convenient Service
+- Serving Local Communities
+
+Only use claims that can later be configured.
+
+Do not hardcode certifications or credentials that have not been confirmed.
+
+---
+
+# 7. Services Preview
+
+Display important services as professional cards.
+
+Potential services:
+
+- General Notary Services
+- Mobile Notary
+- Loan Signing Services
+- Real Estate Documents
+- Power of Attorney
+- Affidavits
+- Acknowledgments
+- Jurats
+- Oaths and Affirmations
+- Estate Documents
+- Business Documents
+- Hospital Notary Services
+
+Each service card should contain:
+
+- Icon
+- Service name
+- Short explanation
+- Learn More link
+
+---
+
+# 8. About Preview
+
+Add a homepage About section with:
+
+- Professional photo placeholder
+- Name
+- Short introduction
+- Experience summary
+- Service philosophy
+
+Example content:
+
+"Providing professional, convenient, and dependable notary services while making the signing process simple and stress-free."
+
+Button:
+
+"Learn More About Me"
+
+---
+
+# 9. Mobile Notary Section
+
+Explain how mobile notary service works.
+
+Example:
+
+"We come to you."
+
+Locations can include:
+
+- Homes
+- Offices
+- Hospitals
+- Nursing homes
+- Assisted living facilities
+- Coffee shops
+- Attorney offices
+- Title companies
+- Escrow offices
+
+Include CTA:
+
+"Schedule a Mobile Notary"
+
+---
+
+# 10. Loan Signing Section
+
+Create a dedicated section/page for Notary Signing Agent services.
+
+Potential signing services:
+
+- Purchase documents
+- Seller packages
+- Refinance documents
+- HELOC
+- Reverse mortgages
+- Loan modifications
+- Mortgage signing packages
+
+Include a notice that services shown must match the actual services offered by the business.
+
+CTA:
+
+"Request Signing Services"
+
+---
+
+# 11. Service Areas Section
+
+Create a service areas section.
+
+It should support multiple cities.
+
+Example:
+
+Serving:
+
+- Orlando
+- Winter Park
+- Kissimmee
+- Clermont
+- Maitland
+- Nearby communities
+
+Create the structure so these areas can easily be changed later.
+
+Each important city should potentially support its own SEO landing page.
+
+URL examples:
+
+/service-areas/orlando-notary
+
+/service-areas/winter-park-notary
+
+/service-areas/kissimmee-notary
+
+Each city page can contain:
+
+- City-specific heading
+- Services offered
+- Mobile service information
+- Nearby areas
+- CTA
+- Contact information
+
+---
+
+# 12. Reviews / Testimonials
+
+Create a testimonials section.
+
+Each testimonial should include:
+
+- Customer name
+- Review
+- Optional rating
+- Optional source
+
+Examples of possible sources:
+
+- Google
+- NotaryCafe
+- Direct customer testimonial
+
+Do not create fake reviews.
+
+Use placeholders until real reviews are supplied.
+
+---
+
+# 13. How It Works
+
+Create a simple 3-step process.
+
+Example:
+
+## Step 1
+
+Request an Appointment
+
+## Step 2
+
+Confirm Location and Documents
+
+## Step 3
+
+Meet and Complete the Notarization
+
+Keep this visually simple.
+
+---
+
+# 14. FAQ Section
+
+Create a detailed FAQ.
+
+Include questions such as:
+
+- What identification do I need?
+- What documents can you notarize?
+- Do you travel to my location?
+- What areas do you serve?
+- Do you provide same-day appointments?
+- Can you visit hospitals or nursing homes?
+- How much does notarization cost?
+- Do you provide loan signing services?
+- What should I prepare before my appointment?
+- Can a notary explain the legal meaning of my document?
+
+For legal-related answers, avoid giving legal advice.
+
+Make it clear that a notary is not providing legal advice unless separately licensed or qualified.
+
+---
+
+# 15. Contact / Booking Section
+
+Create a professional contact and appointment request form.
+
+Fields:
+
+- Full Name
+- Phone Number
+- Email
+- Service Needed
+- Preferred Date
+- Preferred Time
+- Appointment Location
+- City / ZIP Code
+- Number of Documents
+- Message / Additional Information
+
+Service dropdown examples:
+
+- General Notary
+- Mobile Notary
+- Loan Signing
+- Real Estate Documents
+- Hospital / Nursing Home
+- Other
+
+CTA:
+
+"Request Appointment"
+
+After submission:
+
+Display a success message.
+
+Example:
+
+"Thank you. Your request has been received. We will contact you shortly to confirm your appointment."
+
+---
+
+# 16. Contact Actions
+
+Throughout the site, provide clear contact options.
+
+Support:
+
+- Click-to-call
+- Click-to-text
+- Email
+- Appointment form
+
+For mobile devices, add a sticky bottom action bar containing:
+
+- Call
+- Text
+- Book
+
+Do not make it intrusive.
+
+---
+
+# 17. About Page
+
+Create a full About page.
+
+Sections:
+
+- Professional introduction
+- Experience
+- Background
+- Certifications / credentials
+- Areas served
+- Professional approach
+- Why choose this notary
+
+Add a professional photo placeholder.
+
+All credentials must remain editable.
+
+Do not invent licenses, certifications, memberships, or years of experience.
+
+---
+
+# 18. Services Page
+
+Create a main Services page.
+
+Each service should have:
+
+- Title
+- Description
+- Who may need the service
+- Common document examples
+- CTA
+
+Potential services:
+
+## General Notary
+
+## Mobile Notary
+
+## Loan Signing
+
+## Real Estate Documents
+
+## Power of Attorney
+
+## Affidavits
+
+## Estate Planning Documents
+
+## Business Documents
+
+## Hospital / Nursing Home Visits
+
+Do not state that every document can legally be notarized.
+
+Use appropriate wording such as:
+
+"Contact us to confirm whether your document and circumstances qualify for notarization."
+
+---
+
+# 19. Pricing Section
+
+Create an optional pricing page or section.
+
+The pricing system should support:
+
+- Notary fee
+- Travel fee
+- After-hours fee
+- Distance-based fee
+- Additional signer fee if applicable
+- Other service fees
+
+Do not hardcode specific prices unless supplied.
+
+Use placeholder text:
+
+"Pricing may depend on document type, location, travel distance, and appointment time."
+
+CTA:
+
+"Request a Quote"
+
+---
+
+# 20. Contact Page
+
+Include:
+
+- Phone
+- Text number
+- Email
+- Business hours
+- Service area
+- Contact form
+- Appointment CTA
+- Optional embedded map
+
+If the notary does not operate from a public office, do not display a home address.
+
+Use service-area information instead.
+
+---
+
+# 21. Footer
+
+Footer should include:
+
+- Business name
+- Short description
+- Phone
+- Email
+- Service area
+- Quick links
+- Services links
+- Privacy Policy
+- Terms / Disclaimer
+- Copyright
+
+Optional:
+
+- Facebook
+- Instagram
+- LinkedIn
+- Google Business Profile
+- NotaryCafe
+
+---
+
+# 22. Legal / Disclaimer
+
+Create a basic disclaimer section/page.
+
+Example concept:
+
+"[Business Name] provides notarial services and does not provide legal advice unless otherwise explicitly stated and legally authorized."
+
+Avoid creating legal claims beyond what is necessary.
+
+Privacy policy should describe contact form data collection.
+
+---
+
+# 23. SEO Requirements
+
+Implement proper basic local SEO.
+
+Each page should include:
+
+- Unique title
+- Meta description
+- Proper H1
+- Semantic HTML
+- Open Graph tags
+- Canonical URL
+- Clean URL structure
+
+Example homepage title:
+
+"Mobile Notary in [City, State] | [Business Name]"
+
+Example description:
+
+"Professional mobile notary and signing services in [City, State]. Contact [Business Name] for convenient appointments at your home, office, hospital, or preferred location."
+
+---
+
+# 24. Local SEO
+
+Include business information consistently.
+
+NAP:
+
+- Name
+- Phone
+- Service area
+
+Support structured data.
+
+Recommended Schema.org:
+
+- LocalBusiness
+- ProfessionalService
+- FAQPage
+- BreadcrumbList
+
+Where appropriate.
+
+Do not publish fake ratings in structured data.
+
+---
+
+# 25. Performance
+
+Optimize for fast loading.
+
+Requirements:
+
+- Responsive images
+- Lazy loading
+- Minimize unnecessary JS
+- Avoid huge libraries where not needed
+- Optimize fonts
+- Good Lighthouse performance
+- Avoid layout shift
+
+Target a strong mobile performance score.
+
+---
+
+# 26. Accessibility
+
+Follow basic accessibility practices.
+
+Include:
+
+- Proper labels
+- Keyboard navigation
+- Good color contrast
+- Alt text
+- Visible focus states
+- Semantic headings
+- Accessible forms
+- Accessible navigation
+
+---
+
+# 27. Responsive Requirements
+
+The website must work properly on:
+
+- Mobile phones
+- Tablets
+- Laptops
+- Desktop screens
+
+Mobile design is the highest priority.
+
+Ensure:
+
+- Buttons are easy to tap
+- Phone number is clickable
+- Text is readable
+- Forms are easy to complete
+- Navigation works cleanly
+
+---
+
+# 28. Content Management
+
+Structure the project so the following information can be changed easily:
+
+- Business name
+- Owner name
+- Phone
+- Email
+- Service areas
+- Services
+- Bio
+- Business hours
+- Social links
+- Pricing
+- Testimonials
+- Certifications
+- Website domain
+
+Do not scatter this information throughout the codebase.
+
+Prefer a centralized configuration/data structure.
+
+---
+
+# 29. Suggested Website Pages
+
+Create:
+
+/
+
+Home
+
+/about
+
+About
+
+/services
+
+Services
+
+/services/mobile-notary
+
+Mobile Notary
+
+/services/loan-signing
+
+Loan Signing
+
+/service-areas
+
+Service Areas
+
+/service-areas/[city]
+
+Dynamic city page
+
+/faq
+
+FAQ
+
+/contact
+
+Contact / Appointment
+
+/privacy-policy
+
+Privacy Policy
+
+/disclaimer
+
+Disclaimer
+
+---
+
+# 30. Homepage Order
+
+Recommended homepage flow:
+
+1. Header
+2. Hero
+3. Trust indicators
+4. Services
+5. About
+6. Mobile Notary
+7. Loan Signing
+8. Service Areas
+9. How It Works
+10. Testimonials
+11. FAQ
+12. Final CTA
+13. Footer
+
+---
+
+# 31. Lead Conversion Strategy
+
+Every important section should provide a next action.
+
+Examples:
+
+- Book Appointment
+- Call Now
+- Text Us
+- Request a Quote
+- Check Availability
+
+Do not overload each section with many buttons.
+
+Use one strong primary CTA and one secondary CTA where appropriate.
+
+---
+
+# 32. Booking Form Behavior
+
+On submission:
+
+- Validate all required fields
+- Validate phone/email formats
+- Prevent spam
+- Save or send the inquiry
+- Show success/error state
+- Clear the form after successful submission
+
+If backend email integration exists:
+
+Send notification to the notary.
+
+Include:
+
+- Customer name
+- Phone
+- Email
+- Requested service
+- Date/time
+- Location
+- Message
+
+Also send the customer a simple confirmation email if supported.
+
+---
+
+# 33. Spam Protection
+
+Add protection such as:
+
+- Honeypot
+- Rate limiting
+- Optional CAPTCHA / Turnstile
+
+Prefer Cloudflare Turnstile if CAPTCHA is required.
+
+---
+
+# 34. Image Requirements
+
+Use professional placeholders where real assets are unavailable.
+
+Useful imagery:
+
+- Professional notary portrait
+- Signing documents
+- Mobile notary meeting
+- Home/office appointment
+- Real estate closing documents
+
+Avoid generic cheesy stock images where possible.
+
+Do not include fake badges or fake certifications.
+
+---
+
+# 35. Reusable Components
+
+Create reusable components for:
+
+- Header
+- Footer
+- CTA
+- Service card
+- Testimonial card
+- FAQ accordion
+- Contact form
+- Section heading
+- Service area card
+- Phone button
+- Booking button
+- Breadcrumbs
+
+Avoid duplicating markup unnecessarily.
+
+---
+
+# 36. UI States
+
+Handle:
+
+- Loading state
+- Form submission state
+- Validation errors
+- Success state
+- Empty testimonials
+- Missing images
+- Broken images
+- Mobile menu open/close
+
+---
+
+# 37. Future Features
+
+Structure the project so these can be added later:
+
+- Online appointment scheduling
+- Calendar integration
+- Online payment
+- SMS confirmations
+- Email confirmations
+- Google Reviews integration
+- CRM integration
+- Blog
+- Customer dashboard
+- Admin panel
+- Service radius calculation
+- Automatic travel fee calculation
+- Google Maps service-area visualization
+
+Do not implement unnecessary complex features unless requested.
+
+---
+
+# 38. Content Tone
+
+The copy should sound:
+
+- Professional
+- Friendly
+- Trustworthy
+- Local
+- Clear
+- Human
+
+Avoid overly corporate wording.
+
+Avoid phrases like:
+
+"Industry-leading cutting-edge notarization solutions."
+
+Prefer:
+
+"Professional notary services when and where you need them."
+
+---
+
+# 39. Important Content Rules
+
+Do not invent:
+
+- License numbers
+- Notary commission expiration
+- Certifications
+- NNA membership
+- Background screening
+- Insurance
+- Bonding
+- Years of experience
+- Reviews
+- Prices
+- Physical office
+- 24/7 availability
+
+Use placeholders for unknown information.
+
+Mark these clearly in the data/configuration.
+
+---
+
+# 40. Default Placeholder Business Data
+
+Until real information is supplied, use editable placeholders:
+
+Business Name:
+
+[NOTARY BUSINESS NAME]
+
+Owner:
+
+[NOTARY NAME]
+
+Phone:
+
+[PHONE NUMBER]
+
+Email:
+
+[EMAIL ADDRESS]
+
+Primary City:
+
+[CITY]
+
+State:
+
+[STATE]
+
+Service Areas:
+
+[CITY 1], [CITY 2], [CITY 3]
+
+Business Hours:
+
+[BUSINESS HOURS]
+
+---
+
+# 41. Development Quality
+
+Code should be:
+
+- Clean
+- Modular
+- Maintainable
+- Properly formatted
+- Easy to modify
+- Production-ready
+
+Avoid massive components.
+
+Separate:
+
+- Layout
+- Components
+- Pages
+- Data
+- Form logic
+- SEO configuration
+
+Use meaningful naming.
+
+---
+
+# 42. Final Result
+
+The completed website should give a visitor the immediate impression:
+
+"This is a professional local notary I can trust and contact right now."
+
+The most important user journey is:
+
+Google / Direct Visit
+
+→ Homepage
+
+→ Understand service
+
+→ Build trust
+
+→ Check service area
+
+→ Call / Text / Request Appointment
+
+Optimize the entire site around this flow.
