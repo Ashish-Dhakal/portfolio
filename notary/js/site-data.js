@@ -20,9 +20,9 @@
 
 window.SITE = {
   businessName: "Digital Notary",
-  ownerName: "Amber Jennings",
-  phone: "512-444-1234",
-  textNumber: "512-444-1234",
+  ownerName: "Ashish Dhakal",
+  phone: "123-456-7890",
+  textNumber: "123-456-7890",
   email: "amber@digitalnotary.com",
   city: "Austin",
   state: "TX",
@@ -87,7 +87,7 @@ window.SITE = {
 
   about: {
     intro:
-      "Amber Jennings provides notary services for people who need documents signed in person, at a place that works for them.",
+      "Ashish Dhakal provides notary services for people who need documents signed in person, at a place that works for them.",
     experience: "",
     background: "",
     philosophy:

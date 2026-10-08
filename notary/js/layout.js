@@ -329,12 +329,18 @@
       .map(function (key) {
         return (
           '<li><a class="' +
-          UI.footerPill +
+          UI.footerIcon +
           '" href="' +
           esc(site.social[key]) +
-          '" rel="noopener noreferrer">' +
+          '" rel="noopener noreferrer" aria-label="' +
           esc(SOCIAL_LABELS[key]) +
-          "</a></li>"
+          '">' +
+          socialIcon(key) +
+          '<span class="' +
+          UI.sr +
+          '">' +
+          esc(SOCIAL_LABELS[key]) +
+          "</span></a></li>"
         );
       });
     if (!items.length) return "";
@@ -411,6 +417,28 @@
 
   function href(path) {
     return ROOT + path;
+  }
+
+  function socialIcon(name) {
+    const marks = {
+      facebook:
+        '<path fill="currentColor" d="M13.5 8.2H16V5.5h-2.2c-1.7 0-2.8 1.1-2.8 2.9v1.4H8.8V12h2.2v6.5h2.6V12h2.2l.4-2.2h-2.6V8.7c0-.4.2-.5.6-.5h1.9Z"/>',
+      instagram:
+        '<rect x="4" y="4" width="16" height="16" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3.3" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="16.7" cy="7.3" r=".9" fill="currentColor"/>',
+      linkedin:
+        '<path fill="currentColor" d="M6.7 9.2H4.2V20h2.5V9.2ZM5.4 4.1a1.5 1.5 0 1 0 .1 3 1.5 1.5 0 0 0-.1-3ZM20 20h-2.5v-5.3c0-1.4-.5-2.3-1.7-2.3-1 0-1.5.6-1.8 1.3-.1.2-.1.5-.1.9V20H11.4V9.2h2.4v1.5c.4-.6 1.1-1.5 2.8-1.5 2 0 3.4 1.3 3.4 4.2V20Z"/>',
+      googleBusiness:
+        '<path fill="currentColor" d="M21.6 12.2c0-.7-.1-1.4-.2-2H12v3.8h5.4a4.6 4.6 0 0 1-2 3.1v2.5h3.2c1.9-1.7 3-4.3 3-7.4Z"/><path fill="currentColor" d="M12 22c2.7 0 5-.9 6.6-2.4l-3.2-2.5c-.9.6-2 1-3.4 1-2.6 0-4.8-1.8-5.6-4.1H3.1v2.6A10 10 0 0 0 12 22Z"/><path fill="currentColor" d="M6.4 14c-.2-.6-.3-1.3-.3-2s.1-1.4.3-2V7.4H3.1A10 10 0 0 0 2 12c0 1.6.4 3.1 1.1 4.6L6.4 14Z"/><path fill="currentColor" d="M12 5.8c1.5 0 2.8.5 3.8 1.5l2.8-2.8A10 10 0 0 0 3.1 7.4L6.4 10c.8-2.4 3-4.2 5.6-4.2Z"/>',
+      notaryCafe:
+        '<path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M6.5 9h9v4.2a3.4 3.4 0 0 1-3.4 3.4h-2.2A3.4 3.4 0 0 1 6.5 13.2V9Z"/><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" d="M15.5 10.4h1.2a1.8 1.8 0 0 1 0 3.6h-1.2M8.2 6.1c.35.55.35.95 0 1.5M10.8 6.1c.35.55.35.95 0 1.5"/>',
+    };
+    return (
+      '<svg class="' +
+      UI.icon +
+      '" viewBox="0 0 24 24" aria-hidden="true">' +
+      (marks[name] || "") +
+      "</svg>"
+    );
   }
 
   function icon(name) {

@@ -142,7 +142,7 @@ window.UI = {
   footerHeading: "mb-3 text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-cream",
   footerList: "m-0 list-none p-0 [&_li]:my-1",
   footerSocial: "m-0 flex list-none flex-wrap gap-2 p-0",
-  footerPill: "inline-flex min-h-11 items-center rounded-full border border-white/20 px-3 text-[0.9rem] text-[#e7edf4] no-underline hover:text-white",
+  footerIcon: "inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 text-[#e7edf4] no-underline hover:border-white hover:text-white",
   footerLink: "text-[#e7edf4] no-underline hover:text-white",
   footerLegal: "border-t border-white/10",
   footerLegalInner: "mx-auto flex w-[min(1120px,calc(100%-2rem))] flex-wrap items-center justify-between gap-x-6 gap-y-3 py-4 text-[0.92rem] text-[#c9d4e0] [&_p]:m-0 [&_a]:text-[#e7edf4] [&_a]:no-underline hover:[&_a]:text-white",

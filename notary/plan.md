@@ -12,7 +12,7 @@ Next: None.
 
 Left: None (All phases complete).
 
-Current business facts in `js/site-data.js`: Digital Notary, Amber Jennings, Austin, TX. The city page slug is `austin-notary`. Reviews, credentials, a portrait, prices, and a public office are still empty on purpose.
+Current business facts in `js/site-data.js`: Digital Notary, Ashish Dhakal, Austin, TX. The city page slug is `austin-notary`. Reviews, credentials, a portrait, prices, and a public office are still empty on purpose.
 
 Future features listed in the docs (calendar booking, payments, SMS, CRM, blog, admin, maps radius, travel-fee calculator) stay out of scope until explicitly requested.
 
