@@ -1,0 +1,85 @@
+[
+  {
+    "title": "Padandas",
+    "description": "Padandas is a platform collection of notes and resources of different University",
+    "tag": ["Laravel", "Filament", "API"],
+    "image_path": "./img/padandas.png",
+    "url": "https://padandas.com",
+    "is_browser": 1
+  },
+  {
+    "title": "VeezaFlow",
+    "description": "Software for education consultancies to manage leads, admissions, and visa cases across every branch.",
+    "tag": ["Laravel", "Tailwind", "Alpine.js"],
+    "image_path": "./img/veezaflow.png",
+    "url": "https://veezaflow.com/",
+    "is_browser": 1
+  },
+  {
+    "title": "Kathmandu BernHardt College",
+    "description": "College website for programs, admissions, research, and campus updates at Kathmandu BernHardt College.",
+    "tag": ["Laravel", "Tailwind"],
+    "image_path": "./img/kbc.png",
+    "url": "https://kbc.edu.np/",
+    "is_browser": 1
+  },
+  {
+    "title": "Mock Test Platform",
+    "description": "A platform for giving real time mock tests and practice online for differnt education level.",
+    "tag": ["Laravel", "Livewire", "Tailwind"],
+    "image_path": "./img/mock_test.png",
+    "url": "",
+    "is_browser": 1
+  },
+  {
+    "title": "Doc Book",
+    "description": "A system to for small clinic for patients and doctors management, online appointment booiing and many more.",
+    "tag": ["Laravel", "Livewire", "Filament"],
+    "image_path": "./img/hospital.png",
+    "url": "https://ashish-dhakal.com.np/hospital",
+    "is_browser": 1
+  },
+  {
+    "title": "Singing Bowl",
+    "description": "Singing Bowl is a business website to showcase Signing Bowl product along with sound therapy class booking.",
+    "tag": ["Laravel", "Filament"],
+    "image_path": "./img/singing_bowl.png",
+    "url": "https://singingbowlandstatue.com/",
+    "is_browser": 1
+  },
+  {
+    "title": "Padandas Mobile App",
+    "description": "Mobile app for padandas for easy accessbility of notes to every user from differnt device.",
+    "tag": ["Flutter", "API", "APP"],
+    "image_path": "./img/padandas_mobile.webp",
+    "url": "https://play.google.com/store/apps/details?id=com.padandas.app&hl=en",
+    "is_browser": 0
+  },
+  {
+    "title": "Neon Pulse",
+    "description": "A neon arcade game where you rotate the color wheel, catch falling orbs, and build combos.",
+    "tag": ["Flutter", "Dart", "Game"],
+    "image_path": "./img/neon_pulse.webp",
+    "url": "https://play.google.com/store/apps/details?id=com.dhakalappify.neon_pulse",
+    "is_browser": 0,
+    "is_advertise": 1
+  },
+  {
+    "title": "Add2Ten",
+    "description": "Quick brain-training puzzle. Add numbers to reach 10 in fast, fun rounds.",
+    "tag": ["Flutter", "Dart", "Game"],
+    "image_path": "./img/add2ten.webp",
+    "url": "https://play.google.com/store/apps/details?id=com.xerosoft.add2ten",
+    "is_browser": 0,
+    "is_advertise": 1
+  },
+  {
+    "title": "Temp Number Receive SMS Online",
+    "description": "Get a free temporary number to receive SMS and OTP codes without exposing your real phone number.",
+    "tag": ["Flutter", "Dart", "APP"],
+    "image_path": "./img/instant_sms.webp",
+    "url": "https://play.google.com/store/apps/details?id=com.dhakalappify.instant_sms",
+    "is_browser": 0,
+    "is_advertise": 1
+  }
+]

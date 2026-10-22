@@ -49,6 +49,75 @@
         h6 {
             font-family: 'Space Grotesk', sans-serif;
         }
+
+        @media (min-width: 768px) {
+            .portfolio-desktop-hidden {
+                display: none;
+            }
+        }
+
+        .portfolio-toggle {
+            position: relative;
+            display: inline-flex;
+            padding: 5px;
+            border-radius: 9999px;
+            background: color-mix(in srgb, currentColor 8%, transparent);
+            border: 1px solid color-mix(in srgb, currentColor 12%, transparent);
+        }
+
+        .portfolio-toggle-thumb {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: calc(50% - 5px);
+            height: calc(100% - 10px);
+            border-radius: 9999px;
+            background: #111111;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+            transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
+            pointer-events: none;
+        }
+
+        .portfolio-toggle[data-active="mobile"] .portfolio-toggle-thumb {
+            transform: translateX(100%);
+        }
+
+        .portfolio-toggle-btn {
+            position: relative;
+            z-index: 1;
+            min-width: 132px;
+            padding: 0.6rem 1.35rem;
+            border: 0;
+            background: transparent;
+            color: inherit;
+            opacity: 0.65;
+            font-size: 0.9rem;
+            font-weight: 600;
+            font-family: inherit;
+            border-radius: 9999px;
+            cursor: pointer;
+            user-select: none;
+            transition: color 200ms ease, opacity 200ms ease, transform 120ms ease;
+        }
+
+        .portfolio-toggle-btn:hover {
+            opacity: 1;
+        }
+
+        .portfolio-toggle-btn:active {
+            transform: scale(0.96);
+        }
+
+        .portfolio-toggle[data-active="web"] #portfolio-tab-web,
+        .portfolio-toggle[data-active="mobile"] #portfolio-tab-mobile {
+            color: #fff;
+            opacity: 1;
+        }
+
+        .portfolio-toggle-btn:focus-visible {
+            outline: 2px solid #111111;
+            outline-offset: 3px;
+        }
     </style>
 </head>
 
@@ -455,254 +524,34 @@
                 <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">My Portfolio</h2>
                 <div class="w-20 h-1 bg-accent mx-auto rounded-full"></div>
                 <p class="text-muted-foreground mt-4 max-w-2xl mx-auto">
-                    Here are some of my recent projects that showcase my skills and expertise in web development.
+                    Here are some of my recent projects that showcase my skills and expertise in web and mobile
+                    development.
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div
-                    class="bg-card rounded-2xl shadow-lg overflow-hidden animate-on-scroll hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="relative overflow-hidden">
-                        <img src="./img/mock_test.png" alt="Mock Test Platform"
-                            class="w-full h-48 object-cover transition-transform duration-300 hover:scale-110">
-                        <div
-                            class="absolute inset-0 bg-accent/80 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <div class="text-center">
-                                <!-- <a href="#" target="_blank"
-                                    class="inline-flex items-center px-4 py-2 bg-white text-accent rounded-lg hover:bg-gray-100 transition-colors duration-300 mr-2">
-                                    <i class="fas fa-external-link-alt mr-2"></i>Live Demo
-                                </a>
-                                <a href="#" target="_blank"
-                                    class="inline-flex items-center px-4 py-2 bg-white text-accent rounded-lg hover:bg-gray-100 transition-colors duration-300">
-                                    <i class="fab fa-github mr-2"></i>Code
-                                </a> -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-primary mb-2">Mock Test Platform</h3>
-                        <p class="text-muted-foreground mb-4">A platform for giving real time mock tests and practice
-                            online for differnt education level.</p>
-                        <div class="flex flex-wrap">
-                            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Laravel</span>
-                            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Livewire</span>
-                            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Tailwind</span>
-                        </div>
-                    </div>
+            <div class="hidden md:flex justify-center mb-10 animate-on-scroll">
+                <div id="portfolio-toggle" class="portfolio-toggle text-primary" data-active="web" role="tablist"
+                    aria-label="Project type">
+                    <span class="portfolio-toggle-thumb bg-black" aria-hidden="true"></span>
+                    <button type="button" id="portfolio-tab-web" role="tab" aria-selected="true"
+                        class="portfolio-toggle-btn">
+                        Web Apps
+                    </button>
+                    <button type="button" id="portfolio-tab-mobile" role="tab" aria-selected="false"
+                        class="portfolio-toggle-btn">
+                        Mobile Apps
+                    </button>
                 </div>
+            </div>
 
-                <div
-                    class="bg-card rounded-2xl shadow-lg overflow-hidden animate-on-scroll hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="relative overflow-hidden">
-                        <img src="./img/padandas.png" alt="Padandas"
-                            class="w-full h-48 object-cover transition-transform duration-300 hover:scale-110">
-                        <div
-                            class="absolute inset-0 bg-accent/80 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <div class="text-center">
-                                <a href="https://padandas.com" target="_blank"
-                                    class="inline-flex items-center px-4 py-2 bg-white text-accent rounded-lg hover:bg-gray-100 transition-colors duration-300 mr-2">
-                                    <i class="fas fa-external-link-alt mr-2"></i>Live Demo
-                                </a>
-                                <!-- <a href="#"
-                                    class="inline-flex items-center px-4 py-2 bg-white text-accent rounded-lg hover:bg-gray-100 transition-colors duration-300">
-                                    <i class="fab fa-github mr-2"></i>Code
-                                </a> -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-primary mb-2">Padandas</h3>
-                        <p class="text-muted-foreground mb-4">Padandas is a platform collection of notes and resources
-                            of different University</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Laravel</span>
-                            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Filament</span>
-                            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">API</span>
-                        </div>
-                    </div>
-                </div>
+            <div id="web-projects-wrap" class="mb-16 md:mb-0">
+                <h3 class="text-2xl font-semibold text-primary mb-8 md:hidden">Web Apps</h3>
+                <div id="web-projects" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+            </div>
 
-                <div
-                    class="bg-card rounded-2xl shadow-lg overflow-hidden animate-on-scroll hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="relative overflow-hidden">
-                        <img src="./img/padandas_mobile.png" alt="Restaurant Website"
-                            class="w-full h-48 object-cover transition-transform duration-300 hover:scale-110">
-                        <div
-                            class="absolute inset-0 bg-accent/80 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <div class="text-center">
-                                <a href="https://play.google.com/store/apps/details?id=com.padandas.app&hl=en"
-                                    target="_blank"
-                                    class="inline-flex items-center px-4 py-2 bg-white text-accent rounded-lg hover:bg-gray-100 transition-colors duration-300 mr-2">
-                                    <i class="fas fa-external-link-alt mr-2"></i>Live Demo
-                                </a>
-                                <!-- <a href="#"
-                                    class="inline-flex items-center px-4 py-2 bg-white text-accent rounded-lg hover:bg-gray-100 transition-colors duration-300">
-                                    <i class="fab fa-github mr-2"></i>Code
-                                </a> -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-primary mb-2">Padandas Mobile App</h3>
-                        <p class="text-muted-foreground mb-4">Mobile app for padandas for easy accessbility of notes to
-                            every user from differnt device.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Flutter</span>
-                            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">API</span>
-                            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">APP</span>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div
-                    class="bg-card rounded-2xl shadow-lg overflow-hidden animate-on-scroll hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="relative overflow-hidden">
-                        <img src="./img/veezaflow.png" alt="VeezaFlow"
-                            class="w-full h-48 object-cover object-top transition-transform duration-300 hover:scale-110">
-                        <div
-                            class="absolute inset-0 bg-accent/80 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <div class="text-center">
-                                <a href="https://veezaflow.com/" target="_blank"
-                                    class="inline-flex items-center px-4 py-2 bg-white text-accent rounded-lg hover:bg-gray-100 transition-colors duration-300 mr-2">
-                                    <i class="fas fa-external-link-alt mr-2"></i>Live Demo
-                                </a>
-                                <!-- <a href="#"
-                                    class="inline-flex items-center px-4 py-2 bg-white text-accent rounded-lg hover:bg-gray-100 transition-colors duration-300">
-                                    <i class="fab fa-github mr-2"></i>Code
-                                </a> -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-primary mb-2">VeezaFlow</h3>
-                        <p class="text-muted-foreground mb-4">Software for education consultancies to manage leads,
-                            admissions, and visa cases across every branch.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Laravel</span>
-                            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Tailwind</span>
-                            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Alpine.js</span>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div
-                    class="bg-card rounded-2xl shadow-lg overflow-hidden animate-on-scroll hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="relative overflow-hidden">
-                        <img src="./img/kbc.png" alt="Kathmandu BernHardt College"
-                            class="w-full h-48 object-cover object-top transition-transform duration-300 hover:scale-110">
-                        <div
-                            class="absolute inset-0 bg-accent/80 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <div class="text-center">
-                                <a href="https://kbc.edu.np/" target="_blank"
-                                    class="inline-flex items-center px-4 py-2 bg-white text-accent rounded-lg hover:bg-gray-100 transition-colors duration-300 mr-2">
-                                    <i class="fas fa-external-link-alt mr-2"></i>Live Demo
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-primary mb-2">Kathmandu BernHardt College</h3>
-                        <p class="text-muted-foreground mb-4">College website for programs, admissions, research, and
-                            campus updates at Kathmandu BernHardt College.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Laravel</span>
-                            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Tailwind</span>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div
-                    class="bg-card rounded-2xl shadow-lg overflow-hidden animate-on-scroll hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="relative overflow-hidden">
-                        <img src="./img/sum_game.jpeg" alt="Sum Game"
-                            class="w-full h-48 object-cover transition-transform duration-300 hover:scale-110">
-                        <div
-                            class="absolute inset-0 bg-accent/80 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <div class="text-center">
-                                <!-- <a href="#"
-                                    class="inline-flex items-center px-4 py-2 bg-white text-accent rounded-lg hover:bg-gray-100 transition-colors duration-300 mr-2">
-                                    <i class="fas fa-external-link-alt mr-2"></i>Live Demo
-                                </a>
-                                <a href="#"
-                                    class="inline-flex items-center px-4 py-2 bg-white text-accent rounded-lg hover:bg-gray-100 transition-colors duration-300">
-                                    <i class="fab fa-github mr-2"></i>Code
-                                </a> -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-primary mb-2">Sum Game</h3>
-                        <p class="text-muted-foreground mb-4">A simple game for kids. Lunching Soon</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Dart</span>
-                            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Flutter</span>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div
-                    class="bg-card rounded-2xl shadow-lg overflow-hidden animate-on-scroll hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="relative overflow-hidden">
-                        <img src="./img/hospital.png" alt="Business Website"
-                            class="w-full h-48 object-cover transition-transform duration-300 hover:scale-110">
-                        <div
-                            class="absolute inset-0 bg-accent/80 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <div class="text-center">
-                                <a href="https://ashish-dhakal.com.np/hospital" target="_blank"
-                                    class="inline-flex items-center px-4 py-2 bg-white text-accent rounded-lg hover:bg-gray-100 transition-colors duration-300 mr-2">
-                                    <i class="fas fa-external-link-alt mr-2"></i>Live Demo
-                                </a>
-                                <!-- <a href="#"
-                                    class="inline-flex items-center px-4 py-2 bg-white text-accent rounded-lg hover:bg-gray-100 transition-colors duration-300">
-                                    <i class="fab fa-github mr-2"></i>Code
-                                </a> -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-primary mb-2">Doc Book</h3>
-                        <p class="text-muted-foreground mb-4">A system to for small clinic for patients and doctors
-                            management, online appointment booiing and many more.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Laravel</span>
-                            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Livewire</span>
-                            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Filament</span>
-                        </div>
-                    </div>
-                </div>
-                <div
-                    class="bg-card rounded-2xl shadow-lg overflow-hidden animate-on-scroll hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="relative overflow-hidden">
-                        <img src="./img/singing_bowl.png" alt="Business Website"
-                            class="w-full h-48 object-cover transition-transform duration-300 hover:scale-110">
-                        <div
-                            class="absolute inset-0 bg-accent/80 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <div class="text-center">
-                                <a href="https://singingbowlandstatue.com/" target="_blank"
-                                    class="inline-flex items-center px-4 py-2 bg-white text-accent rounded-lg hover:bg-gray-100 transition-colors duration-300 mr-2">
-                                    <i class="fas fa-external-link-alt mr-2"></i>Live Demo
-                                </a>
-                                <!-- <a href="#"
-                                    class="inline-flex items-center px-4 py-2 bg-white text-accent rounded-lg hover:bg-gray-100 transition-colors duration-300">
-                                    <i class="fab fa-github mr-2"></i>Code
-                                </a> -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-primary mb-2">Singing Bowl</h3>
-                        <p class="text-muted-foreground mb-4">Singing Bowl is a business website to showcase Signing
-                            Bowl product along with sound therapy class booking.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Laravel</span>
-                            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Filament</span>
-                        </div>
-                    </div>
-                </div>
+            <div id="mobile-projects-wrap" class="portfolio-desktop-hidden">
+                <h3 class="text-2xl font-semibold text-primary mb-8 md:hidden">Mobile Apps</h3>
+                <div id="mobile-projects" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
             </div>
         </div>
     </section>
@@ -1035,20 +884,119 @@
     <script>
         // DOM Content Loaded
         document.addEventListener("DOMContentLoaded", () => {
-            // Initialize all functionality
+            loadProjects();
+            initPortfolioToggle();
             initNavigation();
             initThemeToggle();
-            initScrollAnimations();
             initContactForm();
             initBackToTop();
             initSmoothScrolling();
         });
+
+        function escapeHtml(value) {
+            return String(value ?? "")
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#39;");
+        }
+
+        function createProjectCard(project) {
+            const title = escapeHtml(project.title);
+            const description = escapeHtml(project.description);
+            const imagePath = escapeHtml(project.image_path);
+            const tags = (project.tag || [])
+                .map((tag) => `<span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">${escapeHtml(tag)}</span>`)
+                .join("");
+            const demo = project.url
+                ? `<a href="${escapeHtml(project.url)}" target="_blank"
+                    class="inline-flex items-center px-4 py-2 bg-white text-accent rounded-lg hover:bg-gray-100 transition-colors duration-300 mr-2">
+                    <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                </a>`
+                : "";
+
+            return `<div
+                    class="bg-card rounded-2xl shadow-lg overflow-hidden animate-on-scroll hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="relative overflow-hidden">
+                        <img src="${imagePath}" alt="${title}"
+                            class="w-full h-48 object-cover object-top transition-transform duration-300 hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-accent/80 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div class="text-center">${demo}</div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2">${title}</h3>
+                        <p class="text-muted-foreground mb-4">${description}</p>
+                        <div class="flex flex-wrap gap-2">${tags}</div>
+                    </div>
+                </div>`;
+        }
+
+        function renderProjects(projects) {
+            const webGrid = document.getElementById("web-projects");
+            const mobileGrid = document.getElementById("mobile-projects");
+            if (!webGrid || !mobileGrid) {
+                return;
+            }
+
+            webGrid.innerHTML = projects
+                .filter((project) => Number(project.is_browser) === 1)
+                .map(createProjectCard)
+                .join("");
+            mobileGrid.innerHTML = projects
+                .filter((project) => Number(project.is_browser) !== 1)
+                .map(createProjectCard)
+                .join("");
+        }
+
+        async function loadProjects() {
+            try {
+                const response = await fetch("./project.json");
+                if (!response.ok) {
+                    throw new Error("Failed to load projects");
+                }
+                renderProjects(await response.json());
+            } catch (error) {
+                console.error(error);
+            }
+
+            initScrollAnimations();
+        }
+
+        function initPortfolioToggle() {
+            const toggle = document.getElementById("portfolio-toggle");
+            const webTab = document.getElementById("portfolio-tab-web");
+            const mobileTab = document.getElementById("portfolio-tab-mobile");
+            const webWrap = document.getElementById("web-projects-wrap");
+            const mobileWrap = document.getElementById("mobile-projects-wrap");
+            if (!toggle || !webTab || !mobileTab || !webWrap || !mobileWrap) {
+                return;
+            }
+
+            function show(type) {
+                const isWeb = type === "web";
+                toggle.dataset.active = type;
+                webTab.setAttribute("aria-selected", String(isWeb));
+                mobileTab.setAttribute("aria-selected", String(!isWeb));
+                webWrap.classList.toggle("portfolio-desktop-hidden", !isWeb);
+                mobileWrap.classList.toggle("portfolio-desktop-hidden", isWeb);
+            }
+
+            webTab.addEventListener("click", () => show("web"));
+            mobileTab.addEventListener("click", () => show("mobile"));
+        }
 
         // Navigation functionality
         function initNavigation() {
             const mobileMenuButton = document.getElementById("mobile-menu-button");
             const mobileMenu = document.getElementById("mobile-menu");
             const navLinks = document.querySelectorAll(".nav-link, .mobile-nav-link");
+
+            if (!mobileMenuButton || !mobileMenu) {
+                return;
+            }
 
             // Mobile menu toggle
             mobileMenuButton.addEventListener("click", () => {
@@ -1099,6 +1047,9 @@
         // Theme toggle functionality
         function initThemeToggle() {
             const themeToggle = document.getElementById("theme-toggle");
+            if (!themeToggle) {
+                return;
+            }
             const html = document.documentElement;
             const icon = themeToggle.querySelector("i");
 
@@ -1143,6 +1094,9 @@
         // Contact form functionality
         function initContactForm() {
             const contactForm = document.getElementById("contact-form");
+            if (!contactForm) {
+                return;
+            }
 
             contactForm.addEventListener("submit", (e) => {
                 e.preventDefault();
@@ -1246,6 +1200,9 @@
         // Back to top functionality
         function initBackToTop() {
             const backToTopButton = document.getElementById("back-to-top");
+            if (!backToTopButton) {
+                return;
+            }
 
             window.addEventListener("scroll", () => {
                 if (window.scrollY > 300) {
@@ -1353,7 +1310,7 @@
             const mobileMenu = document.getElementById("mobile-menu");
             const mobileMenuButton = document.getElementById("mobile-menu-button");
 
-            if (window.innerWidth >= 768) {
+            if (window.innerWidth >= 768 && mobileMenu && mobileMenuButton) {
                 mobileMenu.classList.add("hidden");
                 const icon = mobileMenuButton.querySelector("i");
                 icon.classList.add("fa-bars");
