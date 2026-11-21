@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apps | Ashish Dhakal</title>
+
+    <meta name="title" content="Ashish Dhakal - Apps" />
+    <meta name="description"
+        content="Published Android apps by Ashish Dhakal, plus closed testing links for upcoming releases." />
+    <meta name="author" content="Ashish Dhakal" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ashish-dhakal.com.np/apps/" />
+    <meta property="og:title" content="Apps | Ashish Dhakal" />
+    <meta property="og:description"
+        content="Published Android apps by Ashish Dhakal, plus closed testing links for upcoming releases." />
+    <meta property="og:image" content="https://ashish-dhakal.com.np/img/ashishdhakal.jpg" />
+    <link rel="icon" href="../img/favicon.jpg" type="image/x-icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --ink: #111111;
+            --muted: #5c5c5c;
+            --line: #e7e7e7;
+            --soft: #f6f4f1;
+            --accent: #1f6f5b;
+            --accent-soft: #e6f3ef;
+            --warn: #8a5a00;
+            --warn-soft: #fff4df;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(1200px 500px at 10% -10%, #efeae3 0%, transparent 55%),
+                radial-gradient(900px 420px at 100% 0%, #e8f2ee 0%, transparent 50%),
+                #fafafa;
+            min-height: 100vh;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .app-row {
+            border-bottom: 1px solid var(--line);
+            transition: background-color 180ms ease;
+        }
+
+        .app-row:hover {
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        .badge-published {
+            background: var(--accent-soft);
+            color: var(--accent);
+        }
+
+        .badge-upcoming {
+            background: var(--warn-soft);
+            color: var(--warn);
+        }
+
+        .btn-primary {
+            background: var(--ink);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: #2a2a2a;
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--line);
+            background: #fff;
+            color: var(--ink);
+        }
+
+        .btn-secondary:hover {
+            border-color: #cfcfcf;
+            background: var(--soft);
+        }
+
+        .app-icon-fallback {
+            background: linear-gradient(145deg, #1f6f5b, #123f36);
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="max-w-3xl mx-auto px-4 sm:px-6 pt-10 pb-6">
+        <a href="../index.html" class="inline-flex items-center text-sm text-[var(--muted)] hover:text-[var(--ink)] transition-colors">
+            <i class="fas fa-arrow-left mr-2"></i>
+            Back to portfolio
+        </a>
+    </header>
+
+    <main class="max-w-3xl mx-auto px-4 sm:px-6 pb-20">
+        <section class="mb-10">
+            <p class="text-sm font-semibold tracking-wide uppercase text-[var(--accent)] mb-3">Ashish Dhakal</p>
+            <h1 class="text-4xl sm:text-5xl font-bold tracking-tight mb-4">Apps</h1>
+            <p id="page-subtitle" class="text-lg text-[var(--muted)] max-w-2xl leading-relaxed">
+                Published Android apps on Google Play.
+            </p>
+            <div id="tester-banner" class="hidden mt-6 rounded-xl px-4 py-3 bg-[var(--warn-soft)] text-[var(--warn)] text-sm leading-relaxed">
+                Tester view is on. Upcoming apps and closed-test join links are visible on this page only.
+            </div>
+        </section>
+
+        <section id="upcoming-section" class="hidden mb-12">
+            <div class="flex items-end justify-between gap-4 mb-2">
+                <h2 class="text-xl font-semibold">Upcoming</h2>
+                <p id="upcoming-count" class="text-sm text-[var(--muted)]"></p>
+            </div>
+            <p class="text-sm text-[var(--muted)] mb-3">Closed testing — join with the Android or web link for each app.</p>
+            <div id="upcoming-list" class="border-t border-[var(--line)] bg-white/50 backdrop-blur-sm rounded-b-xl overflow-hidden"></div>
+        </section>
+
+        <section id="published-section">
+            <div class="flex items-end justify-between gap-4 mb-2">
+                <h2 class="text-xl font-semibold">Published</h2>
+                <p id="published-count" class="text-sm text-[var(--muted)]"></p>
+            </div>
+            <div id="published-list" class="border-t border-[var(--line)] bg-white/50 backdrop-blur-sm rounded-b-xl overflow-hidden">
+                <p class="px-4 py-10 text-center text-[var(--muted)]">Loading apps…</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function escapeHtml(value) {
+            return String(value ?? "")
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#39;");
+        }
+
+        function isUpcomingMode() {
+            const params = new URLSearchParams(window.location.search);
+            const value = params.get("upcomming") ?? params.get("upcoming");
+            return value === "true" || value === "1";
+        }
+
+        function initials(name) {
+            return String(name || "App")
+                .split(/\s+/)
+                .slice(0, 2)
+                .map((part) => part.charAt(0).toUpperCase())
+                .join("");
+        }
+
+        function emptyState(message) {
+            return `<p class="px-4 py-10 text-center text-[var(--muted)]">${escapeHtml(message)}</p>`;
+        }
+
+        function renderApp(app, showUpcomingLinks) {
+            const isUpcoming = app.status === "upcoming";
+            const badgeClass = isUpcoming ? "badge-upcoming" : "badge-published";
+            const badgeLabel = isUpcoming ? "Upcoming" : "Published";
+            const image = app.image
+                ? `<img src="${escapeHtml(app.image)}" alt="${escapeHtml(app.name)}" class="w-14 h-14 rounded-2xl object-cover">`
+                : `<div class="app-icon-fallback w-14 h-14 rounded-2xl flex items-center justify-center text-sm font-semibold tracking-wide">${escapeHtml(initials(app.name))}</div>`;
+
+            let actions = "";
+            if (!isUpcoming && app.playStoreUrl) {
+                actions = `
+                    <a href="${escapeHtml(app.playStoreUrl)}" target="_blank" rel="noopener noreferrer"
+                        class="btn-primary inline-flex items-center justify-center px-4 py-2.5 rounded-lg text-sm font-semibold transition-colors">
+                        <i class="fab fa-google-play mr-2"></i>
+                        Google Play
+                    </a>`;
+            } else if (isUpcoming && showUpcomingLinks) {
+                actions = `
+                    <div class="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
+                        <a href="${escapeHtml(app.androidJoinUrl)}" target="_blank" rel="noopener noreferrer"
+                            class="btn-primary inline-flex items-center justify-center px-4 py-2.5 rounded-lg text-sm font-semibold transition-colors">
+                            <i class="fab fa-android mr-2"></i>
+                            Join on Android
+                        </a>
+                        <a href="${escapeHtml(app.webJoinUrl)}" target="_blank" rel="noopener noreferrer"
+                            class="btn-secondary inline-flex items-center justify-center px-4 py-2.5 rounded-lg text-sm font-semibold transition-colors">
+                            <i class="fas fa-globe mr-2"></i>
+                            Join on the web
+                        </a>
+                    </div>`;
+            }
+
+            return `
+                <article class="app-row px-4 sm:px-5 py-5 flex flex-col sm:flex-row sm:items-center gap-4">
+                    <div class="flex items-start gap-4 flex-1 min-w-0">
+                        ${image}
+                        <div class="min-w-0">
+                            <div class="flex flex-wrap items-center gap-2 mb-1">
+                                <h3 class="text-lg font-semibold truncate">${escapeHtml(app.name)}</h3>
+                                <span class="${badgeClass} text-xs font-semibold px-2 py-0.5 rounded-full">${badgeLabel}</span>
+                            </div>
+                            <p class="text-sm text-[var(--muted)] leading-relaxed">${escapeHtml(app.description)}</p>
+                            <p class="text-xs text-[var(--muted)] mt-1 font-mono">${escapeHtml(app.packageId)}</p>
+                        </div>
+                    </div>
+                    <div class="sm:shrink-0">${actions}</div>
+                </article>`;
+        }
+
+        function fillSection(listEl, countEl, apps, showUpcomingLinks, emptyMessage) {
+            countEl.textContent = apps.length
+                ? `${apps.length} app${apps.length === 1 ? "" : "s"}`
+                : "";
+            listEl.innerHTML = apps.length
+                ? apps.map((app) => renderApp(app, showUpcomingLinks)).join("")
+                : emptyState(emptyMessage);
+        }
+
+        async function loadApps() {
+            const upcomingSection = document.getElementById("upcoming-section");
+            const upcomingList = document.getElementById("upcoming-list");
+            const upcomingCount = document.getElementById("upcoming-count");
+            const publishedList = document.getElementById("published-list");
+            const publishedCount = document.getElementById("published-count");
+            const subtitleEl = document.getElementById("page-subtitle");
+            const bannerEl = document.getElementById("tester-banner");
+            const showUpcoming = isUpcomingMode();
+
+            if (showUpcoming) {
+                document.title = "Apps (Testers) | Ashish Dhakal";
+                subtitleEl.textContent = "Upcoming closed tests first, then published apps on Google Play.";
+                bannerEl.classList.remove("hidden");
+                upcomingSection.classList.remove("hidden");
+            }
+
+            try {
+                const response = await fetch("./apps.json", { cache: "no-store" });
+                if (!response.ok) {
+                    throw new Error("Failed to load apps");
+                }
+
+                const apps = await response.json();
+                const upcomingApps = apps.filter((app) => app.status === "upcoming");
+                const publishedApps = apps.filter((app) => app.status === "published");
+
+                if (showUpcoming) {
+                    fillSection(
+                        upcomingList,
+                        upcomingCount,
+                        upcomingApps,
+                        true,
+                        "No upcoming apps right now."
+                    );
+                }
+
+                fillSection(
+                    publishedList,
+                    publishedCount,
+                    publishedApps,
+                    false,
+                    "No published apps yet."
+                );
+            } catch (error) {
+                console.error(error);
+                publishedList.innerHTML = emptyState("Could not load apps. Try refreshing.");
+                if (showUpcoming) {
+                    upcomingList.innerHTML = emptyState("Could not load apps. Try refreshing.");
+                }
+            }
+        }
+
+        loadApps();
+    </script>
+</body>
+
+</html>
